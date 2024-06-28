@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 /**
@@ -42,4 +43,47 @@ String getNowDateTimeString() {
 /// 获取当前时间字符串
 String getNowTimeString() {
   return DateTime.now().toTimeString();
+}
+
+/// 判断设备是否连接网络
+Future<bool> isNetworkAvailable() async {
+  var connectivityResult = await Connectivity().checkConnectivity();
+  return !connectivityResult.contains(ConnectivityResult.none);
+}
+
+/// 判断设备是否连接移动网络
+Future<bool> isConnectedToMobile() async {
+  var connectivityResult = await Connectivity().checkConnectivity();
+  return connectivityResult.contains(ConnectivityResult.mobile);
+}
+
+/// 判断设备是否连接WiFi
+Future<bool> isConnectedToWiFi() async {
+  var connectivityResult = await Connectivity().checkConnectivity();
+  return connectivityResult.contains(ConnectivityResult.wifi);
+}
+
+/// 显示Toast
+void showToast(String msg) {
+  Toast.show(msg);
+}
+
+/// 显示成功Toast
+void showSuccessToast(String msg) {
+  Toast.success(msg);
+}
+
+/// 显示提示Toast
+void showInfoToast(String msg) {
+  Toast.info(msg);
+}
+
+/// 显示警告Toast
+void showWarningToast(String msg) {
+  Toast.warning(msg);
+}
+
+/// 显示错误Toast
+void showErrorToast(String msg) {
+  Toast.error(msg);
 }

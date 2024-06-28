@@ -1,5 +1,4 @@
-import 'package:getx_scaffold/common/utils/date_util.dart';
-import 'package:intl/intl.dart';
+import 'package:getx_scaffold/getx_scaffold.dart';
 
 /**
  * @author: Kxmrg
