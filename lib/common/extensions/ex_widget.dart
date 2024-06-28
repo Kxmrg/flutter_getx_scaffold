@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-// ignore: slash_for_doc_comments
 /**
  * @author: Kxmrg
  * @github: https://github.com/Kxmrg
@@ -9,15 +8,15 @@ import 'package:flutter/material.dart';
  * @copyright: Copyright © 2023-2024 Kxmrg
  * @license: MIT License
  * @date: 2024-06-28
- * @description: Widget扩展
+ * @description: 
  */
 
+/// 手势回调
 typedef GestureOnTapChangeCallback = void Function<T>(T val);
 
+/// 扩展Widget
 extension ExWidget on Widget {
-  ///***********布局***********///
-
-  ///控制组件隐藏显示
+  /// 控制组件隐藏显示
   Widget visibility({
     Key? key,
     required bool visible,
@@ -34,7 +33,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///比例布局
+  /// 比例布局
   Widget aspectRatio({
     Key? key,
     required double aspectRatio,
@@ -45,7 +44,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///卡片布局
+  /// 卡片布局
   Widget card({
     Key? key,
     Color? color,
@@ -72,7 +71,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///居中布局
+  /// 居中布局
   Widget center({
     Key? key,
     double? widthFactor,
@@ -85,13 +84,13 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///裁剪圆形
+  /// 裁剪圆形
   Widget clipOval({Key? key}) => ClipOval(
         key: key,
         child: this,
       );
 
-  ///裁剪矩形
+  /// 裁剪矩形
   Widget clipRect({
     Key? key,
     CustomClipper<Rect>? clipper,
@@ -104,7 +103,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///裁剪圆角
+  /// 裁剪圆角
   Widget clipRRect({
     Key? key,
     double? all,
@@ -128,7 +127,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///阴影
+  /// 阴影
   Widget elevation(
     double elevation, {
     Key? key,
@@ -144,7 +143,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///expand 撑满
+  /// expand 撑满
   Widget expand({
     Key? key,
     int flex = 1,
@@ -155,7 +154,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///缩放布局
+  /// 缩放布局
   Widget fittedBox({
     Key? key,
     BoxFit fit = BoxFit.contain,
@@ -170,7 +169,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///弹性布局
+  /// 弹性布局
   Widget flexible({
     Key? key,
     int flex = 1,
@@ -183,7 +182,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///百分比布局
+  /// 百分比布局
   Widget fractionallySizedBox({
     Key? key,
     AlignmentGeometry alignment = Alignment.center,
@@ -198,7 +197,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///限制盒子 最大宽高
+  /// 限制盒子 最大宽高
   Widget limitedBox({
     Key? key,
     double maxWidth = double.infinity,
@@ -211,7 +210,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///偏移
+  /// 偏移
   Widget offstage({
     Key? key,
     bool offstage = true,
@@ -222,7 +221,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///透明度
+  /// 透明度
   Widget opacity(
     double opacity, {
     Key? key,
@@ -235,7 +234,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///溢出
+  /// 溢出
   Widget overflow({
     Key? key,
     AlignmentGeometry alignment = Alignment.center,
@@ -254,7 +253,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///Stack布局 位置
+  /// Stack布局 位置
   Widget positioned({
     Key? key,
     double? left,
@@ -275,7 +274,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///墨水纹
+  /// 墨水纹
   Widget inkWell({
     Key? key,
     Color? color,
@@ -299,7 +298,7 @@ extension ExWidget on Widget {
         ),
       );
 
-  ///涟漪
+  /// 涟漪
   Widget ripple({
     Key? key,
     Color? focusColor,
@@ -348,7 +347,7 @@ extension ExWidget on Widget {
               builder: (context) => this,
             );
 
-  ///比例缩放
+  /// 比例缩放
   Widget scale({
     Key? key,
     double? all,
@@ -367,7 +366,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///滚动视图
+  /// 滚动视图
   Widget scrollable({
     Key? key,
     Axis scrollDirection = Axis.vertical,
@@ -390,7 +389,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///transforms Matrix4
+  /// Transforms Matrix4
   Widget transform({
     Key? key,
     required Matrix4 transform,
@@ -407,7 +406,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///translate 变化位置
+  /// Translate 变化位置
   Widget translate({
     Key? key,
     required Offset offset,
@@ -420,9 +419,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///***********布局约束***********///
-
-  ///约束
+  /// 约束
   Widget constrained({
     Key? key,
     double? width,
@@ -448,7 +445,7 @@ extension ExWidget on Widget {
     );
   }
 
-  ///约束宽高
+  /// 约束宽高
   Widget tight({
     double? width,
     double? height,
@@ -461,7 +458,7 @@ extension ExWidget on Widget {
         height: size ?? height,
       );
 
-  ///约束宽度
+  /// 约束宽度
   Widget width(
     double width, {
     Key? key,
@@ -471,7 +468,7 @@ extension ExWidget on Widget {
         width: width,
       );
 
-  ///约束高度
+  /// 约束高度
   Widget height(
     double height, {
     Key? key,
@@ -481,7 +478,7 @@ extension ExWidget on Widget {
         height: height,
       );
 
-  ///取消父级约束
+  /// 取消父级约束
   Widget unConstrained({
     Key? key,
     TextDirection? textDirection,
@@ -498,6 +495,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
+  /// 安全区域
   Widget safeArea({
     Key? key,
     bool top = true,
@@ -514,9 +512,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///***********布局对齐***********///
-
-  ///对齐
+  /// 对齐
   Widget align(
     AlignmentGeometry alignment, {
     Key? key,
@@ -527,36 +523,34 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///对齐 上左边
+  /// 对齐 上左边
   Widget alignTopLeft() => align(Alignment.topLeft);
 
-  ///对齐 顶部居中
+  /// 对齐 顶部居中
   Widget alignTopCenter() => align(Alignment.topCenter);
 
-  ///对齐 上右边
+  /// 对齐 上右边
   Widget alignTopRight() => align(Alignment.topRight);
 
-  ///对齐 左边
+  /// 对齐 左边
   Widget alignCenterLeft() => align(Alignment.centerLeft);
 
-  ///对齐 中间
+  /// 对齐 中间
   Widget alignCenter() => align(Alignment.center);
 
-  ///对齐 右边
+  /// 对齐 右边
   Widget alignCenterRight() => align(Alignment.centerRight);
 
-  ///对齐 下左边
+  /// 对齐 下左边
   Widget alignBottomLeft() => align(Alignment.bottomLeft);
 
-  ///对齐 底部
+  /// 对齐 底部
   Widget alignBottomCenter() => align(Alignment.bottomCenter);
 
-  ///对齐 下右边
+  /// 对齐 下右边
   Widget alignBottomRight() => align(Alignment.bottomRight);
 
-  ///***********盒子属性***********///
-
-  ///盒子装饰器
+  /// 盒子装饰器
   Widget decorated({
     Key? key,
     Color? color,
@@ -587,7 +581,7 @@ extension ExWidget on Widget {
     );
   }
 
-  ///背景颜色
+  /// 背景颜色
   Widget backgroundColor(
     Color color, {
     Key? key,
@@ -597,7 +591,7 @@ extension ExWidget on Widget {
         color: color,
       );
 
-  ///背景图片
+  /// 背景图片
   Widget backgroundImage(
     DecorationImage image, {
     Key? key,
@@ -607,7 +601,7 @@ extension ExWidget on Widget {
         image: image,
       );
 
-  ///边框
+  /// 边框
   Widget border({
     Key? key,
     double? all,
@@ -643,7 +637,7 @@ extension ExWidget on Widget {
     );
   }
 
-  ///阴影
+  /// 阴影
   Widget boxShadow({
     Key? key,
     Color color = Colors.black,
@@ -667,9 +661,7 @@ extension ExWidget on Widget {
     );
   }
 
-  ///**********手势**********///
-
-  ///手势
+  /// 手势
   Widget gestures({
     Key? key,
     GestureOnTapChangeCallback? onTapChange,
@@ -761,7 +753,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///点击
+  /// 点击
   Widget onTap(
     GestureTapCallback? onTap, {
     Key? key,
@@ -777,7 +769,7 @@ extension ExWidget on Widget {
         dragStartBehavior: dragStartBehavior,
       );
 
-  ///长按
+  /// 长按
   Widget onLongPress(
     GestureTapCallback? onLongPress, {
     Key? key,
@@ -793,9 +785,7 @@ extension ExWidget on Widget {
         dragStartBehavior: dragStartBehavior,
       );
 
-  ///**********Padding**********///
-
-  ///内间距
+  /// 内间距
   Widget padding({
     Key? key,
     EdgeInsetsGeometry? value,
@@ -819,7 +809,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  ///sliver 内间距
+  /// Sliver 内间距
   Widget sliverPadding({
     Key? key,
     EdgeInsetsGeometry? value,
@@ -843,25 +833,25 @@ extension ExWidget on Widget {
         sliver: this,
       );
 
-  ///内间距 纵向
+  /// 内间距 纵向
   Widget sliverPaddingVertical(double val) => sliverPadding(vertical: val);
 
-  ///内间距 横向
+  /// 内间距 横向
   Widget sliverPaddingHorizontal(double val) => sliverPadding(horizontal: val);
 
-  ///内间距 上
+  /// 内间距 上
   Widget sliverPaddingTop(double val) => sliverPadding(top: val);
 
-  ///内间距 下
+  /// 内间距 下
   Widget sliverPaddingBottom(double val) => sliverPadding(bottom: val);
 
-  ///内间距 左
+  /// 内间距 左
   Widget sliverPaddingLeft(double val) => sliverPadding(left: val);
 
-  ///内间距 右
+  /// 内间距 右
   Widget sliverPaddingRight(double val) => sliverPadding(right: val);
 
-  ///SliverToBoxAdapter
+  /// SliverToBoxAdapter
   Widget sliver({
     Key? key,
   }) =>

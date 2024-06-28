@@ -1,4 +1,4 @@
-import 'package:getx_scaffold/common/extensions/ex_date_time.dart';
+import 'package:getx_scaffold/getx_scaffold.dart';
 
 /**
  * @author: Kxmrg
@@ -7,10 +7,15 @@ import 'package:getx_scaffold/common/extensions/ex_date_time.dart';
  * @copyright: Copyright © 2023-2024 Kxmrg
  * @license: MIT License
  * @date: 2024-06-28
- * @description: 全局方法
+ * @description: 
  */
 
-///获取当前时间戳(Millisecond)
+/// 初始化脚手架
+Future<void> init() async {
+  Loading.init();
+}
+
+/// 获取当前时间戳(Millisecond)
 int getTimeStamp({bool isSecond = false}) {
   int timestamp = DateTime.now().millisecondsSinceEpoch;
   if (isSecond) {
@@ -19,22 +24,22 @@ int getTimeStamp({bool isSecond = false}) {
   return timestamp;
 }
 
-///获取当前时间戳(Second)
+/// 获取当前时间戳(Second)
 int getTimeStampSecond() {
   return getTimeStamp(isSecond: true);
 }
 
-///获取当前日期字符串
+/// 获取当前日期字符串
 String getNowDateString() {
   return DateTime.now().toDateString();
 }
 
-///获取当前日期时间字符串
+/// 获取当前日期时间字符串
 String getNowDateTimeString() {
   return DateTime.now().toDateTimeString();
 }
 
-///获取当前时间字符串
+/// 获取当前时间字符串
 String getNowTimeString() {
   return DateTime.now().toTimeString();
 }

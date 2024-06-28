@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
-// ignore: slash_for_doc_comments
 /**
  * @author: Kxmrg
  * @github: https://github.com/Kxmrg
@@ -9,11 +8,12 @@ import 'package:getx_scaffold/getx_scaffold.dart';
  * @copyright: Copyright © 2023-2024 Kxmrg
  * @license: MIT License
  * @date: 2024-06-28
- * @description: Num扩展
+ * @description: 
  */
 
+/// 扩展Num
 extension ExNum on num? {
-  ///根据格式将时间戳(Milliseconds)格式化日期
+  /// 根据格式将时间戳(Milliseconds)格式化日期
   String? dateFormat(String pattern, {bool isSecond = false}) {
     if (this == null) {
       return null;
@@ -26,22 +26,22 @@ extension ExNum on num? {
     return date.dateFormat(pattern);
   }
 
-  ///将时间戳(Milliseconds)格式化日期
+  /// 将时间戳(Milliseconds)格式化日期
   String? toDateString({bool isSecond = false}) {
     return dateFormat(DateFormats.y_mo_d, isSecond: isSecond);
   }
 
-  ///将时间戳(Milliseconds)格式化日期时间
+  /// 将时间戳(Milliseconds)格式化日期时间
   String? toDateTimeString({bool isSecond = false}) {
     return dateFormat(DateFormats.full, isSecond: isSecond);
   }
 
-  ///将时间戳(Milliseconds)格式化时间
+  /// 将时间戳(Milliseconds)格式化时间
   String? toTimeString({bool isSecond = false}) {
     return dateFormat(DateFormats.h_m_s, isSecond: isSecond);
   }
 
-  //将字节转为容量单位
+  /// 将字节转为容量单位
   String? toFileSize({int decimals = 0}) {
     if (this == null) {
       return null;
@@ -54,7 +54,7 @@ extension ExNum on num? {
     return '${(this! / pow(1024, i)).toStringAsFixed(decimals)} ${suffixes[i]}';
   }
 
-  //时间戳(Milliseconds)距离当前的时间
+  /// 时间戳(Milliseconds)距离当前的时间
   String? getTimeDifference({bool isShowDay = true, bool isSecond = false}) {
     if (this == null) {
       return null;
@@ -86,7 +86,7 @@ extension ExNum on num? {
     }
   }
 
-  //时间戳(Milliseconds)距离当前的时间描述
+  /// 时间戳(Milliseconds)距离当前的时间描述
   String? getTimeDifferenceDescription({bool isSecond = false}) {
     if (this == null) {
       return null;
@@ -124,12 +124,12 @@ extension ExNum on num? {
     }
   }
 
-  //数字格式化，将 0~9 的时间转换为 00~09
+  /// 数字格式化，将 0~9 的时间转换为 00~09
   static String _formatTime(int timeNum) {
     return timeNum < 10 ? "0$timeNum" : timeNum.toString();
   }
 
-  //转为金额字符串
+  /// 转为金额字符串
   String? toPrice(
     int amount, {
     MoneyFormats format = MoneyFormats.NORMAL,

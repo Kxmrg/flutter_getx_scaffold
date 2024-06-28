@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-// ignore: slash_for_doc_comments
 /**
  * @author: Kxmrg
  * @github: https://github.com/Kxmrg
@@ -9,7 +8,7 @@ import 'package:flutter/widgets.dart';
  * @copyright: Copyright © 2023-2024 Kxmrg
  * @license: MIT License
  * @date: 2024-06-28
- * @description: List扩展
+ * @description: 
  */
 
 /// 扩展 List<String>

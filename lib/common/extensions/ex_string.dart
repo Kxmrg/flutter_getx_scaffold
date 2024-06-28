@@ -1,6 +1,5 @@
 import 'package:getx_scaffold/getx_scaffold.dart';
 
-// ignore: slash_for_doc_comments
 /**
  * @author: Kxmrg
  * @github: https://github.com/Kxmrg
@@ -8,9 +7,10 @@ import 'package:getx_scaffold/getx_scaffold.dart';
  * @copyright: Copyright © 2023-2024 Kxmrg
  * @license: MIT License
  * @date: 2024-06-28
- * @description: String扩展
+ * @description: 
  */
 
+/// 扩展String
 extension ExString on String? {
   /// 是否为空或null
   bool get isEmptyOrNull => _isEmptyOrNull();
