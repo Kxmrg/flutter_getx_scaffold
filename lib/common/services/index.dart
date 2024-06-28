@@ -1,4 +1,4 @@
-library extensions;
+library services;
 
 /**
  * @author: Kxmrg
@@ -10,8 +10,4 @@ library extensions;
  * @description: 
  */
 
-export './ex_string.dart';
-export './ex_num.dart';
-export './ex_date_time.dart';
-export './ex_list.dart';
-export './ex_widget.dart';
+export './http.dart';

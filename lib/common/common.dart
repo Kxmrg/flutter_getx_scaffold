@@ -12,8 +12,10 @@ import 'package:getx_scaffold/getx_scaffold.dart';
  */
 
 /// 初始化脚手架
-Future<void> init() async {
+Future<void> init(bool isDebug, String tag, {int? dioTimeOut}) async {
+  LogUtil.init(isDebug, tag);
   Loading.init();
+  await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
 }
 
 /// 获取当前时间戳(Millisecond)
