@@ -9,7 +9,12 @@ class HomePage extends GetView<HomeController> {
   // 主视图
   Widget _buildView() {
     return <Widget>[
-      
+      const Text('test').onTap(() {
+        Loading.show();
+        delayed(const Duration(seconds: 2), () {
+          Loading.dismiss();
+        });
+      }),
     ].toColumn().scrollable();
   }
 
@@ -20,7 +25,7 @@ class HomePage extends GetView<HomeController> {
       id: "home",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("Home")),
+          appBar: AppBar(title: const Text("GetxScaffold")),
           body: SafeArea(
             child: _buildView(),
           ),

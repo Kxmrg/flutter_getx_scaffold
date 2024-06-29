@@ -20,6 +20,8 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_easyloading: ^3.0.5
   connectivity_plus: ^6.0.3
+  event_bus: ^2.0.0
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_lints: ^3.0.0

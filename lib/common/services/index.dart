@@ -11,3 +11,4 @@ library services;
  */
 
 export './http.dart';
+export './global.dart';

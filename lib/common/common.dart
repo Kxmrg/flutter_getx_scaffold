@@ -18,6 +18,7 @@ Future<void> init({
   int? dioTimeOut,
 }) async {
   LogUtil.init(isDebug, logTag);
+  await Get.putAsync(() => GlobalService().init());
   await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
 }
 
@@ -91,4 +92,17 @@ void showWarningToast(String msg) {
 /// 显示错误Toast
 void showErrorToast(String msg) {
   Toast.error(msg);
+}
+
+/// 延时执行
+void delayed(Duration duration, Function() callback) {
+  Future.delayed(duration, callback);
+}
+
+/// 返回全局事件总线
+EventBus get eventBus => GlobalService.to.eventBus;
+
+/// 刷新APP所有页面
+void refreshAppui() {
+  eventBus.fire(const RefreshUiEvent());
 }

@@ -1,0 +1,3 @@
+class RefreshUiEvent {
+  const RefreshUiEvent();
+}

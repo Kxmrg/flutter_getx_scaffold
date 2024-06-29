@@ -11,6 +11,7 @@ library common;
  */
 export 'package:intl/intl.dart' hide TextDirection;
 export 'package:get/get.dart' hide Response, FormData, MultipartFile;
+export 'package:event_bus/event_bus.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:flutter/widgets.dart';
 
@@ -19,4 +20,5 @@ export './widgets/index.dart';
 export './utils/index.dart';
 export './components/index.dart';
 export './services/index.dart';
+export './event/index.dart';
 export './common.dart';
