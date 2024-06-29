@@ -15,9 +15,9 @@ class LogUtil {
   static bool _debug = false;
   static String _tag = 'Logger';
 
-  static void init(bool isDebug, String tag) {
+  static void init(bool isDebug, String? tag) {
     _debug = isDebug;
-    _tag = tag;
+    _tag = tag ?? 'Logger';
   }
 
   static void d(String message) {

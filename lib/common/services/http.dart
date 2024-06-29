@@ -175,37 +175,22 @@ class DioInterceptors extends Interceptor {
 
   @override
   void onResponse(response, handler) async {
-    try {
-      if (onResponseHandler != null) {
-        String? msg = await onResponseHandler!(response);
-        if (msg != null) {
-          handler.reject(
-            DioException(
-              type: DioExceptionType.badResponse,
-              message: msg.isEmpty ? '服务器异常' : msg,
-              requestOptions: response.requestOptions,
-              response: response,
-              error: null,
-            ),
-          );
-          return;
-        }
+    if (onResponseHandler != null) {
+      String? msg = await onResponseHandler!(response);
+      if (msg != null) {
+        handler.reject(
+          DioException(
+            type: DioExceptionType.badResponse,
+            message: msg.isEmpty ? '服务器异常' : msg,
+            requestOptions: response.requestOptions,
+            response: response,
+            error: null,
+          ),
+        );
+        return;
       }
-
-      handler.next(response);
-    } catch (e) {
-      LogUtil.d('json解析失败:${response.data}');
-      response.statusCode = 500;
-      handler.reject(
-        DioException(
-          type: DioExceptionType.badResponse,
-          message: '服务器异常',
-          requestOptions: response.requestOptions,
-          response: response,
-          error: null,
-        ),
-      );
     }
+    handler.next(response);
   }
 
   @override

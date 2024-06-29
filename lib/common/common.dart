@@ -12,8 +12,12 @@ import 'package:getx_scaffold/getx_scaffold.dart';
  */
 
 /// 初始化脚手架
-Future<void> init(bool isDebug, String tag, {int? dioTimeOut}) async {
-  LogUtil.init(isDebug, tag);
+Future<void> init({
+  bool isDebug = false,
+  String? logTag,
+  int? dioTimeOut,
+}) async {
+  LogUtil.init(isDebug, logTag);
   Loading.init();
   await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
 }
