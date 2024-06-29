@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:getx_scaffold/getx_scaffold.dart';
 
 class HomeController extends GetxController {
   HomeController();

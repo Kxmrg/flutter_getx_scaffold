@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /**
  * @author: Kxmrg
@@ -102,7 +105,30 @@ void delayed(Duration duration, Function() callback) {
 /// 返回全局事件总线
 EventBus get eventBus => GlobalService.to.eventBus;
 
+/// 监听事件总线
+StreamSubscription<T> eventBusListen<T>(
+  void Function(T)? onData, {
+  Function? onError,
+  void Function()? onDone,
+  bool? cancelOnError,
+}) {
+  return eventBus.on<T>().listen(
+        onData,
+        onError: onError,
+        onDone: onDone,
+        cancelOnError: cancelOnError,
+      );
+}
+
+/// 发送事件总线
+sendEvent<T>(T event) {
+  eventBus.fire(event);
+}
+
 /// 刷新APP所有页面
 void refreshAppui() {
-  eventBus.fire(const RefreshUiEvent());
+  sendEvent(const RefreshUiEvent());
 }
+
+/// 返回sharedPreferences
+SharedPreferences get sharedPreferences => GlobalService.to.sharedPreferences;

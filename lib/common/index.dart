@@ -21,4 +21,5 @@ export './utils/index.dart';
 export './components/index.dart';
 export './services/index.dart';
 export './event/index.dart';
+export './base/index.dart';
 export './common.dart';

@@ -11,7 +11,7 @@ mixin BaseControllerMixin on GetxController {
   @override
   void onInit() {
     super.onInit();
-    refreshUiSubscription = eventBus.on<RefreshUiEvent>().listen((event) {
+    refreshUiSubscription = eventBusListen((event) {
       updateUi();
     });
   }
@@ -22,6 +22,7 @@ mixin BaseControllerMixin on GetxController {
     super.onClose();
   }
 
+  /// 延时退出
   void delayedBack({int seconds = 2, result}) {
     Future.delayed(Duration(seconds: seconds), () {
       if (result != null) {
@@ -32,6 +33,7 @@ mixin BaseControllerMixin on GetxController {
     });
   }
 
+  /// 刷新UI
   void updateUi() {
     update([getBuilderId]);
   }
