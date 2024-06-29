@@ -18,7 +18,6 @@ Future<void> init({
   int? dioTimeOut,
 }) async {
   LogUtil.init(isDebug, logTag);
-  Loading.init();
   await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
 }
 
