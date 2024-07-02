@@ -48,7 +48,7 @@ class HttpService extends GetxService {
         responseHeader: true,
         responseBody: true,
         showError: true,
-        logPrint: LogUtil.d,
+        logPrint: Logger.d,
       ),
     );
     // 自定义添加拦截器

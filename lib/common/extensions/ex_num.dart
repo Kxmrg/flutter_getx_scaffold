@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:getx_scaffold/getx_scaffold.dart';
+import 'package:getx_scaffold/getx_scaffold.dart' hide log;
 
 /**
  * @author: Kxmrg

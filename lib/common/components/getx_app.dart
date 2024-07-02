@@ -41,7 +41,7 @@ class GetxApp extends StatelessWidget {
   final Color? color;
   final ThemeData? theme;
   final ThemeData? darkTheme;
-  final ThemeMode themeMode;
+  final ThemeMode? themeMode;
   final Locale? locale;
   final Locale? fallbackLocale;
   final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
@@ -106,7 +106,7 @@ class GetxApp extends StatelessWidget {
     this.color,
     this.theme,
     this.darkTheme,
-    this.themeMode = ThemeMode.system,
+    this.themeMode,
     this.locale,
     this.fallbackLocale,
     this.localizationsDelegates,
@@ -176,7 +176,7 @@ class GetxApp extends StatelessWidget {
           color: color,
           theme: theme,
           darkTheme: darkTheme,
-          themeMode: themeMode,
+          themeMode: themeMode ?? GlobalService.to.themeMode,
           locale: locale,
           fallbackLocale: fallbackLocale,
           localizationsDelegates: localizationsDelegates,

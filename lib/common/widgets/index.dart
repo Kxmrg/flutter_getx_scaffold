@@ -10,4 +10,5 @@ library widgets;
  * @description: 
  */
 
-export "./keep_alive_wrapper.dart";
+export './keep_alive_wrapper.dart';
+export './divider_x.dart';

@@ -19,17 +19,49 @@ mixin BaseControllerMixin on GetxController {
 
   late StreamSubscription refreshUiSubscription;
 
+  late StreamSubscription lifecycleSubscription;
+
   @override
   void onInit() {
     super.onInit();
-    refreshUiSubscription = eventBusListen((event) {
+    refreshUiSubscription = eventBusListen<RefreshUiEvent>((event) {
       updateUi();
     });
+    lifecycleSubscription = eventBusListen<LifecycleEvent>((event) {
+      switch (event.action) {
+        case AppLifecycleState.resumed:
+          onResumed();
+          break;
+        case AppLifecycleState.inactive:
+          onInactive();
+          break;
+        case AppLifecycleState.detached:
+          onDetached();
+          break;
+        case AppLifecycleState.paused:
+          onPaused();
+          break;
+        case AppLifecycleState.hidden:
+          onHidden();
+          break;
+      }
+    });
   }
+
+  void onResumed() {}
+
+  void onInactive() {}
+
+  void onDetached() {}
+
+  void onPaused() {}
+
+  void onHidden() {}
 
   @override
   void onClose() {
     refreshUiSubscription.cancel();
+    lifecycleSubscription.cancel();
     super.onClose();
   }
 

@@ -11,7 +11,7 @@ import 'dart:developer';
  */
 
 ///日志工具
-class LogUtil {
+class Logger {
   static bool _debug = false;
   static String _tag = 'Logger';
 

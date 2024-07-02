@@ -9,23 +9,37 @@ class HomePage extends GetView<HomeController> {
   // 主视图
   Widget _buildView() {
     return <Widget>[
-      const Text('test').onTap(() {
-        Loading.show();
-        delayed(const Duration(seconds: 2), () {
-          Loading.dismiss();
-        });
-      }),
-    ].toColumn().scrollable();
+      ListTile(
+        title: const Text("跟随系统"),
+        onTap: () {
+          GlobalService.to.changeThemeMode(ThemeMode.system);
+        },
+      ),
+      ListTile(
+        title: const Text("亮色主题"),
+        onTap: () {
+          GlobalService.to.changeThemeMode(ThemeMode.light);
+        },
+      ),
+      ListTile(
+        title: const Text("暗色主题"),
+        onTap: () {
+          GlobalService.to.changeThemeMode(ThemeMode.dark);
+        },
+      ),
+    ].toListView(
+      separator: const DividerX(),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       init: HomeController(),
-      id: "home",
+      id: 'home',
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("GetxScaffold")),
+          appBar: AppBar(title: const Text("GetxScaffold"), elevation: 1),
           body: SafeArea(
             child: _buildView(),
           ),

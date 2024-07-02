@@ -20,7 +20,8 @@ Future<void> init({
   String? logTag,
   int? dioTimeOut,
 }) async {
-  LogUtil.init(isDebug, logTag);
+  WidgetsFlutterBinding.ensureInitialized();
+  Logger.init(isDebug, logTag);
   await Get.putAsync(() => GlobalService().init());
   await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
 }
@@ -132,3 +133,7 @@ void refreshAppui() {
 
 /// 返回sharedPreferences
 SharedPreferences get sharedPreferences => GlobalService.to.sharedPreferences;
+
+void log(String log) {
+  Logger.d(log);
+}

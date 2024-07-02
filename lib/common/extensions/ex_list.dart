@@ -1,3 +1,5 @@
+import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 /**
@@ -108,6 +110,57 @@ extension ExWidgetList<E> on List<Widget> {
         textDirection: textDirection,
         verticalDirection: verticalDirection,
         textBaseline: textBaseline,
+        children: separator != null && length > 0
+            ? (expand((child) => [child, separator]).toList()..removeLast())
+            : this,
+      );
+
+  /// 转 ListView
+  Widget toListView({
+    Key? key,
+    Axis scrollDirection = Axis.vertical,
+    bool reverse = false,
+    ScrollController? controller,
+    bool? primary,
+    ScrollPhysics? physics,
+    bool shrinkWrap = false,
+    EdgeInsetsGeometry? padding,
+    double? itemExtent,
+    double Function(int, SliverLayoutDimensions)? itemExtentBuilder,
+    Widget? prototypeItem,
+    bool addAutomaticKeepAlives = true,
+    bool addRepaintBoundaries = true,
+    bool addSemanticIndexes = true,
+    double? cacheExtent,
+    int? semanticChildCount,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+        ScrollViewKeyboardDismissBehavior.manual,
+    String? restorationId,
+    Clip clipBehavior = Clip.hardEdge,
+    Widget? separator,
+  }) =>
+      ListView(
+        key: key,
+        scrollDirection: scrollDirection,
+        reverse: reverse,
+        controller: controller,
+        primary: primary,
+        physics: physics,
+        shrinkWrap: shrinkWrap,
+        padding: padding,
+        itemExtent: itemExtent,
+        itemExtentBuilder: itemExtentBuilder,
+        prototypeItem: prototypeItem,
+        addAutomaticKeepAlives: addAutomaticKeepAlives,
+        addRepaintBoundaries: addRepaintBoundaries,
+        addSemanticIndexes: addSemanticIndexes,
+        cacheExtent: cacheExtent,
+        semanticChildCount: semanticChildCount,
+        dragStartBehavior: dragStartBehavior,
+        keyboardDismissBehavior: keyboardDismissBehavior,
+        restorationId: restorationId,
+        clipBehavior: clipBehavior,
         children: separator != null && length > 0
             ? (expand((child) => [child, separator]).toList()..removeLast())
             : this,
