@@ -11,4 +11,7 @@ class TextKey {
   static const queRenWangLuoLianJie = 'queRenWangLuoLianJie';
   static const daKaiWangYe = 'daKaiWangYe';
   static const boDaDianHua = 'boDaDianHua';
+  static const jiChuZuJian = 'jiChuZuJian';
+  static const duiHuaKuang = 'duiHuaKuang';
+  static const wangLuoQingQiu = 'wangLuoQingQiu';
 }

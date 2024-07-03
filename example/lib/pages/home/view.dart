@@ -27,7 +27,7 @@ class HomePage extends GetView<HomeController> {
       ListTile(
         title: Text(TextKey.huoQuDangQianShiJianChuo.tr),
         onTap: () async {
-          showToast(getTimeStamp().toString());
+          showToast(getTimeStamp(isSecond: true).toString());
         },
       ),
       ListTile(
@@ -74,6 +74,18 @@ class HomePage extends GetView<HomeController> {
         onTap: () async {
           callPhone('13888888888');
         },
+      ),
+      ListTile(
+        title: Text(TextKey.jiChuZuJian.tr),
+        onTap: () {},
+      ),
+      ListTile(
+        title: Text(TextKey.duiHuaKuang.tr),
+        onTap: () {},
+      ),
+      ListTile(
+        title: Text(TextKey.wangLuoQingQiu.tr),
+        onTap: () {},
       ),
     ].toListView(
       separator: const DividerX(),

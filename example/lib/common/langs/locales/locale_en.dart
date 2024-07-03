@@ -13,4 +13,7 @@ const Map<String, String> en = {
   TextKey.queRenWangLuoLianJie: 'Check the network connection',
   TextKey.daKaiWangYe: 'Open web page',
   TextKey.boDaDianHua: 'Call phone',
+  TextKey.jiChuZuJian: 'Base Widget',
+  TextKey.duiHuaKuang: 'Dialog',
+  TextKey.wangLuoQingQiu: 'Network request',
 };

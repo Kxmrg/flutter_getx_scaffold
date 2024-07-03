@@ -13,4 +13,7 @@ const Map<String, String> zh = {
   TextKey.queRenWangLuoLianJie: '确认网络连接',
   TextKey.daKaiWangYe: '打开网页',
   TextKey.boDaDianHua: '拨打电话',
+  TextKey.jiChuZuJian: '基础组件',
+  TextKey.duiHuaKuang: '对话框',
+  TextKey.wangLuoQingQiu: '网络请求',
 };

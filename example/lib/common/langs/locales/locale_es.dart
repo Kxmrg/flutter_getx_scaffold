@@ -13,4 +13,7 @@ const Map<String, String> es = {
   TextKey.queRenWangLuoLianJie: 'Comprobar la conexión a la red',
   TextKey.daKaiWangYe: 'Abrir página web',
   TextKey.boDaDianHua: 'Llamar',
+  TextKey.jiChuZuJian: 'Componentes básicos',
+  TextKey.duiHuaKuang: 'Diálogo',
+  TextKey.wangLuoQingQiu: 'Solicitud de red',
 };

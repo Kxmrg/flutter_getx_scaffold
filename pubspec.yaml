@@ -1,7 +1,7 @@
 name: getx_scaffold
 description: "Rapid development of scaffolding based on getx"
 version: 0.0.1
-homepage:
+homepage: https://github.com/Kxmrg
 
 environment:
   sdk: ">=3.3.3 <4.0.0"
