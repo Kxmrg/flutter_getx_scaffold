@@ -1,3 +1,4 @@
+import 'package:example/pages/theme/view.dart';
 import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
@@ -10,21 +11,9 @@ class HomePage extends GetView<HomeController> {
   Widget _buildView() {
     return <Widget>[
       ListTile(
-        title: const Text("跟随系统"),
+        title: const Text("主题"),
         onTap: () {
-          GlobalService.to.changeThemeMode(ThemeMode.system);
-        },
-      ),
-      ListTile(
-        title: const Text("亮色主题"),
-        onTap: () {
-          GlobalService.to.changeThemeMode(ThemeMode.light);
-        },
-      ),
-      ListTile(
-        title: const Text("暗色主题"),
-        onTap: () {
-          GlobalService.to.changeThemeMode(ThemeMode.dark);
+          Get.to(() => const ThemePage());
         },
       ),
     ].toListView(

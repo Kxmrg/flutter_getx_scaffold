@@ -1,10 +1,13 @@
 import 'package:example/pages/home/index.dart';
 import 'package:example/common/styles/theme.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 void main() async {
-  await init(isDebug: kDebugMode, logTag: 'Example');
+  WidgetsBinding widgetsBinding =
+      await init(isDebug: kDebugMode, logTag: 'Example');
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(
     GetxApp(
       // 设计稿尺寸 单位：dp

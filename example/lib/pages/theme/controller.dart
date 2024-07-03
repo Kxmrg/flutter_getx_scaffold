@@ -1,17 +1,10 @@
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
-class HomeController extends GetxController with BaseControllerMixin {
+class ThemeController extends GetxController with BaseControllerMixin {
   @override
-  String get getBuilderId => 'home';
+  String get getBuilderId => 'theme';
 
-  HomeController();
-
-  @override
-  void onInit() {
-    super.onInit();
-    FlutterNativeSplash.remove();
-  }
+  ThemeController();
 
   @override
   void onDetached() {

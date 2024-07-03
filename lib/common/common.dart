@@ -19,9 +19,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<WidgetsBinding> init({
   bool isDebug = false,
   String? logTag,
-  int? dioTimeOut,
+  String? networkLog,
+  int dioTimeOut = 10,
 }) async {
-  Logger.init(isDebug, logTag);
+  Logger.init(isDebug, logTag, networkLog);
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync(() => GlobalService().init());
   await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
@@ -137,8 +138,8 @@ void refreshAppui() {
 SharedPreferences get sharedPreferences => GlobalService.to.sharedPreferences;
 
 /// 统一Log输出
-void log(String log) {
-  Logger.d(log);
+void log(String log, [String? tag]) {
+  Logger.d(log, tag);
 }
 
 /// 切换主题模式

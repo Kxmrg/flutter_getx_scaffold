@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
+  flutter_native_splash: ^2.4.0
   getx_scaffold:
     path: ../
 
@@ -18,8 +19,25 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^3.0.0
 
+# flutter_native_splash 闪屏页配置 https://pub-web.flutter-io.cn/packages/flutter_native_splash
+# dart pub run flutter_native_splash:create
+# dart pub run flutter_native_splash:remove
+flutter_native_splash:
+  android: true
+  ios: true
+  color: "#FFFFFF"
+  color_dark: "#042a49"
+  image: "assets/icons/ic_launcher.png"
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#042a49"
+    image: "assets/icons/ic_launcher.png"
+
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/icons/
 
   fonts:
     - family: Montserrat

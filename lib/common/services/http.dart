@@ -30,11 +30,11 @@ class HttpService extends GetxService {
 
   /// 初始化
   /// [timeout] 请求超时时间
-  Future<HttpService> init({int? timeout = 10}) async {
+  Future<HttpService> init({int timeout = 10}) async {
     BaseOptions options = BaseOptions(
-      connectTimeout: Duration(seconds: timeout ?? 10),
-      receiveTimeout: Duration(seconds: timeout ?? 10),
-      sendTimeout: Duration(seconds: timeout ?? 10),
+      connectTimeout: Duration(seconds: timeout),
+      receiveTimeout: Duration(seconds: timeout),
+      sendTimeout: Duration(seconds: timeout),
       contentType: 'application/json; charset=utf-8',
       responseType: ResponseType.json,
     );
@@ -48,7 +48,7 @@ class HttpService extends GetxService {
         responseHeader: true,
         responseBody: true,
         showError: true,
-        logPrint: Logger.d,
+        logPrint: Logger.network,
       ),
     );
     // 自定义添加拦截器
