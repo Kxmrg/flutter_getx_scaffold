@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -15,15 +16,16 @@ import 'package:shared_preferences/shared_preferences.dart';
  */
 
 /// 初始化脚手架
-Future<void> init({
+Future<WidgetsBinding> init({
   bool isDebug = false,
   String? logTag,
   int? dioTimeOut,
 }) async {
-  WidgetsFlutterBinding.ensureInitialized();
   Logger.init(isDebug, logTag);
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync(() => GlobalService().init());
   await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
+  return widgetsBinding;
 }
 
 /// 获取当前时间戳(Millisecond)
@@ -137,4 +139,9 @@ SharedPreferences get sharedPreferences => GlobalService.to.sharedPreferences;
 /// 统一Log输出
 void log(String log) {
   Logger.d(log);
+}
+
+/// 切换主题模式
+void changeThemeMode(ThemeMode themeMode) {
+  GlobalService.to.changeThemeMode(themeMode);
 }

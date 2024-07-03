@@ -1,21 +1,27 @@
-import 'package:example/home/index.dart';
-import 'package:example/styles/theme.dart';
+import 'package:example/pages/home/index.dart';
+import 'package:example/common/styles/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 void main() async {
-  await init(isDebug: kDebugMode, logTag: 'example');
+  await init(isDebug: kDebugMode, logTag: 'Example');
   runApp(
     GetxApp(
+      // 设计稿尺寸 单位：dp
       designSize: const Size(390, 844),
-      minTextAdapt: true,
-      splitScreenMode: true,
+      // Getx Log
       enableLog: kDebugMode,
+      // 默认的跳转动画
       defaultTransition: Transition.rightToLeft,
+      // 主题模式
       themeMode: GlobalService.to.themeMode,
+      // 主题
       theme: AppTheme.light,
+      // Dark主题
       darkTheme: AppTheme.dark,
+      // AppTitle
       title: 'Example',
+      // 首页
       home: const HomePage(),
     ),
   );
