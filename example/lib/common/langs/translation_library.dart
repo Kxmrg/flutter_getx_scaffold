@@ -1,3 +1,4 @@
+import 'package:example/common/langs/locales/locale_es.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
@@ -11,12 +12,14 @@ class TranslationLibrary extends Translations {
   static const supportedLocales = [
     Locale('zh', 'CN'),
     Locale('en', 'US'),
+    Locale('es', 'ES'),
   ];
 
   @override
   Map<String, Map<String, String>> get keys => {
         'zh': zh,
         'en': en,
+        'es': es,
       };
 
   // 代理

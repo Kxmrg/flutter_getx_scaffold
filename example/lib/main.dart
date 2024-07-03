@@ -5,6 +5,17 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
+/**
+ * @author: Kxmrg
+ * @github: https://github.com/Kxmrg
+ * @version: 1.0.0
+ * @copyright: Copyright © 2023-2024 Kxmrg
+ * @license: MIT License
+ * @date: 2024-07-03
+ * @description: 
+ */
+
+/// Main
 void main() async {
   WidgetsBinding widgetsBinding = await init(
     isDebug: kDebugMode,
@@ -26,14 +37,14 @@ void main() async {
       theme: AppTheme.light,
       // Dark主题
       darkTheme: AppTheme.dark,
-      // AppTitle
-      title: 'Example',
-      //国际化配置
+      // 国际化配置
       locale: GlobalService.to.locale,
       translations: TranslationLibrary(),
       fallbackLocale: TranslationLibrary.fallbackLocale,
       supportedLocales: TranslationLibrary.supportedLocales,
       localizationsDelegates: TranslationLibrary.localizationsDelegates,
+      // AppTitle
+      title: 'Example',
       // 首页
       home: const HomePage(),
     ),

@@ -28,6 +28,15 @@ class LanguagePage extends GetView<LanguageController> {
           changeLanguage(const Locale('en', 'US'));
         },
       ),
+      ListTile(
+        title: const Text('Spanish'),
+        trailing: GlobalService.to.locale == const Locale('es', 'ES')
+            ? const Icon(Icons.check)
+            : null,
+        onTap: () {
+          changeLanguage(const Locale('es', 'ES'));
+        },
+      ),
     ].toListView(
       separator: const DividerX(),
     );
