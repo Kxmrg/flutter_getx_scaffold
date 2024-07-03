@@ -10,4 +10,5 @@ const Map<String, String> zh = {
   TextKey.sheBeiXinXi: '设备信息',
   TextKey.huoQuDangQianShiJianChuo: '获取当前时间戳',
   TextKey.shiJianChuoZhuanRiQi: '时间戳转日期',
+  TextKey.queRenWangLuoLianJie: '确认网络连接',
 };

@@ -8,6 +8,7 @@ const Map<String, String> en = {
   TextKey.yuYan: 'Language',
   TextKey.yingYongBanBen: 'App Version',
   TextKey.sheBeiXinXi: 'Device Info',
-  TextKey.huoQuDangQianShiJianChuo: 'current time stamp',
-  TextKey.shiJianChuoZhuanRiQi: 'timestamp to date',
+  TextKey.huoQuDangQianShiJianChuo: 'Current time stamp',
+  TextKey.shiJianChuoZhuanRiQi: 'Timestamp to date',
+  TextKey.queRenWangLuoLianJie: 'Check the network connection',
 };

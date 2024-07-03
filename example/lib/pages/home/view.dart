@@ -53,6 +53,16 @@ class HomePage extends GetView<HomeController> {
           showToast('$deviceName $deviceSystemVersion');
         },
       ),
+      ListTile(
+        title: Text(TextKey.queRenWangLuoLianJie.tr),
+        onTap: () async {
+          if (await isNetworkAvailable()) {
+            showSuccessToast('Available');
+          } else {
+            showErrorToast('Unavailable');
+          }
+        },
+      ),
     ].toListView(
       separator: const DividerX(),
     );

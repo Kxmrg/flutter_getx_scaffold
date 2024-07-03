@@ -8,4 +8,5 @@ class TextKey {
   static const sheBeiXinXi = 'sheBeiXinXi';
   static const huoQuDangQianShiJianChuo = 'huoQuDangQianShiJianChuo';
   static const shiJianChuoZhuanRiQi = 'shiJianChuoZhuanRiQi';
+  static const queRenWangLuoLianJie = 'queRenWangLuoLianJie';
 }

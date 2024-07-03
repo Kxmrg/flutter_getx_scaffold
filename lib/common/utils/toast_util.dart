@@ -37,6 +37,7 @@ class Toast {
       text,
       preIcon: Image.asset(
         'assets/icons/ic_success.png',
+        package: 'getx_scaffold',
         width: 20,
         height: 20,
       ),
@@ -54,6 +55,7 @@ class Toast {
       text,
       preIcon: Image.asset(
         'assets/icons/ic_error.png',
+        package: 'getx_scaffold',
         width: 20,
         height: 20,
       ),
@@ -71,6 +73,7 @@ class Toast {
       text,
       preIcon: Image.asset(
         'assets/icons/ic_info.png',
+        package: 'getx_scaffold',
         width: 20,
         height: 20,
       ),
@@ -88,6 +91,7 @@ class Toast {
       text,
       preIcon: Image.asset(
         'assets/icons/ic_warning.png',
+        package: 'getx_scaffold',
         width: 20,
         height: 20,
       ),
