@@ -1,5 +1,7 @@
-import 'package:example/pages/theme/view.dart';
 import 'package:flutter/material.dart';
+import 'package:example/common/langs/index.dart';
+import 'package:example/pages/language/index.dart';
+import 'package:example/pages/theme/index.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 import 'index.dart';
@@ -11,9 +13,15 @@ class HomePage extends GetView<HomeController> {
   Widget _buildView() {
     return <Widget>[
       ListTile(
-        title: const Text("主题"),
+        title: Text(TextKey.zhuTi.tr),
         onTap: () {
           Get.to(() => const ThemePage());
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.yuYan.tr),
+        onTap: () {
+          Get.to(() => const LanguagePage());
         },
       ),
     ].toListView(

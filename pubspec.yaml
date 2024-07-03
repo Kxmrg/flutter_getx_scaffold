@@ -10,10 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.19.0
+  intl: ^0.18.1
   crypto: ^3.0.3
   convert: ^3.1.1
-  decimal: ^3.0.2
+  decimal: ^2.3.3
   rational: ^2.2.3
   get: ^4.6.6
   dio: ^5.4.3+1

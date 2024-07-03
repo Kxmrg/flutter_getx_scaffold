@@ -21,10 +21,12 @@ Future<WidgetsBinding> init({
   String? logTag,
   String? networkLog,
   int dioTimeOut = 10,
+  List<Locale>? supportedLocales,
 }) async {
   Logger.init(isDebug, logTag, networkLog);
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  await Get.putAsync(() => GlobalService().init());
+  await Get.putAsync(
+      () => GlobalService().init(supportedLocales: supportedLocales));
   await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
   return widgetsBinding;
 }
@@ -145,4 +147,9 @@ void log(String log, [String? tag]) {
 /// 切换主题模式
 void changeThemeMode(ThemeMode themeMode) {
   GlobalService.to.changeThemeMode(themeMode);
+}
+
+/// 更改语言
+void changeLanguage(Locale locale) {
+  GlobalService.to.changeLocale(locale);
 }

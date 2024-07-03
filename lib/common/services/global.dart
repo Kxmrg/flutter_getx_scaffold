@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,14 +22,21 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
 
   static const String themeCodeKey = 'themeCodeKey';
 
+  static const String languageCodeKey = 'languageCodeKey';
+
   //主题
   ThemeMode _themeMode = ThemeMode.system;
   ThemeMode get themeMode => _themeMode;
 
-  Future<GlobalService> init() async {
+  //语言
+  Locale locale = PlatformDispatcher.instance.locale;
+
+  Future<GlobalService> init({List<Locale>? supportedLocales}) async {
     WidgetsBinding.instance.addObserver(this);
     eventBus = EventBus();
     sharedPreferences = await SharedPreferences.getInstance();
+    //初始化本地语言配置
+    _initLocale(supportedLocales);
     //初始化主题配置
     _initTheme();
     return this;
@@ -88,5 +97,31 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
     sendEvent(LifecycleEvent(state));
+  }
+
+  // 初始化本地语言配置
+  void _initLocale(List<Locale>? supportedLocales) {
+    if (supportedLocales == null) {
+      return;
+    }
+    var langCode = sharedPreferences.getString(languageCodeKey) ?? '';
+    if (langCode.isEmpty) {
+      return;
+    }
+    var index = supportedLocales.indexWhere((element) {
+      return element.languageCode == langCode;
+    });
+    if (index < 0) {
+      return;
+    }
+    locale = supportedLocales[index];
+  }
+
+  // 更改语言
+  Future<void> changeLocale(Locale value) async {
+    locale = value;
+    await setValue(languageCodeKey, value.languageCode);
+    Get.updateLocale(value);
+    refreshAppui();
   }
 }

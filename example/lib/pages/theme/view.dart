@@ -1,3 +1,4 @@
+import 'package:example/common/langs/index.dart';
 import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
@@ -10,7 +11,7 @@ class ThemePage extends GetView<ThemeController> {
   Widget _buildView() {
     return <Widget>[
       ListTile(
-        title: const Text("跟随系统"),
+        title: Text(TextKey.genSuiXiTong.tr),
         trailing: GlobalService.to.themeMode == ThemeMode.system
             ? const Icon(Icons.check)
             : null,
@@ -19,7 +20,7 @@ class ThemePage extends GetView<ThemeController> {
         },
       ),
       ListTile(
-        title: const Text("亮色主题"),
+        title: Text(TextKey.liangSeZhuTi.tr),
         trailing: GlobalService.to.themeMode == ThemeMode.light
             ? const Icon(Icons.check)
             : null,
@@ -28,7 +29,7 @@ class ThemePage extends GetView<ThemeController> {
         },
       ),
       ListTile(
-        title: const Text("暗色主题"),
+        title: Text(TextKey.anSeZhuTi.tr),
         trailing: GlobalService.to.themeMode == ThemeMode.dark
             ? const Icon(Icons.check)
             : null,
@@ -48,7 +49,7 @@ class ThemePage extends GetView<ThemeController> {
       id: 'theme',
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("Theme"), elevation: 1),
+          appBar: AppBar(title: Text(TextKey.zhuTi.tr), elevation: 1),
           body: SafeArea(
             child: _buildView(),
           ),

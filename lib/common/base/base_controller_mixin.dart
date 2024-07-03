@@ -15,7 +15,7 @@ import 'package:getx_scaffold/getx_scaffold.dart';
 /// BaseControllerMixin
 mixin BaseControllerMixin on GetxController {
   @protected
-  String get getBuilderId;
+  String get builderId;
 
   late StreamSubscription refreshUiSubscription;
 
@@ -78,6 +78,6 @@ mixin BaseControllerMixin on GetxController {
 
   /// 刷新UI
   void updateUi() {
-    update([getBuilderId]);
+    update([builderId]);
   }
 }

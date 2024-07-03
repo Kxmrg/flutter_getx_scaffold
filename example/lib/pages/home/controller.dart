@@ -3,7 +3,7 @@ import 'package:getx_scaffold/getx_scaffold.dart';
 
 class HomeController extends GetxController with BaseControllerMixin {
   @override
-  String get getBuilderId => 'home';
+  String get builderId => 'home';
 
   HomeController();
 
