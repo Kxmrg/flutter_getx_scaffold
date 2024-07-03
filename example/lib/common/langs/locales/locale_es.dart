@@ -11,4 +11,6 @@ const Map<String, String> es = {
   TextKey.huoQuDangQianShiJianChuo: 'Marca de tiempo actual',
   TextKey.shiJianChuoZhuanRiQi: 'Marca de tiempo a fecha',
   TextKey.queRenWangLuoLianJie: 'Comprobar la conexión a la red',
+  TextKey.daKaiWangYe: 'Abrir página web',
+  TextKey.boDaDianHua: 'Llamar',
 };

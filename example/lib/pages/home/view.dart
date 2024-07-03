@@ -63,6 +63,18 @@ class HomePage extends GetView<HomeController> {
           }
         },
       ),
+      ListTile(
+        title: Text(TextKey.daKaiWangYe.tr),
+        onTap: () async {
+          openWeb('https://www.baidu.com', mode: LaunchMode.inAppWebView);
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.boDaDianHua.tr),
+        onTap: () async {
+          callPhone('13888888888');
+        },
+      ),
     ].toListView(
       separator: const DividerX(),
     );

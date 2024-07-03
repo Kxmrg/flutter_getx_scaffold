@@ -155,6 +155,16 @@ void changeLanguage(Locale locale) {
   GlobalService.to.changeLocale(locale);
 }
 
+/// 打开网页
+void openWeb(String url, {LaunchMode mode = LaunchMode.platformDefault}) {
+  launchUrl(Uri.parse(url), mode: mode);
+}
+
+/// 拨打电话
+void callPhone(String phoneNumber) {
+  launchUrl(Uri.parse('tel:$phoneNumber'));
+}
+
 /**
  * 需要在App启动后调用
  */

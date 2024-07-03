@@ -9,4 +9,6 @@ class TextKey {
   static const huoQuDangQianShiJianChuo = 'huoQuDangQianShiJianChuo';
   static const shiJianChuoZhuanRiQi = 'shiJianChuoZhuanRiQi';
   static const queRenWangLuoLianJie = 'queRenWangLuoLianJie';
+  static const daKaiWangYe = 'daKaiWangYe';
+  static const boDaDianHua = 'boDaDianHua';
 }
