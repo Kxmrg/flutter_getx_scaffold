@@ -134,6 +134,7 @@ void refreshAppui() {
 /// 返回sharedPreferences
 SharedPreferences get sharedPreferences => GlobalService.to.sharedPreferences;
 
+/// 统一Log输出
 void log(String log) {
   Logger.d(log);
 }

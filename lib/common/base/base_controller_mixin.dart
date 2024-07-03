@@ -28,7 +28,7 @@ mixin BaseControllerMixin on GetxController {
       updateUi();
     });
     lifecycleSubscription = eventBusListen<LifecycleEvent>((event) {
-      switch (event.action) {
+      switch (event.state) {
         case AppLifecycleState.resumed:
           onResumed();
           break;
