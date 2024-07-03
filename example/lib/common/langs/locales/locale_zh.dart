@@ -6,4 +6,8 @@ const Map<String, String> zh = {
   TextKey.liangSeZhuTi: '亮色主题',
   TextKey.anSeZhuTi: '暗色主题',
   TextKey.yuYan: '语言',
+  TextKey.yingYongBanBen: '应用版本',
+  TextKey.sheBeiXinXi: '设备信息',
+  TextKey.huoQuDangQianShiJianChuo: '获取当前时间戳',
+  TextKey.shiJianChuoZhuanRiQi: '时间戳转日期',
 };

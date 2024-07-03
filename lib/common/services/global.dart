@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /**
@@ -19,9 +20,10 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
   static GlobalService get to => Get.find();
   late EventBus eventBus;
   late SharedPreferences sharedPreferences;
+  PackageInfo? _packageInfo;
+  BaseDeviceInfo? _baseDeviceInfo;
 
   static const String themeCodeKey = 'themeCodeKey';
-
   static const String languageCodeKey = 'languageCodeKey';
 
   //主题
@@ -123,5 +125,17 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
     await setValue(languageCodeKey, value.languageCode);
     Get.updateLocale(value);
     refreshAppui();
+  }
+
+  // 获取包信息
+  Future<PackageInfo> getPackageInfo() async {
+    _packageInfo ??= await PackageInfo.fromPlatform();
+    return _packageInfo!;
+  }
+
+  // 获设备信息
+  Future<BaseDeviceInfo> getDeviceInfo() async {
+    _baseDeviceInfo ??= await DeviceInfoPlugin().deviceInfo;
+    return _baseDeviceInfo!;
   }
 }

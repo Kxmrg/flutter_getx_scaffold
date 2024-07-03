@@ -6,4 +6,8 @@ const Map<String, String> en = {
   TextKey.liangSeZhuTi: 'Light Mode',
   TextKey.anSeZhuTi: 'Dark Mode',
   TextKey.yuYan: 'Language',
+  TextKey.yingYongBanBen: 'App Version',
+  TextKey.sheBeiXinXi: 'Device Info',
+  TextKey.huoQuDangQianShiJianChuo: 'current time stamp',
+  TextKey.shiJianChuoZhuanRiQi: 'timestamp to date',
 };

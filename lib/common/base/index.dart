@@ -10,4 +10,4 @@ library base;
  * @description: 
  */
 
-export './base_controller_mixin.dart';
+export 'base_controller_mixin.dart';

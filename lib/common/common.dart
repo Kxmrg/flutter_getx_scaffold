@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /**
@@ -131,7 +132,7 @@ sendEvent<T>(T event) {
   eventBus.fire(event);
 }
 
-/// 刷新APP所有页面
+/// 刷新App所有页面
 void refreshAppui() {
   sendEvent(const RefreshUiEvent());
 }
@@ -152,4 +153,62 @@ void changeThemeMode(ThemeMode themeMode) {
 /// 更改语言
 void changeLanguage(Locale locale) {
   GlobalService.to.changeLocale(locale);
+}
+
+/**
+ * 需要在App启动后调用
+ */
+
+/// 获取包信息
+Future<PackageInfo> getPackageInfo() async {
+  return await GlobalService.to.getPackageInfo();
+}
+
+/// 获取AppName
+Future<String> getAppName() async {
+  PackageInfo packageInfo = await getPackageInfo();
+  return packageInfo.appName;
+}
+
+/// 获取PackageName
+Future<String> getPackageName() async {
+  PackageInfo packageInfo = await getPackageInfo();
+  return packageInfo.packageName;
+}
+
+/// 获取Version
+Future<String> getVersion() async {
+  PackageInfo packageInfo = await getPackageInfo();
+  return packageInfo.version;
+}
+
+/// 获取BuildNumber
+Future<String> getBuildNumber() async {
+  PackageInfo packageInfo = await getPackageInfo();
+  return packageInfo.buildNumber;
+}
+
+/// 获取设备信息
+Future<BaseDeviceInfo> getDeviceInfo() async {
+  return await GlobalService.to.getDeviceInfo();
+}
+
+// 获取设备名称
+Future<String?> getDeviceName() async {
+  var deviceInfo = await getDeviceInfo();
+  var data = deviceInfo.data;
+  if (data.containsKey('name')) {
+    return data['name'];
+  }
+  return null;
+}
+
+// 获取系统版本
+Future<String?> getDeviceSystemVersion() async {
+  var deviceInfo = await getDeviceInfo();
+  var data = deviceInfo.data;
+  if (data.containsKey('systemVersion')) {
+    return data['systemVersion'];
+  }
+  return null;
 }

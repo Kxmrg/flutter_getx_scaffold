@@ -24,6 +24,35 @@ class HomePage extends GetView<HomeController> {
           Get.to(() => const LanguagePage());
         },
       ),
+      ListTile(
+        title: Text(TextKey.huoQuDangQianShiJianChuo.tr),
+        onTap: () async {
+          showToast(getTimeStamp().toString());
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.shiJianChuoZhuanRiQi.tr),
+        onTap: () async {
+          showToast(getTimeStamp().toDateTimeString() ?? '');
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.yingYongBanBen.tr),
+        onTap: () async {
+          String version = await getVersion();
+          String build = await getBuildNumber();
+          showToast('version:$version build:$build');
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.sheBeiXinXi.tr),
+        onTap: () async {
+          String deviceName = await getDeviceName() ?? 'unknown';
+          String deviceSystemVersion =
+              await getDeviceSystemVersion() ?? 'unknown';
+          showToast('$deviceName $deviceSystemVersion');
+        },
+      ),
     ].toListView(
       separator: const DividerX(),
     );

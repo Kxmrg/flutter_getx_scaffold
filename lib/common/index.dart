@@ -13,6 +13,7 @@ export 'package:intl/intl.dart' hide TextDirection;
 export 'package:get/get.dart' hide Response, FormData, MultipartFile;
 export 'package:event_bus/event_bus.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
+export 'package:device_info_plus/device_info_plus.dart';
 export 'package:flutter/widgets.dart';
 
 export './extensions/index.dart';
