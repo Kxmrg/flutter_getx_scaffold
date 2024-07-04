@@ -102,10 +102,26 @@ class HomePage extends GetView<HomeController> {
           callPhone('13888888888');
         },
       ),
+      ListTile(
+        title: Text(TextKey.xianShiLoading.tr),
+        onTap: () async {
+          showLoading('Loading...');
+          delayed(3000, () {
+            dismissLoading();
+          });
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.xianShiError.tr),
+        onTap: () async {
+          showError('ERROR 500');
+        },
+      ),
     ]
         .toListView(
           separator: const DividerX(),
         )
+        .scrollbar()
         .safeArea();
   }
 

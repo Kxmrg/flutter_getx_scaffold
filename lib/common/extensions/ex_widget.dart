@@ -389,6 +389,31 @@ extension ExWidget on Widget {
         child: this,
       );
 
+  /// 滚动条
+  Widget scrollbar({
+    Key? key,
+    ScrollController? controller,
+    bool? thumbVisibility,
+    bool? trackVisibility,
+    double? thickness,
+    Radius? radius,
+    bool Function(ScrollNotification)? notificationPredicate,
+    bool? interactive,
+    ScrollbarOrientation? scrollbarOrientation,
+  }) =>
+      Scrollbar(
+        key: key,
+        controller: controller,
+        thumbVisibility: thumbVisibility,
+        trackVisibility: trackVisibility,
+        thickness: thickness,
+        radius: radius,
+        notificationPredicate: notificationPredicate,
+        interactive: interactive,
+        scrollbarOrientation: scrollbarOrientation,
+        child: this,
+      );
+
   /// Transforms Matrix4
   Widget transform({
     Key? key,

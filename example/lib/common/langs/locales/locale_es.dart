@@ -16,6 +16,8 @@ const Map<String, String> es = {
   TextKey.jiChuZuJian: 'Componentes básicos',
   TextKey.duiHuaKuang: 'Diálogo',
   TextKey.wangLuoQingQiu: 'Solicitud de red',
-  TextKey.md5JiaMi:'Cifrado MD5',
-  TextKey.base64BianMa:'Codificación base64',
+  TextKey.md5JiaMi: 'Cifrado MD5',
+  TextKey.base64BianMa: 'Codificación base64',
+  TextKey.xianShiLoading: 'Mostrar carga',
+  TextKey.xianShiError: 'Error de visualización',
 };

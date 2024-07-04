@@ -16,4 +16,6 @@ class TextKey {
   static const wangLuoQingQiu = 'wangLuoQingQiu';
   static const md5JiaMi = 'md5JiaMi';
   static const base64BianMa = 'base64BianMa';
+  static const xianShiLoading = 'xianShiLoading';
+  static const xianShiError = 'xianShiError';
 }
