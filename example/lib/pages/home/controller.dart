@@ -5,6 +5,9 @@ class HomeController extends GetxController with BaseControllerMixin {
   @override
   String get builderId => 'home';
 
+  @override
+  bool get listenLifecycleEvent => true;
+
   HomeController();
 
   @override

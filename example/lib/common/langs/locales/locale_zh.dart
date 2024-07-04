@@ -16,4 +16,6 @@ const Map<String, String> zh = {
   TextKey.jiChuZuJian: '基础组件',
   TextKey.duiHuaKuang: '对话框',
   TextKey.wangLuoQingQiu: '网络请求',
+  TextKey.md5JiaMi:'Md5 加密',
+  TextKey.base64BianMa:'Base64 编码',
 };

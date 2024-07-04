@@ -15,6 +15,8 @@ import 'package:shared_preferences/shared_preferences.dart';
  * @date: 2024-06-28
  * @description: 
  */
+/// 插件包名
+const String pluginPackageName = 'getx_scaffold';
 
 /// 初始化脚手架
 Future<WidgetsBinding> init({
@@ -113,7 +115,7 @@ void delayed(Duration duration, Function() callback) {
 EventBus get eventBus => GlobalService.to.eventBus;
 
 /// 监听事件总线
-StreamSubscription<T> eventBusListen<T>(
+StreamSubscription<T> eventListen<T>(
   void Function(T)? onData, {
   Function? onError,
   void Function()? onDone,

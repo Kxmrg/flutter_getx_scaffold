@@ -14,4 +14,6 @@ class TextKey {
   static const jiChuZuJian = 'jiChuZuJian';
   static const duiHuaKuang = 'duiHuaKuang';
   static const wangLuoQingQiu = 'wangLuoQingQiu';
+  static const md5JiaMi = 'md5JiaMi';
+  static const base64BianMa = 'base64BianMa';
 }

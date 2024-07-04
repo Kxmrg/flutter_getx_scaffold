@@ -25,6 +25,18 @@ class HomePage extends GetView<HomeController> {
         },
       ),
       ListTile(
+        title: Text(TextKey.jiChuZuJian.tr),
+        onTap: () {},
+      ),
+      ListTile(
+        title: Text(TextKey.duiHuaKuang.tr),
+        onTap: () {},
+      ),
+      ListTile(
+        title: Text(TextKey.wangLuoQingQiu.tr),
+        onTap: () {},
+      ),
+      ListTile(
         title: Text(TextKey.huoQuDangQianShiJianChuo.tr),
         onTap: () async {
           showToast(getTimeStamp(isSecond: true).toString());
@@ -34,6 +46,18 @@ class HomePage extends GetView<HomeController> {
         title: Text(TextKey.shiJianChuoZhuanRiQi.tr),
         onTap: () async {
           showToast(getTimeStamp().toDateTimeString() ?? '');
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.md5JiaMi.tr),
+        onTap: () async {
+          showToast(getNowDateString().md5() ?? '');
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.base64BianMa.tr),
+        onTap: () async {
+          showToast(getNowDateString().encodeBase64() ?? '');
         },
       ),
       ListTile(
@@ -74,18 +98,6 @@ class HomePage extends GetView<HomeController> {
         onTap: () async {
           callPhone('13888888888');
         },
-      ),
-      ListTile(
-        title: Text(TextKey.jiChuZuJian.tr),
-        onTap: () {},
-      ),
-      ListTile(
-        title: Text(TextKey.duiHuaKuang.tr),
-        onTap: () {},
-      ),
-      ListTile(
-        title: Text(TextKey.wangLuoQingQiu.tr),
-        onTap: () {},
       ),
     ].toListView(
       separator: const DividerX(),

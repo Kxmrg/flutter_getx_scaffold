@@ -16,4 +16,6 @@ const Map<String, String> en = {
   TextKey.jiChuZuJian: 'Base Widget',
   TextKey.duiHuaKuang: 'Dialog',
   TextKey.wangLuoQingQiu: 'Network request',
+  TextKey.md5JiaMi:'Md5 encryption',
+  TextKey.base64BianMa:'Base64 encoding',
 };

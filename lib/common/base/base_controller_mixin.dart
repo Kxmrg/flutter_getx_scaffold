@@ -17,35 +17,40 @@ mixin BaseControllerMixin on GetxController {
   @protected
   String get builderId;
 
+  /// 是否监听生命周期
+  bool get listenLifecycleEvent => false;
+
   late StreamSubscription refreshUiSubscription;
 
-  late StreamSubscription lifecycleSubscription;
+  StreamSubscription? lifecycleSubscription;
 
   @override
   void onInit() {
     super.onInit();
-    refreshUiSubscription = eventBusListen<RefreshUiEvent>((event) {
+    refreshUiSubscription = eventListen<RefreshUiEvent>((event) {
       updateUi();
     });
-    lifecycleSubscription = eventBusListen<LifecycleEvent>((event) {
-      switch (event.state) {
-        case AppLifecycleState.resumed:
-          onResumed();
-          break;
-        case AppLifecycleState.inactive:
-          onInactive();
-          break;
-        case AppLifecycleState.detached:
-          onDetached();
-          break;
-        case AppLifecycleState.paused:
-          onPaused();
-          break;
-        case AppLifecycleState.hidden:
-          onHidden();
-          break;
-      }
-    });
+    if (listenLifecycleEvent) {
+      lifecycleSubscription = eventListen<LifecycleEvent>((event) {
+        switch (event.state) {
+          case AppLifecycleState.resumed:
+            onResumed();
+            break;
+          case AppLifecycleState.inactive:
+            onInactive();
+            break;
+          case AppLifecycleState.detached:
+            onDetached();
+            break;
+          case AppLifecycleState.paused:
+            onPaused();
+            break;
+          case AppLifecycleState.hidden:
+            onHidden();
+            break;
+        }
+      });
+    }
   }
 
   void onResumed() {}
@@ -61,7 +66,7 @@ mixin BaseControllerMixin on GetxController {
   @override
   void onClose() {
     refreshUiSubscription.cancel();
-    lifecycleSubscription.cancel();
+    lifecycleSubscription?.cancel();
     super.onClose();
   }
 

@@ -66,7 +66,7 @@ extension ExString on String? {
   }
 
   /// MD5加密
-  String? encodeMd5() {
+  String? md5() {
     if (this == null) {
       return null;
     }
