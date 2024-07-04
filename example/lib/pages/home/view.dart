@@ -90,7 +90,7 @@ class HomePage extends GetView<HomeController> {
       ListTile(
         title: Text(TextKey.daKaiWangYe.tr),
         onTap: () async {
-          openWeb('https://www.baidu.com', mode: LaunchMode.inAppWebView);
+          openWebPage('https://www.baidu.com', mode: LaunchMode.inAppWebView);
         },
       ),
       ListTile(
@@ -104,6 +104,13 @@ class HomePage extends GetView<HomeController> {
     );
   }
 
+  Widget _buildFloatingActionButton() {
+    return FloatingActionButton(
+      onPressed: () {},
+      child: const Icon(Icons.info),
+    ).padding(all: 20.w);
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
@@ -112,6 +119,7 @@ class HomePage extends GetView<HomeController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("GetxScaffold"), elevation: 1),
+          floatingActionButton: _buildFloatingActionButton(),
           body: SafeArea(
             child: _buildView(),
           ),

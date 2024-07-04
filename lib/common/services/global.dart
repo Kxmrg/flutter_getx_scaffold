@@ -15,6 +15,9 @@ import 'package:shared_preferences/shared_preferences.dart';
  * @description: 
  */
 
+/// 语言改变的回调
+typedef LocaleChangeCallback = Function(Locale locale);
+
 /// 全局服务
 class GlobalService extends GetxService with WidgetsBindingObserver {
   static GlobalService get to => Get.find();
@@ -32,16 +35,26 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
 
   //语言
   Locale locale = PlatformDispatcher.instance.locale;
+  LocaleChangeCallback? localeChangeCallback;
 
-  Future<GlobalService> init({List<Locale>? supportedLocales}) async {
+  Future<GlobalService> init({
+    List<Locale>? supportedLocales,
+    LocaleChangeCallback? localeChangeCallback,
+  }) async {
     WidgetsBinding.instance.addObserver(this);
     eventBus = EventBus();
     sharedPreferences = await SharedPreferences.getInstance();
+    this.localeChangeCallback = localeChangeCallback;
     //初始化本地语言配置
     _initLocale(supportedLocales);
     //初始化主题配置
     _initTheme();
     return this;
+  }
+
+  /// 设置语言变更回调
+  void setLocaleChangeCallback(LocaleChangeCallback? localeChangeCallback) {
+    this.localeChangeCallback = localeChangeCallback;
   }
 
   @override
@@ -117,11 +130,13 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
       return;
     }
     locale = supportedLocales[index];
+    localeChangeCallback?.call(locale);
   }
 
   // 更改语言
   Future<void> changeLocale(Locale value) async {
     locale = value;
+    localeChangeCallback?.call(locale);
     await setValue(languageCodeKey, value.languageCode);
     Get.updateLocale(value);
     refreshAppui();

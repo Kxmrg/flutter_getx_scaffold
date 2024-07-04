@@ -158,7 +158,7 @@ void changeLanguage(Locale locale) {
 }
 
 /// 打开网页
-void openWeb(String url, {LaunchMode mode = LaunchMode.platformDefault}) {
+void openWebPage(String url, {LaunchMode mode = LaunchMode.platformDefault}) {
   launchUrl(Uri.parse(url), mode: mode);
 }
 

@@ -22,7 +22,6 @@ class TranslationLibrary extends Translations {
         'es': es,
       };
 
-  // 代理
   static const localizationsDelegates = [
     GlobalMaterialLocalizations.delegate,
     GlobalWidgetsLocalizations.delegate,
