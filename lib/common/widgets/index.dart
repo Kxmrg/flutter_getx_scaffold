@@ -12,3 +12,5 @@ library widgets;
 
 export './keep_alive_wrapper.dart';
 export './divider_x.dart';
+export './double_press_back.dart';
+export './text_x.dart';

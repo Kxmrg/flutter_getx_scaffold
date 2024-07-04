@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static const String fontMontserrat = 'Montserrat';
 
-  static const Color themeColor = Color.fromARGB(255, 43, 180, 93);
+  static const Color themeColor = Color.fromARGB(255, 11, 107, 47);
 
   static const Color darkThemeColor = Color.fromARGB(255, 58, 66, 182);
 
+  /// 亮色主题样式
   static ThemeData light = ThemeData(
     colorScheme: ColorScheme.fromSeed(
       seedColor: themeColor,
@@ -15,6 +16,7 @@ class AppTheme {
     fontFamily: fontMontserrat,
   );
 
+  /// 暗色主题样式
   static ThemeData dark = ThemeData(
     colorScheme: ColorScheme.fromSeed(
       seedColor: darkThemeColor,

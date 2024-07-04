@@ -1,3 +1,4 @@
+import 'package:example/pages/base_widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:example/common/langs/index.dart';
 import 'package:example/pages/language/index.dart';
@@ -26,7 +27,9 @@ class HomePage extends GetView<HomeController> {
       ),
       ListTile(
         title: Text(TextKey.jiChuZuJian.tr),
-        onTap: () {},
+        onTap: () {
+          Get.to(() => const BaseWidgetsPage());
+        },
       ),
       ListTile(
         title: Text(TextKey.duiHuaKuang.tr),
@@ -99,9 +102,11 @@ class HomePage extends GetView<HomeController> {
           callPhone('13888888888');
         },
       ),
-    ].toListView(
-      separator: const DividerX(),
-    );
+    ]
+        .toListView(
+          separator: const DividerX(),
+        )
+        .safeArea();
   }
 
   Widget _buildFloatingActionButton() {
@@ -117,11 +122,15 @@ class HomePage extends GetView<HomeController> {
       init: HomeController(),
       id: 'home',
       builder: (_) {
-        return Scaffold(
-          appBar: AppBar(title: const Text("GetxScaffold"), elevation: 1),
-          floatingActionButton: _buildFloatingActionButton(),
-          body: SafeArea(
-            child: _buildView(),
+        return DoublePressBackWidget(
+          child: Scaffold(
+            appBar: AppBar(
+              title: const Text("GetxScaffold"),
+              centerTitle: true,
+              elevation: 1,
+            ),
+            floatingActionButton: _buildFloatingActionButton(),
+            body: _buildView(),
           ),
         );
       },

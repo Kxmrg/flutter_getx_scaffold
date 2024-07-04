@@ -10,7 +10,7 @@ import 'package:flutter/widgets.dart';
  * @description: 
  */
 
-/// 保持状态的容器
+/// 保持状态
 class KeepAliveWrapper extends StatefulWidget {
   final bool keepAlive;
   final Widget child;
