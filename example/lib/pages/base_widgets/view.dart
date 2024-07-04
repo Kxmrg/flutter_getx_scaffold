@@ -34,10 +34,33 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
       const TextX('Weight 700', weight: FontWeight.w700),
       const TextX('Weight 800', weight: FontWeight.w800),
       const TextX('Weight 900', weight: FontWeight.w900),
+      <Widget>[
+        const TextTag('Text Tag'),
+        const TextTag(
+          'Text Tag Outline',
+          outline: true,
+        ),
+        const TextTag(
+          'Text Tag Orange',
+          color: Colors.orange,
+        ),
+      ].toWrap(spacing: 10.w).padding(all: 10.w),
+      RichTextX(children: [
+        TextSpanItem(
+          '简易',
+        ),
+        TextSpanItem('可点击', onTap: () {
+          showInfoToast('onClick!');
+        }),
+        TextSpanItem(
+          '文本测试',
+        ),
+      ]),
     ]
         .toColumn(
           crossAxisAlignment: CrossAxisAlignment.start,
         )
+        .padding(all: 10.w)
         .scrollable();
   }
 

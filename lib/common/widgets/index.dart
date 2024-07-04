@@ -14,3 +14,6 @@ export './keep_alive_wrapper.dart';
 export './divider_x.dart';
 export './double_press_back.dart';
 export './text_x.dart';
+export './text_tag.dart';
+export './rotation_transition_widget.dart';
+export './rich_text_x.dart';
