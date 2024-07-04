@@ -24,3 +24,4 @@ export './toast_util.dart';
 export './log_util.dart';
 export './dio_logger.dart';
 export './shared_pref.dart';
+export './theme_color.dart';

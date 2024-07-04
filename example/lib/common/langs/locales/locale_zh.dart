@@ -20,4 +20,5 @@ const Map<String, String> zh = {
   TextKey.base64BianMa: 'Base64 编码',
   TextKey.xianShiLoading: '显示Loading',
   TextKey.xianShiError: '显示Error',
+  TextKey.shiYongZhuTiSe: '使用主题色',
 };

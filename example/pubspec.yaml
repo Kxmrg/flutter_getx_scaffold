@@ -20,6 +20,19 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  icons_launcher: ^2.1.7
+
+# flutter_icons 应用启动图标配置 https://pub-web.flutter-io.cn/packages/icons_launcher
+# flutter pub run icons_launcher:create
+icons_launcher:
+  image_path: "assets/icons/ic_launcher.png"
+  platforms:
+    android:
+      enable: true
+      adaptive_background_color: "#ffffff"
+      adaptive_foreground_image: "assets/icons/ic_launcher_adaptive.png"
+    ios:
+      enable: true
 
 # flutter_native_splash 闪屏页配置 https://pub-web.flutter-io.cn/packages/flutter_native_splash
 # dart pub run flutter_native_splash:create
@@ -27,13 +40,15 @@ dev_dependencies:
 flutter_native_splash:
   android: true
   ios: true
-  color: "#FFFFFF"
-  color_dark: "#042a49"
-  image: "assets/icons/ic_launcher.png"
+  color: "#ffffff"
+  color_dark: "#23232a"
+  image: "assets/icons/ic_launcher_adaptive.png"
+  image_dark: "assets/icons/ic_launcher_adaptive_dark.png"
   android_12:
-    color: "#FFFFFF"
-    color_dark: "#042a49"
-    image: "assets/icons/ic_launcher.png"
+    color: "#ffffff"
+    color_dark: "#23232a"
+    image: "assets/icons/ic_launcher_adaptive.png"
+    image_dark: "assets/icons/ic_launcher_adaptive_dark.png"
 
 flutter:
   uses-material-design: true

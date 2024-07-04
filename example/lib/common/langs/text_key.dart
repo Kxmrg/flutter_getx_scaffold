@@ -18,4 +18,5 @@ class TextKey {
   static const base64BianMa = 'base64BianMa';
   static const xianShiLoading = 'xianShiLoading';
   static const xianShiError = 'xianShiError';
+  static const shiYongZhuTiSe = 'shiYongZhuTiSe';
 }

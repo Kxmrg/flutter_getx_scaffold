@@ -20,4 +20,5 @@ const Map<String, String> en = {
   TextKey.base64BianMa: 'Base64 encoding',
   TextKey.xianShiLoading: 'Show Loading',
   TextKey.xianShiError: 'Show Error',
+  TextKey.shiYongZhuTiSe: 'Use theme color',
 };

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 /**
@@ -29,7 +28,7 @@ class TextTag extends StatelessWidget {
     if (outline) {
       return TextX.labelSmall(
         text,
-        color: color ?? Theme.of(Get.context!).colorScheme.primary,
+        color: color ?? ThemeColor.primary,
       )
           .padding(
             horizontal: 10.w,
@@ -37,13 +36,13 @@ class TextTag extends StatelessWidget {
           )
           .border(
             radius: 5.r,
-            color: color ?? Theme.of(Get.context!).colorScheme.primary,
+            color: color ?? ThemeColor.primary,
             all: 1.4,
           );
     } else {
       return TextX.labelSmall(
         text,
-        color: Theme.of(Get.context!).colorScheme.onPrimary,
+        color: ThemeColor.onPrimary,
       )
           .padding(
             horizontal: 10.w,
@@ -51,8 +50,7 @@ class TextTag extends StatelessWidget {
           )
           .border(
             radius: 5.r,
-            backgroundColor:
-                color ?? Theme.of(Get.context!).colorScheme.primary,
+            backgroundColor: color ?? ThemeColor.primary,
           );
     }
   }

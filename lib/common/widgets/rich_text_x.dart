@@ -1,5 +1,4 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 class TextSpanItem {
@@ -45,10 +44,8 @@ class RichTextX extends StatelessWidget {
           style: TextStyle(
             fontSize: children[i].textSize ?? 14.sp,
             color: children[i].onTap == null
-                ? children[i].textColor ??
-                    Theme.of(Get.context!).colorScheme.onBackground
-                : children[i].textColor ??
-                    Theme.of(Get.context!).colorScheme.primary,
+                ? children[i].textColor ?? ThemeColor.onBackground
+                : children[i].textColor ?? ThemeColor.primary,
           ),
           recognizer: TapGestureRecognizer()
             ..onTap = () {

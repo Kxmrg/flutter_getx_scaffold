@@ -60,7 +60,7 @@ class TextX extends StatelessWidget {
     this.overflow,
     this.textAlign,
   })  : style = Theme.of(Get.context!).textTheme.displayLarge,
-        size = 38.sp;
+        size = 50.sp;
 
   TextX.displayMedium(
     this.text, {
@@ -73,7 +73,7 @@ class TextX extends StatelessWidget {
     this.overflow,
     this.textAlign,
   })  : style = Theme.of(Get.context!).textTheme.displayMedium,
-        size = 34.sp;
+        size = 40.sp;
 
   TextX.displaySmall(
     this.text, {
