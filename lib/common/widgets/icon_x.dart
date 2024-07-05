@@ -138,14 +138,23 @@ class IconX extends StatelessWidget {
           child: widget,
         );
       } else if (badge.isNotEmptyOrNull) {
+        double horizontalPadding = 6.sp;
+        if (badge!.length == 1) {
+          horizontalPadding = 8.sp;
+        }
         widget = badges.Badge(
           showBadge: true,
-          badgeContent: TextX.labelSmall(badge ?? '', weight: FontWeight.bold),
+          badgeContent: TextX(
+            badge ?? '',
+            size: 11.sp,
+            weight: FontWeight.bold,
+          ),
           position: badges.BadgePosition.topEnd(top: -3.sp, end: -10.sp),
           badgeStyle: badges.BadgeStyle(
             shape: badges.BadgeShape.square,
-            padding: EdgeInsets.symmetric(vertical: 1.sp, horizontal: 8.sp),
-            borderRadius: BorderRadius.circular(10),
+            padding: EdgeInsets.symmetric(
+                vertical: 0.5.sp, horizontal: horizontalPadding),
+            borderRadius: BorderRadius.circular(7.sp),
             elevation: 10,
           ),
           child: widget,

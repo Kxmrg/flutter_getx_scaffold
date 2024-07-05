@@ -65,18 +65,18 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           size: 40.sp,
           dot: true,
         ),
-        IconX.svg(
-          'assets/svgs/icon1.svg',
-          size: 40.sp,
-          badge: 'ok',
-        ),
-        IconX.svg(
-          'assets/svgs/icon1.svg',
+        IconX.icon(
+          Icons.add_circle_sharp,
           size: 40.sp,
           badge: controller.number.toString(),
         ).onTap(() {
           controller.increment();
         }),
+        IconX.svg(
+          'assets/svgs/icon1.svg',
+          size: 40.sp,
+          badge: 'New',
+        ),
         IconX.image(
           'assets/icons/ic_launcher_adaptive_dark.png',
           size: 40.sp,
