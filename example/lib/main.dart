@@ -19,7 +19,7 @@ import 'package:getx_scaffold/getx_scaffold.dart';
 void main() async {
   WidgetsBinding widgetsBinding = await init(
     isDebug: kDebugMode,
-    logTag: 'Example',
+    logTag: 'GetxScaffold',
     supportedLocales: TranslationLibrary.supportedLocales,
   );
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -44,7 +44,7 @@ void main() async {
       supportedLocales: TranslationLibrary.supportedLocales,
       localizationsDelegates: TranslationLibrary.localizationsDelegates,
       // AppTitle
-      title: 'Example',
+      title: 'GetxScaffold',
       // 首页
       home: const HomePage(),
     ),
