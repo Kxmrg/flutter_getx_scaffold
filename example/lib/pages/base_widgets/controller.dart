@@ -5,4 +5,11 @@ class BaseWidgetsController extends GetxController with BaseControllerMixin {
   String get builderId => 'baseWidgets';
 
   BaseWidgetsController();
+
+  int number = 0;
+
+  void increment() {
+    number++;
+    updateUi();
+  }
 }

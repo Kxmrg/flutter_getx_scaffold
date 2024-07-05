@@ -58,11 +58,35 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           color: Colors.orange,
         ),
       ].toWrap(spacing: 10.w).padding(all: 10.w),
+      //Icon
+      <Widget>[
+        IconX.icon(
+          Icons.calendar_month_outlined,
+          size: 40.sp,
+          dot: true,
+        ),
+        IconX.svg(
+          'assets/svgs/icon1.svg',
+          size: 40.sp,
+          badge: 'ok',
+        ),
+        IconX.svg(
+          'assets/svgs/icon1.svg',
+          size: 40.sp,
+          badge: controller.number.toString(),
+        ).onTap(() {
+          controller.increment();
+        }),
+        IconX.image(
+          'assets/icons/ic_launcher_adaptive_dark.png',
+          size: 40.sp,
+        ),
+      ].toWrap(spacing: 10.w).padding(all: 10.w),
     ]
         .toColumn(
           crossAxisAlignment: CrossAxisAlignment.start,
         )
-        .padding(all: 10.w)
+        .padding(all: 10.w, bottom: 50.w)
         .scrollable()
         .scrollbar();
   }
