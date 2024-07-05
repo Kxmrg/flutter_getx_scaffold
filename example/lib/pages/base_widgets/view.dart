@@ -1,5 +1,6 @@
 import 'package:example/common/langs/index.dart';
 import 'package:flutter/material.dart';
+import 'package:getx_scaffold/common/index.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 import 'index.dart';
@@ -63,8 +64,10 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
         IconX.icon(
           Icons.calendar_month_outlined,
           size: 40.sp,
-          dot: true,
-        ),
+          dot: controller.showDot,
+        ).onTap(() {
+          controller.updateDot();
+        }),
         IconX.icon(
           Icons.add_circle_sharp,
           size: 40.sp,
@@ -80,6 +83,14 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
         IconX.image(
           'assets/icons/ic_launcher_adaptive_dark.png',
           size: 40.sp,
+        ),
+      ].toWrap(spacing: 10.w).padding(all: 10.w),
+      //image
+      <Widget>[
+        ImageX.url(
+          'https://i0.hdslb.com/bfs/archive/ac72ae36271a6970f92b1de485e6ae6c9e4c1ebb.jpg',
+          width: 0.7.sw,
+          radius: 5.r,
         ),
       ].toWrap(spacing: 10.w).padding(all: 10.w),
     ]

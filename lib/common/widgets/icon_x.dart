@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 import 'package:badges/badges.dart' as badges;
@@ -146,7 +147,8 @@ class IconX extends StatelessWidget {
           showBadge: true,
           badgeContent: TextX(
             badge ?? '',
-            size: 11.sp,
+            size: 10.sp,
+            color: Colors.white,
             weight: FontWeight.bold,
           ),
           position: badges.BadgePosition.topEnd(top: -3.sp, end: -10.sp),
@@ -154,7 +156,7 @@ class IconX extends StatelessWidget {
             shape: badges.BadgeShape.square,
             padding: EdgeInsets.symmetric(
                 vertical: 0.5.sp, horizontal: horizontalPadding),
-            borderRadius: BorderRadius.circular(7.sp),
+            borderRadius: BorderRadius.circular(6.r),
             elevation: 10,
           ),
           child: widget,

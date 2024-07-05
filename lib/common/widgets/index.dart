@@ -18,3 +18,4 @@ export './text_tag.dart';
 export './rotation_transition_widget.dart';
 export './rich_text_x.dart';
 export './icon_x.dart';
+export './image_x.dart';

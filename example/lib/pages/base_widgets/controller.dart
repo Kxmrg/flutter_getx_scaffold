@@ -6,10 +6,16 @@ class BaseWidgetsController extends GetxController with BaseControllerMixin {
 
   BaseWidgetsController();
 
+  bool showDot = true;
   int number = 0;
 
   void increment() {
     number++;
+    updateUi();
+  }
+
+  void updateDot() {
+    showDot = !showDot;
     updateUi();
   }
 }
