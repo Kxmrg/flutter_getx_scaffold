@@ -150,12 +150,13 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           label: '首页',
           icon: AntdIcon.home,
           selectedIcon: AntdIcon.home_fill,
+          dot: true,
         ),
         NavigationItemModel(
-          label: '日历',
-          icon: AntdIcon.calendar,
-          selectedIcon: AntdIcon.calendar_fill,
-        ),
+            label: '日历',
+            icon: AntdIcon.calendar,
+            selectedIcon: AntdIcon.calendar_fill,
+            badge: '18'),
         NavigationItemModel(
           label: '设置',
           icon: AntdIcon.setting,

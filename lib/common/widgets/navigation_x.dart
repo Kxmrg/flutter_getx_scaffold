@@ -63,8 +63,9 @@ class NavigationX extends StatelessWidget {
             // 图标
             IconX.icon(
               i == currentIndex ? item.selectedIcon ?? item.icon : item.icon,
-              size: 20.sp,
+              size: 24.sp,
               color: color,
+              dot: item.dot,
               badge: item.badge,
             ),
             // 文字
