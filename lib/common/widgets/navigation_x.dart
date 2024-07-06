@@ -60,7 +60,6 @@ class NavigationX extends StatelessWidget {
                 ),
               )),
           child: <Widget>[
-            // 图标
             IconX.icon(
               i == currentIndex ? item.selectedIcon ?? item.icon : item.icon,
               size: 24.sp,
@@ -68,15 +67,14 @@ class NavigationX extends StatelessWidget {
               dot: item.dot,
               badge: item.badge,
             ),
-            // 文字
             TextX.labelSmall(
               item.label,
               color: color,
               weight: weight,
             ).padding(top: 2.h),
           ].toColumn(
-            mainAxisAlignment: MainAxisAlignment.center, // 居中
-            mainAxisSize: MainAxisSize.max, // 最大
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
           ),
           onPressed: () {
             onTap(i);
