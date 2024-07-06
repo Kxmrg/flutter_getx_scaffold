@@ -46,7 +46,7 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
         TextSpanItem(
           '文本测试',
         ),
-      ]),
+      ]).padding(top: 10.w),
       //TextTag
       <Widget>[
         const TextTag('Text Tag'),
@@ -58,7 +58,45 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           'Text Tag Orange',
           color: Colors.orange,
         ),
-      ].toWrap(spacing: 10.w).padding(all: 10.w),
+      ].toWrap(spacing: 10.w).padding(top: 10.w),
+      //Button
+      <Widget>[
+        ButtonX(
+          'General',
+          dot: true,
+          icon: Icons.info,
+          onPressed: () {},
+        ),
+        ButtonX.primary(
+          'Primary',
+          onPressed: () {},
+        ),
+        ButtonX.outline(
+          'Outline',
+          onPressed: () {},
+        ),
+        ButtonX.icon(
+          Icons.add,
+          badge: controller.number.toString(),
+          onPressed: () {
+            controller.increment();
+          },
+        ),
+        ButtonX.text(
+          'Text',
+          onPressed: () {},
+        ),
+        ButtonX.text(
+          'Small Text Button',
+          textColor: Colors.orange,
+          textSize: 12.sp,
+          textWeight: FontWeight.bold,
+          minSize: Size.zero,
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+          borderRadius: 3.r,
+          onPressed: () {},
+        ),
+      ].toWrap(spacing: 10.w).padding(top: 10.w),
       //Icon
       <Widget>[
         IconX.icon(
@@ -83,23 +121,20 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
         IconX.image(
           'assets/icons/ic_launcher_adaptive_dark.png',
           size: 40.sp,
-        ),
-      ].toWrap(spacing: 10.w).padding(all: 10.w),
+        ).backgroundColor(Colors.orange).clipRRect(all: 8.r),
+      ].toWrap(spacing: 10.w).padding(top: 10.w),
       //image
-      <Widget>[
-        ImageX.url(
-          'https://i0.hdslb.com/bfs/archive/ac72ae36271a6970f92b1de485e6ae6c9e4c1ebb.jpg',
-          width: 0.7.sw,
-          radius: 5.r,
-        ),
-      ].toWrap(spacing: 10.w).padding(all: 10.w),
+      ImageX.url(
+        'https://i0.hdslb.com/bfs/archive/ac72ae36271a6970f92b1de485e6ae6c9e4c1ebb.jpg',
+        width: 0.7.sw,
+        radius: 5.r,
+      ).padding(top: 10.w),
     ]
-        .toColumn(
-          crossAxisAlignment: CrossAxisAlignment.start,
-        )
+        .toColumn(crossAxisAlignment: CrossAxisAlignment.start)
         .padding(all: 10.w, bottom: 50.w)
         .scrollable()
-        .scrollbar();
+        .scrollbar()
+        .width(1.sw);
   }
 
   @override

@@ -5,7 +5,7 @@ class AppTheme {
 
   static const Color themeColor = Color.fromARGB(255, 11, 107, 47);
 
-  static const Color darkThemeColor = Color.fromARGB(255, 58, 66, 182);
+  static const Color darkThemeColor = Color.fromARGB(255, 27, 31, 139);
 
   /// 亮色主题样式
   static ThemeData light = ThemeData(
