@@ -21,4 +21,5 @@ const Map<String, String> en = {
   TextKey.xianShiLoading: 'Show Loading',
   TextKey.xianShiError: 'Show Error',
   TextKey.shiYongZhuTiSe: 'Use theme color',
+  TextKey.jiZaiRongQiZuJian: 'Loading container widget',
 };

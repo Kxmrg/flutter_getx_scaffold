@@ -21,3 +21,4 @@ export './icon_x.dart';
 export './image_x.dart';
 export './button_x.dart';
 export './navigation_x.dart';
+export './loading_container.dart';

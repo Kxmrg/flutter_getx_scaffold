@@ -21,4 +21,5 @@ const Map<String, String> zh = {
   TextKey.xianShiLoading: '显示Loading',
   TextKey.xianShiError: '显示Error',
   TextKey.shiYongZhuTiSe: '使用主题色',
+  TextKey.jiZaiRongQiZuJian: '加载容器组件',
 };

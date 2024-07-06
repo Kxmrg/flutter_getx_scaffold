@@ -21,4 +21,5 @@ const Map<String, String> es = {
   TextKey.xianShiLoading: 'Mostrar carga',
   TextKey.xianShiError: 'Error de visualización',
   TextKey.shiYongZhuTiSe: 'Usar colores temáticos',
+  TextKey.jiZaiRongQiZuJian: 'Componentes del contenedor de carga',
 };

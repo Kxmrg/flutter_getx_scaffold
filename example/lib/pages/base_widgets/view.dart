@@ -92,7 +92,7 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           textSize: 12.sp,
           textWeight: FontWeight.bold,
           minSize: Size.zero,
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+          innerPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
           borderRadius: 3.r,
           onPressed: () {},
         ),

@@ -23,7 +23,7 @@ class ButtonX extends StatelessWidget {
   // 前景颜色，包括文本图标边框
   final Color? foregroundColor;
   // 内边距
-  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? innerPadding;
   // 最小尺寸限制
   final Size? minSize;
   // 子组件
@@ -63,7 +63,7 @@ class ButtonX extends StatelessWidget {
     this.borderWidth,
     this.backgroundColor, // 按钮背景颜色
     this.foregroundColor, // 文本及图标颜色
-    this.padding, // 内边距
+    this.innerPadding, // 内边距
     this.minSize, // 最小尺寸限制
     this.onPressed,
     this.onLongPress,
@@ -90,7 +90,7 @@ class ButtonX extends StatelessWidget {
     super.key,
     this.borderRadius,
     this.borderWidth,
-    this.padding, // 内边距
+    this.innerPadding, // 内边距
     this.minSize, // 最小尺寸限制
     this.onPressed,
     this.onLongPress,
@@ -121,7 +121,7 @@ class ButtonX extends StatelessWidget {
     this.borderWidth,
     this.backgroundColor, // 按钮背景颜色
     this.foregroundColor, // 文本及图标颜色
-    this.padding, // 内边距
+    this.innerPadding, // 内边距
     this.minSize, // 最小尺寸限制
     this.onPressed,
     this.onLongPress,
@@ -150,7 +150,7 @@ class ButtonX extends StatelessWidget {
     this.borderWidth,
     this.backgroundColor, // 按钮背景颜色
     this.foregroundColor, // 文本及图标颜色
-    this.padding, // 内边距
+    this.innerPadding, // 内边距
     this.minSize, // 最小尺寸限制
     this.onPressed,
     this.onLongPress,
@@ -179,7 +179,7 @@ class ButtonX extends StatelessWidget {
     this.borderWidth,
     this.backgroundColor, // 按钮背景颜色
     this.foregroundColor, // 文本及图标颜色
-    this.padding, // 内边距
+    this.innerPadding, // 内边距
     this.minSize, // 最小尺寸限制
     this.onPressed,
     this.style,
@@ -244,7 +244,7 @@ class ButtonX extends StatelessWidget {
                 ),
                 backgroundColor: backgroundColor,
                 foregroundColor: foregroundColor,
-                padding: padding,
+                padding: innerPadding,
                 minimumSize: minSize,
               ),
           onPressed: onPressed,
@@ -272,7 +272,7 @@ class ButtonX extends StatelessWidget {
                 ),
                 backgroundColor: backgroundColor,
                 foregroundColor: foregroundColor,
-                padding: padding,
+                padding: innerPadding,
                 minimumSize: minSize,
               ),
           onPressed: onPressed,
@@ -296,7 +296,7 @@ class ButtonX extends StatelessWidget {
                 ),
                 backgroundColor: backgroundColor,
                 foregroundColor: foregroundColor,
-                padding: padding,
+                padding: innerPadding,
                 minimumSize: minSize,
               ),
           onPressed: onPressed,
@@ -326,7 +326,7 @@ class ButtonX extends StatelessWidget {
                 ),
                 backgroundColor: backgroundColor ?? ThemeColor.primaryContainer,
                 foregroundColor: foregroundColor,
-                padding: padding,
+                padding: innerPadding,
                 minimumSize: minSize,
               ),
           onPressed: onPressed,

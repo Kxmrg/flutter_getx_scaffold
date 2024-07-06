@@ -19,4 +19,5 @@ class TextKey {
   static const xianShiLoading = 'xianShiLoading';
   static const xianShiError = 'xianShiError';
   static const shiYongZhuTiSe = 'shiYongZhuTiSe';
+  static const jiZaiRongQiZuJian = 'jiZaiRongQiZuJian';
 }

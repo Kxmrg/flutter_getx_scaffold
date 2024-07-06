@@ -1,4 +1,5 @@
 import 'package:example/pages/base_widgets/index.dart';
+import 'package:example/pages/loading_container/index.dart';
 import 'package:example/pages/theme_color/index.dart';
 import 'package:flutter/material.dart';
 import 'package:example/common/langs/index.dart';
@@ -30,6 +31,12 @@ class HomePage extends GetView<HomeController> {
         title: Text(TextKey.jiChuZuJian.tr),
         onTap: () {
           Get.to(() => const BaseWidgetsPage());
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.jiZaiRongQiZuJian.tr),
+        onTap: () {
+          Get.to(() => const LoadingContainerPage());
         },
       ),
       ListTile(
