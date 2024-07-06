@@ -20,3 +20,4 @@ export './rich_text_x.dart';
 export './icon_x.dart';
 export './image_x.dart';
 export './button_x.dart';
+export './navigation_x.dart';

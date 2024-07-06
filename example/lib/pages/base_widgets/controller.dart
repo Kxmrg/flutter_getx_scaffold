@@ -8,6 +8,7 @@ class BaseWidgetsController extends GetxController with BaseControllerMixin {
 
   bool showDot = true;
   int number = 0;
+  int pageIndex = 0;
 
   void increment() {
     number++;

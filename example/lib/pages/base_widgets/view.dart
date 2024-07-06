@@ -100,7 +100,7 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
       //Icon
       <Widget>[
         IconX.icon(
-          Icons.calendar_month_outlined,
+          AntdIcon.project,
           size: 40.sp,
           dot: controller.showDot,
         ).onTap(() {
@@ -137,6 +137,34 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
         .width(1.sw);
   }
 
+  //导航栏
+  Widget _buildNavigationBar() {
+    return NavigationX(
+      currentIndex: controller.pageIndex, // 当前选中的tab索引
+      onTap: (index) {
+        controller.pageIndex = index;
+        controller.updateUi();
+      }, // 切换tab事件
+      items: [
+        NavigationItemModel(
+          label: '首页',
+          icon: AntdIcon.home,
+          selectedIcon: AntdIcon.home_fill,
+        ),
+        NavigationItemModel(
+          label: '日历',
+          icon: AntdIcon.calendar,
+          selectedIcon: AntdIcon.calendar_fill,
+        ),
+        NavigationItemModel(
+          label: '设置',
+          icon: AntdIcon.setting,
+          selectedIcon: AntdIcon.setting_fill,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<BaseWidgetsController>(
@@ -144,7 +172,10 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
       id: 'baseWidgets',
       builder: (_) {
         return Scaffold(
+          extendBody: false,
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(title: Text(TextKey.jiChuZuJian.tr), elevation: 1),
+          bottomNavigationBar: _buildNavigationBar(),
           body: SafeArea(
             child: _buildView(),
           ),

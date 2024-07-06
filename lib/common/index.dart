@@ -25,3 +25,4 @@ export './services/index.dart';
 export './event/index.dart';
 export './base/index.dart';
 export './common.dart';
+export './resources/index.dart';

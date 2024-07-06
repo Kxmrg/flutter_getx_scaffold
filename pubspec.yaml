@@ -36,3 +36,8 @@ dev_dependencies:
 flutter:
   assets:
     - assets/icons/
+
+  fonts:
+    - family: antdIcon
+      fonts:
+        - asset: assets/fonts/icon-antd.ttf
