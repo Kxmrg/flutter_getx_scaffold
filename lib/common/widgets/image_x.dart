@@ -24,6 +24,8 @@ class ImageX extends StatelessWidget {
   final Widget? placeholder;
   // 背景颜色
   final Color? backgroundColor;
+  // Package
+  final String? package;
 
   // builder 函数
   final Widget Function(
@@ -44,6 +46,7 @@ class ImageX extends StatelessWidget {
     this.placeholder,
     this.backgroundColor,
     this.builder,
+    this.package,
   });
 
   const ImageX.url(
@@ -56,7 +59,8 @@ class ImageX extends StatelessWidget {
     this.placeholder,
     this.backgroundColor,
     this.builder,
-  }) : type = ImageType.network;
+  })  : type = ImageType.network,
+        package = null;
 
   const ImageX.asset(
     this.image, {
@@ -68,6 +72,7 @@ class ImageX extends StatelessWidget {
     this.placeholder,
     this.backgroundColor,
     this.builder,
+    this.package,
   }) : type = ImageType.asset;
 
   const ImageX.file(
@@ -80,7 +85,8 @@ class ImageX extends StatelessWidget {
     this.placeholder,
     this.backgroundColor,
     this.builder,
-  }) : type = ImageType.file;
+  })  : type = ImageType.file,
+        package = null;
 
   Widget get _placeholder =>
       placeholder ??
@@ -102,6 +108,7 @@ class ImageX extends StatelessWidget {
       case ImageType.asset:
         imageWidget = ExtendedImage.asset(
           image,
+          package: package,
           width: width,
           height: height,
           fit: fit,

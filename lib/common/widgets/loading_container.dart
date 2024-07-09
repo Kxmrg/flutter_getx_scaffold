@@ -1,5 +1,6 @@
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
+import 'package:lottie/lottie.dart';
 
 enum LoadingStatus {
   loading,
@@ -76,22 +77,42 @@ class _LoadingContainerState extends State<LoadingContainer> {
   Widget _buildLoadingWidget() {
     return Center(
       child: SpinKitFoldingCube(
-        color: ThemeColor.primary,
-        size: 24.sp,
-      ),
+        color: ThemeColor.primaryContainer,
+        size: 22.sp,
+      ).padding(bottom: 50.h),
     );
   }
 
   Widget _buildErrorWidget() {
-    return Center(
-      child: TextX.bodyLarge(widget.errorMessage ?? '网络错误,点击重试'),
-    );
+    return <Widget>[
+      Lottie.asset(
+        'assets/lottie/network-error.json',
+        package: pluginPackageName,
+        width: 0.6.sw,
+        height: 0.6.sw,
+      ),
+      TextX.labelMedium(widget.emptyMessage ?? '网络错误,点击重试'),
+    ]
+        .toColumn(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center)
+        .padding(top: 80.h);
   }
 
   Widget _buildEmptyWidget() {
-    return Center(
-      child: TextX.bodyLarge(widget.emptyMessage ?? '暂无数据,点击重试'),
-    );
+    return <Widget>[
+      Lottie.asset(
+        'assets/lottie/empty.json',
+        package: pluginPackageName,
+        width: 0.6.sw,
+        height: 0.6.sw,
+      ),
+      TextX.labelMedium(widget.emptyMessage ?? '暂无数据,点击重试'),
+    ]
+        .toColumn(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center)
+        .padding(top: 80.h);
   }
 
   @override

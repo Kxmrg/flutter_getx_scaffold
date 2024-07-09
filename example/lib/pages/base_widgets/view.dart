@@ -163,6 +163,11 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           icon: AntdIcon.setting,
           selectedIcon: AntdIcon.setting_fill,
         ),
+        NavigationItemModel(
+          label: '设置',
+          icon: AntdIcon.setting,
+          selectedIcon: AntdIcon.setting_fill,
+        ),
       ],
     );
   }

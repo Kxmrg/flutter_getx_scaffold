@@ -44,6 +44,8 @@ class IconX extends StatelessWidget {
   final String? badge;
   // 图片 fit
   final BoxFit? fit;
+  // Package
+  final String? package;
 
   const IconX({
     super.key,
@@ -57,6 +59,7 @@ class IconX extends StatelessWidget {
     this.dot,
     this.badge,
     this.fit,
+    this.package,
   });
 
   const IconX.icon(
@@ -70,7 +73,8 @@ class IconX extends StatelessWidget {
     this.badge,
     this.fit,
   })  : type = IconType.icon,
-        assetPath = null;
+        assetPath = null,
+        package = null;
 
   const IconX.image(
     this.assetPath, {
@@ -82,6 +86,7 @@ class IconX extends StatelessWidget {
     this.dot,
     this.badge,
     this.fit,
+    this.package,
   })  : type = IconType.image,
         iconData = null;
 
@@ -95,6 +100,7 @@ class IconX extends StatelessWidget {
     this.dot,
     this.badge,
     this.fit,
+    this.package,
   })  : type = IconType.svg,
         iconData = null;
 
@@ -117,6 +123,7 @@ class IconX extends StatelessWidget {
             height: height ?? size ?? _defaultSize,
             color: color,
             fit: fit ?? BoxFit.contain,
+            package: package,
           );
         }
         break;
@@ -127,6 +134,7 @@ class IconX extends StatelessWidget {
             width: width ?? size ?? _defaultSize,
             height: height ?? size ?? _defaultSize,
             fit: fit ?? BoxFit.contain,
+            package: package,
           );
         }
         break;

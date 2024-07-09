@@ -14,7 +14,7 @@ class LoadingContainerPage extends GetView<LoadingContainerController> {
       ButtonX(
         'Show Load Error',
         onPressed: () => controller.loadController.error(),
-      ).width(double.infinity).padding(top: 10.h, horizontal: 50.w),
+      ).width(double.infinity).padding(top: 30.h, horizontal: 50.w),
       ButtonX(
         'Show Load Empty',
         onPressed: () => controller.loadController.empty(),
