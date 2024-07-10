@@ -134,6 +134,16 @@ class HomePage extends GetView<HomeController> {
           showError('ERROR 500');
         },
       ),
+      ListTile(
+        title: Text(TextKey.qingChuTuPianHuanCun.tr),
+        onTap: () async {
+          if (await clearDiskCachedImages()) {
+            showSuccessToast('Success');
+          } else {
+            showErrorToast('Error');
+          }
+        },
+      ),
     ]
         .toListView(
           separator: const DividerX(),

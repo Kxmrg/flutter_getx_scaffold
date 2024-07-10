@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 import 'package:badges/badges.dart' as badges;
 
+/**
+ * @author: Kxmrg
+ * @github: https://github.com/Kxmrg
+ * @version: 1.0.0
+ * @copyright: Copyright © 2023-2024 Kxmrg
+ * @license: MIT License
+ * @date: 2024-07-10
+ * @description: 
+ */
+
+/// 按钮类型
 enum ButtonType {
   general, // 默认按钮
   outlined, // 边框按钮

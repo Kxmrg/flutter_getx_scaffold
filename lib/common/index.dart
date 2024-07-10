@@ -19,7 +19,8 @@ export 'package:flutter/widgets.dart';
 export 'package:lottie/lottie.dart';
 export 'package:flutter_spinkit/flutter_spinkit.dart';
 export 'package:dio/dio.dart';
-
+export 'package:extended_image/extended_image.dart'
+    hide MultipartFile, DoubleExtension;
 
 export './extensions/index.dart';
 export './widgets/index.dart';

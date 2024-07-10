@@ -1,9 +1,19 @@
 import 'dart:io';
 
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
+/**
+ * @author: Kxmrg
+ * @github: https://github.com/Kxmrg
+ * @version: 1.0.0
+ * @copyright: Copyright © 2023-2024 Kxmrg
+ * @license: MIT License
+ * @date: 2024-07-10
+ * @description: 
+ */
+
+/// 图片类型
 enum ImageType { asset, network, file }
 
 /// 图片组件

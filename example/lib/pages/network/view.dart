@@ -24,6 +24,12 @@ class NetworkPage extends GetView<NetworkController> {
         },
       ),
       ListTile(
+        title: const Text('清除Authorization'),
+        onTap: () {
+          HttpService.to.clearAuthorization();
+        },
+      ),
+      ListTile(
         title: const Text('设置响应统一处理'),
         onTap: () {
           HttpService.to.setOnResponseHandler(
@@ -76,7 +82,7 @@ class NetworkPage extends GetView<NetworkController> {
               .then((value) {
             Loading.dismiss();
           });
-          delayed(300, () => HttpService.to.cancel(controller.cancelToken));
+          delayed(200, () => HttpService.to.cancel(controller.cancelToken));
         },
       ),
       ListTile(

@@ -22,4 +22,5 @@ const Map<String, String> en = {
   TextKey.xianShiError: 'Show Error',
   TextKey.shiYongZhuTiSe: 'Use theme color',
   TextKey.jiZaiRongQiZuJian: 'Loading container widget',
+  TextKey.qingChuTuPianHuanCun:'Clear disk cached images',
 };
