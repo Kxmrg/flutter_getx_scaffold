@@ -83,7 +83,7 @@ class NavigationX extends StatelessWidget {
       );
     }
     return BottomAppBar(
-      height: 74.h,
+      height: 70.h,
       padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
       child: widgets.toRow(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

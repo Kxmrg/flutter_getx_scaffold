@@ -1,39 +1,49 @@
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
-import 'package:lottie/lottie.dart';
 
-enum LoadingStatus {
+/**
+ * @author: Kxmrg
+ * @github: https://github.com/Kxmrg
+ * @version: 1.0.0
+ * @copyright: Copyright © 2023-2024 Kxmrg
+ * @license: MIT License
+ * @date: 2024-07-10
+ * @description: 
+ */
+
+/// 加载状态
+enum LoadStatus {
   loading,
   error,
   empty,
   complete,
 }
 
+/// 加载控制器
 class LoadController extends ChangeNotifier {
-  LoadingStatus status = LoadingStatus.loading;
+  LoadStatus status = LoadStatus.loading;
 
   void loading() {
-    status = LoadingStatus.loading;
+    status = LoadStatus.loading;
     notifyListeners();
   }
 
   void error() {
-    status = LoadingStatus.error;
+    status = LoadStatus.error;
     notifyListeners();
   }
 
   void empty() {
-    status = LoadingStatus.empty;
+    status = LoadStatus.empty;
     notifyListeners();
   }
 
   void complete() {
-    status = LoadingStatus.complete;
+    status = LoadStatus.complete;
     notifyListeners();
   }
 }
 
-class LoadingContainer extends StatefulWidget {
+class LoadContainer extends StatefulWidget {
   final LoadController controller;
   final Widget child;
   final Widget? loadingWidget;
@@ -44,7 +54,7 @@ class LoadingContainer extends StatefulWidget {
   final String? emptyMessage;
   final Function? onReLoad;
 
-  const LoadingContainer({
+  const LoadContainer({
     super.key,
     required this.controller,
     required this.child,
@@ -58,20 +68,49 @@ class LoadingContainer extends StatefulWidget {
   });
 
   @override
-  State<LoadingContainer> createState() => _LoadingContainerState();
+  State<LoadContainer> createState() => _LoadingContainerState();
 }
 
-class _LoadingContainerState extends State<LoadingContainer> {
-  LoadingStatus status = LoadingStatus.loading;
+class _LoadingContainerState extends State<LoadContainer>
+    with TickerProviderStateMixin {
+  late AnimationController _loadingAnimationController;
+  late Animation<double> _loadingAnimation;
+  late AnimationController _childAnimationController;
+  late Animation<double> _childAnimation;
 
   @override
   void initState() {
     super.initState();
-    widget.controller.addListener(() {
-      setState(() {
-        status = widget.controller.status;
-      });
+    _loadingAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+      value: widget.controller.status == LoadStatus.loading ? 1.0 : 0.0,
+    );
+    _loadingAnimation = _loadingAnimationController.view;
+    _childAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+      value: widget.controller.status == LoadStatus.loading ? 0.0 : 1.0,
+    );
+    _childAnimation = _childAnimationController.view;
+    widget.controller.addListener(_onControllerChanged);
+  }
+
+  void _onControllerChanged() {
+    setState(() {
+      _loadingAnimationController.animateTo(
+          widget.controller.status == LoadStatus.loading ? 1.0 : 0.0);
+      _childAnimationController.animateTo(
+          widget.controller.status == LoadStatus.loading ? 0.0 : 1.0);
     });
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_onControllerChanged);
+    _loadingAnimationController.dispose();
+    _childAnimationController.dispose();
+    super.dispose();
   }
 
   Widget _buildLoadingWidget() {
@@ -86,7 +125,7 @@ class _LoadingContainerState extends State<LoadingContainer> {
   Widget _buildErrorWidget() {
     return <Widget>[
       Lottie.asset(
-        'assets/lottie/network-error.json',
+        'assets/lottie/error.json',
         package: pluginPackageName,
         width: 0.6.sw,
         height: 0.6.sw,
@@ -102,7 +141,7 @@ class _LoadingContainerState extends State<LoadingContainer> {
   Widget _buildEmptyWidget() {
     return <Widget>[
       Lottie.asset(
-        'assets/lottie/empty.json',
+        'assets/lottie/error.json',
         package: pluginPackageName,
         width: 0.6.sw,
         height: 0.6.sw,
@@ -117,12 +156,9 @@ class _LoadingContainerState extends State<LoadingContainer> {
 
   @override
   Widget build(BuildContext context) {
-    Widget ws;
-    switch (status) {
-      case LoadingStatus.loading:
-        ws = widget.loadingWidget ?? _buildLoadingWidget();
-        break;
-      case LoadingStatus.error:
+    Widget? ws;
+    switch (widget.controller.status) {
+      case LoadStatus.error:
         ws = SizedBox(
           width: double.infinity,
           height: double.infinity,
@@ -133,7 +169,7 @@ class _LoadingContainerState extends State<LoadingContainer> {
           }
         });
         break;
-      case LoadingStatus.empty:
+      case LoadStatus.empty:
         ws = SizedBox(
           width: double.infinity,
           height: double.infinity,
@@ -144,10 +180,22 @@ class _LoadingContainerState extends State<LoadingContainer> {
           }
         });
         break;
-      case LoadingStatus.complete:
+      case LoadStatus.complete:
         ws = widget.child;
         break;
+      default:
+        break;
     }
-    return SafeArea(child: ws);
+    return Stack(children: [
+      if (ws != null)
+        FadeTransition(
+          opacity: _childAnimation,
+          child: ws,
+        ),
+      FadeTransition(
+        opacity: _loadingAnimation,
+        child: _buildLoadingWidget(),
+      ),
+    ]);
   }
 }

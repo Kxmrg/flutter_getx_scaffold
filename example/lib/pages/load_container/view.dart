@@ -4,8 +4,8 @@ import 'package:getx_scaffold/getx_scaffold.dart';
 
 import 'index.dart';
 
-class LoadingContainerPage extends GetView<LoadingContainerController> {
-  const LoadingContainerPage({super.key});
+class LoadContainerPage extends GetView<LoadContainerController> {
+  const LoadContainerPage({super.key});
 
   // 主视图
   Widget _buildView() {
@@ -13,25 +13,25 @@ class LoadingContainerPage extends GetView<LoadingContainerController> {
       TextX.titleLarge('Page contents'),
       ButtonX(
         'Show Load Error',
-        onPressed: () => controller.loadController.error(),
+        onPressed: () => controller.onError(),
       ).width(double.infinity).padding(top: 30.h, horizontal: 50.w),
       ButtonX(
         'Show Load Empty',
-        onPressed: () => controller.loadController.empty(),
+        onPressed: () => controller.onEmpty(),
       ).width(double.infinity).padding(top: 10.h, horizontal: 50.w),
     ].toColumn(mainAxisSize: MainAxisSize.min).center();
   }
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<LoadingContainerController>(
-      init: LoadingContainerController(),
-      id: 'loadingContainer',
+    return GetBuilder<LoadContainerController>(
+      init: LoadContainerController(),
+      id: 'loadContainer',
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: Text(TextKey.zhuTi.tr), elevation: 1),
           body: SafeArea(
-            child: LoadingContainer(
+            child: LoadContainer(
               controller: controller.loadController,
               onReLoad: controller.onLoad,
               child: _buildView(),

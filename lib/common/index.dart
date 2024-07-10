@@ -16,6 +16,8 @@ export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:device_info_plus/device_info_plus.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:flutter/widgets.dart';
+export 'package:lottie/lottie.dart';
+export 'package:flutter_spinkit/flutter_spinkit.dart';
 
 export './extensions/index.dart';
 export './widgets/index.dart';

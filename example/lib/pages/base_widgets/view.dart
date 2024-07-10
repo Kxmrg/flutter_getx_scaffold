@@ -123,6 +123,12 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           size: 40.sp,
         ).backgroundColor(Colors.orange).clipRRect(all: 8.r),
       ].toWrap(spacing: 10.w).padding(top: 10.w),
+      //lottie
+      Lottie.asset(
+        'assets/lottie/error.json',
+        package: pluginPackageName,
+        width: 0.7.sw,
+      ).padding(top: 10.w),
       //image
       ImageX.url(
         'https://i0.hdslb.com/bfs/archive/ac72ae36271a6970f92b1de485e6ae6c9e4c1ebb.jpg',
