@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/services.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -243,4 +244,92 @@ Future<String?> getDeviceSystemVersion() async {
     return data['systemVersion'];
   }
   return null;
+}
+
+/// 隐藏输入法
+void hideKeyboard() => FocusScope.of(Get.context!).requestFocus(FocusNode());
+
+/// Change status bar Color and Brightness
+Future<void> setStatusBarColor(
+  Color statusBarColor, {
+  Color? systemNavigationBarColor,
+  Brightness? statusBarBrightness,
+  Brightness? statusBarIconBrightness,
+  int delayInMilliSeconds = 200,
+}) async {
+  await Future.delayed(Duration(milliseconds: delayInMilliSeconds));
+
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: statusBarColor,
+      systemNavigationBarColor: systemNavigationBarColor,
+      statusBarBrightness: statusBarBrightness,
+      statusBarIconBrightness: statusBarIconBrightness ??
+          (statusBarColor.isDark() ? Brightness.light : Brightness.dark),
+    ),
+  );
+}
+
+/// Dark Status Bar
+void setDarkStatusBar() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.black,
+    systemNavigationBarIconBrightness: Brightness.light,
+    statusBarColor: Colors.transparent,
+    statusBarBrightness: Brightness.light,
+    statusBarIconBrightness: Brightness.dark,
+  ));
+}
+
+/// Light Status Bar
+void setLightStatusBar() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.white,
+    systemNavigationBarIconBrightness: Brightness.dark,
+    statusBarColor: Colors.transparent,
+    statusBarBrightness: Brightness.dark,
+    statusBarIconBrightness: Brightness.light,
+  ));
+}
+
+/// This function will show status bar
+Future<void> showStatusBar() async {
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: SystemUiOverlay.values,
+  );
+}
+
+// Enter FullScreen Mode (Hides Status Bar and Navigation Bar)
+void enterFullScreen() {
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+}
+
+// Unset Full Screen to normal state (Now Status Bar and Navigation Bar Are Visible)
+void exitFullScreen() {
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: SystemUiOverlay.values,
+  );
+}
+
+/// This function will hide status bar
+Future<void> hideStatusBar() async {
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+}
+
+/// Set orientation to portrait
+void setOrientationPortrait() {
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
+}
+
+/// Set orientation to landscape
+void setOrientationLandscape() {
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeRight,
+    DeviceOrientation.landscapeLeft,
+  ]);
 }

@@ -70,6 +70,11 @@ mixin BaseControllerMixin on GetxController {
     super.onClose();
   }
 
+  /// 返回
+  void back() {
+    Get.back();
+  }
+
   /// 延时退出
   void delayedBack({int seconds = 2, result}) {
     Future.delayed(Duration(seconds: seconds), () {
