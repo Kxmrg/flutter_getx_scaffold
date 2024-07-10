@@ -180,4 +180,12 @@ extension ExNum on num? {
     }
     return NumUtil.divideDec(this!, value).toDouble();
   }
+
+  /// 间距
+  Widget spacing() {
+    if (this == null) {
+      return const SizedBox();
+    }
+    return SizedBox(width: this!.toDouble());
+  }
 }

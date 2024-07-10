@@ -83,13 +83,13 @@ class _LoadingContainerState extends State<LoadContainer>
     super.initState();
     _loadingAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 300),
       value: widget.controller.status == LoadStatus.loading ? 1.0 : 0.0,
     );
     _loadingAnimation = _loadingAnimationController.view;
     _childAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 1500),
       value: widget.controller.status == LoadStatus.loading ? 0.0 : 1.0,
     );
     _childAnimation = _childAnimationController.view;
@@ -115,9 +115,9 @@ class _LoadingContainerState extends State<LoadContainer>
 
   Widget _buildLoadingWidget() {
     return Center(
-      child: SpinKitFoldingCube(
+      child: SpinKitRipple(
         color: ThemeColor.primaryContainer,
-        size: 22.sp,
+        size: 60.sp,
       ).padding(bottom: 50.h),
     );
   }

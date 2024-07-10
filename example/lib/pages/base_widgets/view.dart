@@ -98,6 +98,7 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
         ),
       ].toWrap(spacing: 10.w).padding(top: 10.w),
       //Icon
+      //Antd图标库：https://www.iconfont.cn/collections/detail?spm=a313x.collections_index.i1.d9df05512.40943a815QJHPE&cid=9402
       <Widget>[
         IconX.icon(
           AntdIcon.project,
@@ -123,7 +124,31 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           size: 40.sp,
         ).backgroundColor(Colors.orange).clipRRect(all: 8.r),
       ].toWrap(spacing: 10.w).padding(top: 10.w),
+      //SpinKit
+      //https://pub-web.flutter-io.cn/packages/flutter_spinkit
+      <Widget>[
+        SpinKitFoldingCube(
+          color: ThemeColor.primaryContainer,
+          size: 22.sp,
+        ).padding(all: 10.w),
+        20.w.spacing(),
+        SpinKitDoubleBounce(
+          color: ThemeColor.primaryContainer,
+          size: 30.sp,
+        ).padding(all: 10.w),
+        20.w.spacing(),
+        SpinKitFadingCircle(
+          color: ThemeColor.primaryContainer,
+          size: 30.sp,
+        ).padding(all: 10.w),
+        20.w.spacing(),
+        SpinKitRipple(
+          color: ThemeColor.primaryContainer,
+          size: 30.sp,
+        ).padding(all: 10.w),
+      ].toRow().padding(top: 20.w),
       //lottie
+      //https://pub-web.flutter-io.cn/packages/lottie
       Lottie.asset(
         'assets/lottie/error.json',
         package: pluginPackageName,
