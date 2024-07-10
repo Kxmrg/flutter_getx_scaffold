@@ -135,39 +135,42 @@ class HttpService extends GetxService {
       cancelToken: cancelToken,
     );
   }
-}
 
-String? _authorization;
+  String? _authorization;
 
-/// 设置授权(Token) 默认在开头添加Bearer
-/// [authorization] 授权Token
-void setAuthorization(String authorization, {bool addBearer = true}) {
-  if (addBearer) {
-    _authorization = 'Bearer $authorization';
-  } else {
-    _authorization = authorization;
+  String? get authorization => _authorization;
+
+  /// 设置授权(Token) 默认在开头添加Bearer
+  /// [authorization] 授权Token
+  void setAuthorization(String authorization, {bool addBearer = true}) {
+    if (addBearer) {
+      _authorization = 'Bearer $authorization';
+    } else {
+      _authorization = authorization;
+    }
   }
-}
 
-/// 清除授权
-void clearAuthorization() {
-  _authorization = null;
-}
+  /// 清除授权
+  void clearAuthorization() {
+    _authorization = null;
+  }
 
-OnResponseHandler? onResponseHandler;
+  OnResponseHandler? onResponseHandler;
 
-/// 设置响应拦截器
-void setOnResponseHandler(OnResponseHandler? handler) {
-  onResponseHandler = handler;
+  /// 设置响应拦截器
+  void setOnResponseHandler(OnResponseHandler? handler) {
+    onResponseHandler = handler;
+  }
 }
 
 /// 拦截器
 class DioInterceptors extends Interceptor {
   @override
   void onRequest(options, handler) {
-    if (_authorization.isNotEmptyOrNull) {
+    String? authorization = HttpService.to.authorization;
+    if (authorization.isNotEmptyOrNull) {
       if (!options.headers.containsKey('Authorization')) {
-        options.headers.addAll({'Authorization': _authorization});
+        options.headers.addAll({'Authorization': authorization});
       }
     }
     handler.next(options);
@@ -175,8 +178,9 @@ class DioInterceptors extends Interceptor {
 
   @override
   void onResponse(response, handler) async {
+    OnResponseHandler? onResponseHandler = HttpService.to.onResponseHandler;
     if (onResponseHandler != null) {
-      String? msg = await onResponseHandler!(response);
+      String? msg = await onResponseHandler(response);
       if (msg != null) {
         handler.reject(
           DioException(

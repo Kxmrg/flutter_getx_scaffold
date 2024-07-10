@@ -1,5 +1,6 @@
 import 'package:example/pages/base_widgets/index.dart';
 import 'package:example/pages/load_container/index.dart';
+import 'package:example/pages/network/index.dart';
 import 'package:example/pages/theme_color/index.dart';
 import 'package:flutter/material.dart';
 import 'package:example/common/langs/index.dart';
@@ -51,7 +52,9 @@ class HomePage extends GetView<HomeController> {
       ),
       ListTile(
         title: Text(TextKey.wangLuoQingQiu.tr),
-        onTap: () {},
+        onTap: () {
+          Get.to(() => const NetworkPage());
+        },
       ),
       ListTile(
         title: Text(TextKey.huoQuDangQianShiJianChuo.tr),

@@ -1,7 +1,6 @@
 import 'package:getx_scaffold/getx_scaffold.dart';
 
-class LoadContainerController extends GetxController
-    with BaseControllerMixin {
+class LoadContainerController extends GetxController with BaseControllerMixin {
   @override
   String get builderId => 'loadContainer';
 
