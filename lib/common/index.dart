@@ -18,6 +18,8 @@ export 'package:url_launcher/url_launcher.dart';
 export 'package:flutter/widgets.dart';
 export 'package:lottie/lottie.dart';
 export 'package:flutter_spinkit/flutter_spinkit.dart';
+export 'package:dio/dio.dart';
+
 
 export './extensions/index.dart';
 export './widgets/index.dart';

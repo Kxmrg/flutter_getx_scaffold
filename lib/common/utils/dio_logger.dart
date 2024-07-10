@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:dio/dio.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 class PrettyDioLogger extends Interceptor {

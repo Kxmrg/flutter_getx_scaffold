@@ -32,7 +32,7 @@ class LoadContainerPage extends GetView<LoadContainerController> {
           appBar: AppBar(title: Text(TextKey.zhuTi.tr), elevation: 1),
           body: SafeArea(
             child: LoadContainer(
-              controller: controller.loadController,
+              controller: controller.loadController!,
               onReLoad: controller.onLoad,
               child: _buildView(),
             ),

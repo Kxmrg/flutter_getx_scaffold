@@ -44,16 +44,45 @@ class NetworkPage extends GetView<NetworkController> {
         },
       ),
       ListTile(
+        title: const Text('取消统一处理'),
+        onTap: () {
+          HttpService.to.setOnResponseHandler(null);
+        },
+      ),
+      ListTile(
         title: const Text('请求接口'),
         onTap: () async {
           Loading.show();
-          var response =
-              await HttpService.to.get('/api/wallpaper/acg?type=json');
+          var response = await HttpService.to.get(
+            '/api/wallpaper/acg?type=json',
+          );
           if (response != null) {
             Loading.dismiss();
             var result = BaseModel.fromJson(response.data);
             showToast(result.url ?? '');
           }
+        },
+      ),
+      ListTile(
+        title: const Text('取消网络请求'),
+        onTap: () async {
+          Loading.show();
+          controller.cancelToken = CancelToken();
+          HttpService.to
+              .get(
+            '/api/wallpaper/acg?type=json',
+            cancelToken: controller.cancelToken,
+          )
+              .then((value) {
+            Loading.dismiss();
+          });
+          delayed(300, () => HttpService.to.cancel(controller.cancelToken));
+        },
+      ),
+      ListTile(
+        title: const Text('取消全部网络请求'),
+        onTap: () async {
+          HttpService.to.cancel();
         },
       ),
     ].toListView(

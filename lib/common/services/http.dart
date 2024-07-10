@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 /**
@@ -62,7 +61,7 @@ class HttpService extends GetxService {
   }
 
   /// 取消网络请求
-  void cancel(CancelToken? token) {
+  void cancel([CancelToken? token]) {
     if (token != null) {
       token.cancel('cancel');
     } else {
@@ -155,12 +154,15 @@ class HttpService extends GetxService {
     _authorization = null;
   }
 
-  OnResponseHandler? onResponseHandler;
+  OnResponseHandler? _onResponseHandler;
+
+  OnResponseHandler? get onResponseHandler => _onResponseHandler;
 
   /// 设置响应拦截器
   void setOnResponseHandler(OnResponseHandler? handler) {
-    onResponseHandler = handler;
+    _onResponseHandler = handler;
   }
+
 }
 
 /// 拦截器

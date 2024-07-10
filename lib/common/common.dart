@@ -128,8 +128,8 @@ void dismissLoading() {
 }
 
 /// 延时执行
-void delayed(int duration, Function() callback) {
-  Future.delayed(Duration(milliseconds: duration), callback);
+void delayed(int milliseconds, Function() callback) {
+  Future.delayed(Duration(milliseconds: milliseconds), callback);
 }
 
 /// 返回全局事件总线

@@ -4,7 +4,7 @@ class LoadContainerController extends GetxController with BaseControllerMixin {
   @override
   String get builderId => 'loadContainer';
 
-  LoadController loadController = LoadController();
+  LoadController? loadController = LoadController();
 
   @override
   void onInit() {
@@ -14,22 +14,23 @@ class LoadContainerController extends GetxController with BaseControllerMixin {
 
   @override
   void onClose() {
-    loadController.dispose();
     super.onClose();
+    loadController?.dispose();
+    loadController = null;
   }
 
   void onLoad() {
-    loadController.loading();
-    delayed(3000, () => loadController.complete());
+    loadController?.loading();
+    delayed(3000, () => loadController?.complete());
   }
 
   void onEmpty() {
-    loadController.loading();
-    delayed(3000, () => loadController.empty());
+    loadController?.loading();
+    delayed(3000, () => loadController?.empty());
   }
 
   void onError() {
-    loadController.loading();
-    delayed(3000, () => loadController.error());
+    loadController?.loading();
+    delayed(3000, () => loadController?.error());
   }
 }
