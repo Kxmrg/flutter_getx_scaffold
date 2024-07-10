@@ -162,7 +162,7 @@ extension ExWidgetList<E> on List<Widget> {
         restorationId: restorationId,
         clipBehavior: clipBehavior,
         children: separator != null && length > 0
-            ? (expand((child) => [child, separator]).toList()..removeLast())
+            ? (expand((child) => [child, separator]).toList())
             : this,
       );
 

@@ -1,4 +1,5 @@
 import 'package:example/pages/base_widgets/index.dart';
+import 'package:example/pages/dialog/index.dart';
 import 'package:example/pages/load_container/index.dart';
 import 'package:example/pages/network/index.dart';
 import 'package:example/pages/theme_color/index.dart';
@@ -48,7 +49,9 @@ class HomePage extends GetView<HomeController> {
       ),
       ListTile(
         title: Text(TextKey.duiHuaKuang.tr),
-        onTap: () {},
+        onTap: () {
+          Get.to(() => const DialogPage());
+        },
       ),
       ListTile(
         title: Text(TextKey.wangLuoQingQiu.tr),

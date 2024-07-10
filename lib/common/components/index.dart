@@ -13,3 +13,4 @@ library components;
 export './brn_toast.dart';
 export './loading.dart';
 export './getx_app.dart';
+export './dialog_x.dart';

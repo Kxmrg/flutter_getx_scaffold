@@ -14,6 +14,12 @@ class AppTheme {
       brightness: Brightness.light,
     ),
     fontFamily: fontMontserrat,
+    cardTheme: CardTheme(
+      surfaceTintColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(6),
+      ),
+    ),
   );
 
   /// 暗色主题样式
@@ -23,5 +29,10 @@ class AppTheme {
       brightness: Brightness.dark,
     ),
     fontFamily: fontMontserrat,
+    cardTheme: CardTheme(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(6),
+      ),
+    ),
   );
 }
