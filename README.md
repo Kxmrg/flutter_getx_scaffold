@@ -136,6 +136,7 @@ class AppTheme {
 ThemeColor.onPrimary
 ThemeColor.onSecondary
 ThemeColor.onSurface
+......
 ```
 
 #### 4. 国际化
@@ -185,3 +186,132 @@ fallbackLocale: TranslationLibrary.fallbackLocale,
 supportedLocales: TranslationLibrary.supportedLocales,
 localizationsDelegates: TranslationLibrary.localizationsDelegates,
 ```
+
+#### 5. 添加页面
+
+GetXScaffold 的所有页面使用 GetView 加 GetxController 试图与逻辑分离的开发方式。这里注意，所有 GetxController 必须混入 BaseControllerMixin，以相应全局刷新。
+
+##### HomePage.dart
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:example/common/langs/index.dart';
+import 'package:getx_scaffold/getx_scaffold.dart';
+
+import 'index.dart';
+
+class HomePage extends GetView<HomeController> {
+  const HomePage({super.key});
+
+  // 主视图
+  Widget _buildView() {
+    return <Widget>[
+      ListTile(
+        title: Text(TextKey.zhuTi.tr),
+        onTap: () {
+          Get.to(() => const ThemePage());
+        },
+      ),
+      ListTile(
+        title: Text(TextKey.yuYan.tr),
+        onTap: () {
+          Get.to(() => const LanguagePage());
+        },
+      ),
+    ]
+        .toListView(
+          separator: const DividerX(),
+        )
+        .scrollbar()
+        .safeArea();
+  }
+
+  Widget _buildFloatingActionButton() {
+    return FloatingActionButton(
+      onPressed: () {},
+      child: const Icon(Icons.info),
+    ).padding(all: 20.w);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<HomeController>(
+      init: HomeController(),
+      //这里的id需要与HomeController中的builderId一致
+      id: 'home',
+      builder: (_) {
+        //双击退出
+        return DoublePressBackWidget(
+          child: Scaffold(
+            appBar: AppBar(
+              title: const Text("GetxScaffold"),
+              centerTitle: true,
+              elevation: 1,
+            ),
+            floatingActionButton: _buildFloatingActionButton(),
+            body: _buildView(),
+          ),
+        );
+      },
+    );
+  }
+}
+
+```
+
+##### HomeController.dart
+
+```dart
+import 'package:getx_scaffold/getx_scaffold.dart';
+
+class HomeController extends GetxController with BaseControllerMixin {
+  @override
+  String get builderId => 'home';
+
+  HomeController();
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    //刷新ui
+    updateUi();
+    //返回
+    back();
+    //延时退出
+    delayedBack();
+  }
+
+  /// 是否监听生命周期事件
+  @override
+  bool get listenLifecycleEvent => true;
+
+  /// listenLifecycleEvent设置为true时，会调用以下生命周期方法
+  @override
+  void onDetached() {
+    log('onDetached');
+  }
+
+  @override
+  void onHidden() {
+    log('onHidden');
+  }
+
+  @override
+  void onInactive() {
+    log('onInactive');
+  }
+
+  @override
+  void onPaused() {
+    log('onPaused');
+  }
+
+  @override
+  void onResumed() {
+    log('onResumed');
+  }
+}
+
+```
+

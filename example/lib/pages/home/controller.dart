@@ -5,9 +5,6 @@ class HomeController extends GetxController with BaseControllerMixin {
   @override
   String get builderId => 'home';
 
-  @override
-  bool get listenLifecycleEvent => true;
-
   HomeController();
 
   @override
@@ -16,6 +13,11 @@ class HomeController extends GetxController with BaseControllerMixin {
     FlutterNativeSplash.remove();
   }
 
+  /// 是否监听生命周期事件
+  @override
+  bool get listenLifecycleEvent => true;
+
+  /// listenLifecycleEvent设置为true时，会调用以下生命周期方法
   @override
   void onDetached() {
     log('onDetached');
