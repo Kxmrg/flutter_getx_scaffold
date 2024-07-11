@@ -1,8 +1,8 @@
-import 'package:example/common/langs/locales/locale_es.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 import 'locales/locale_en.dart';
+import 'locales/locale_es.dart';
 import 'locales/locale_zh.dart';
 
 class TranslationLibrary extends Translations {
