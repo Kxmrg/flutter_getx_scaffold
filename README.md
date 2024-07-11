@@ -315,3 +315,154 @@ class HomeController extends GetxController with BaseControllerMixin {
 
 ```
 
+## 全局方法
+
+```dart
+/// 获取当前时间戳(Millisecond)
+int getTimeStamp({bool isSecond = false})
+
+/// 获取当前时间戳(Second)
+int getTimeStampSecond()
+
+/// 获取当前日期字符串
+String getNowDateString()
+
+/// 获取当前日期时间字符串
+String getNowDateTimeString()
+
+/// 获取当前时间字符串
+String getNowTimeString()
+
+/// 判断设备是否连接网络
+Future<bool> isNetworkAvailable()
+
+/// 判断设备是否连接移动网络
+Future<bool> isConnectedToMobile()
+
+/// 判断设备是否连接WiFi
+Future<bool> isConnectedToWiFi()
+
+/// 显示Toast
+void showToast(String msg)
+
+/// 显示成功Toast
+void showSuccessToast(String msg)
+
+/// 显示提示Toast
+void showInfoToast(String msg)
+
+/// 显示警告Toast
+void showWarningToast(String msg)
+
+/// 显示错误Toast
+void showErrorToast(String msg)
+
+/// 显示loading
+void showLoading([String? msg])
+
+/// 显示错误
+void showError([String? msg])
+
+/// 显示提示
+void showInfo(String msg)
+
+/// 隐藏loading
+void dismissLoading()
+
+/// 延时执行
+void delayed(int milliseconds, Function() callback)
+
+/// 监听事件总线
+StreamSubscription<T> eventListen<T>(
+  void Function(T)? onData, {
+  Function? onError,
+  void Function()? onDone,
+  bool? cancelOnError,
+})
+
+/// 发送事件总线
+sendEvent<T>(T event)
+
+/// 刷新App所有页面
+void refreshAppui()
+
+/// 统一Log输出
+void log(String log, [String? tag])
+
+/// 切换主题模式
+void changeThemeMode(ThemeMode themeMode)
+
+/// 更改语言
+void changeLanguage(Locale locale)
+
+/// 打开网页
+void openWebPage(String url, {LaunchMode mode = LaunchMode.platformDefault})
+
+/// 拨打电话
+void callPhone(String phoneNumber)
+
+/**
+ * 需要在App启动后调用
+ */
+
+/// 获取包信息
+Future<PackageInfo> getPackageInfo()
+
+/// 获取AppName
+Future<String> getAppName()
+
+/// 获取PackageName
+Future<String> getPackageName()
+
+/// 获取Version
+Future<String> getVersion()
+
+/// 获取BuildNumber
+Future<String> getBuildNumber()
+
+/// 获取设备信息
+Future<BaseDeviceInfo> getDeviceInfo()
+
+// 获取设备名称
+Future<String?> getDeviceName()
+
+// 获取系统版本
+Future<String?> getDeviceSystemVersion()
+
+/// 隐藏输入法
+void hideKeyboard()
+
+/// Change status bar Color and Brightness
+Future<void> setStatusBarColor(
+  Color statusBarColor, {
+  Color? systemNavigationBarColor,
+  Brightness? statusBarBrightness,
+  Brightness? statusBarIconBrightness,
+  int delayInMilliSeconds = 200,
+})
+
+/// Dark Status Bar
+void setDarkStatusBar()
+
+/// Light Status Bar
+void setLightStatusBar()
+
+/// This function will show status bar
+Future<void> showStatusBar()
+
+// Enter FullScreen Mode (Hides Status Bar and Navigation Bar)
+void enterFullScreen()
+
+// Unset Full Screen to normal state (Now Status Bar and Navigation Bar Are Visible)
+void exitFullScreen()
+
+/// This function will hide status bar
+Future<void> hideStatusBar()
+
+/// Set orientation to portrait
+void setOrientationPortrait()
+
+/// Set orientation to landscape
+void setOrientationLandscape()
+
+```
