@@ -13,27 +13,104 @@ class DialogPage extends GetView<DialogController> {
       ListTile(
         title: const Text('确认对话框'),
         onTap: () {
-          DialogX.instance.showConfirmDialog(
+          DialogX.to.showConfirmDialog(
             title: '提示',
             messgae: '你确定要删除该条记录吗？',
+            onConfirm: () {
+              showSuccessToast('Confirm');
+            },
+            onCancel: () {
+              showErrorToast('Cancel');
+            },
+          );
+        },
+      ),
+      ListTile(
+        title: const Text('自定义对话框组件'),
+        onTap: () {
+          DialogX.to.showConfirmDialog(
+            icon: DialogIcon.warn,
+            content: _buildDialogContent(),
+            confirmText: '同意',
+            cancelText: '拒绝',
           );
         },
       ),
       ListTile(
         title: const Text('通用提示对话框'),
-        onTap: () {},
+        onTap: () {
+          DialogX.to.showNoticeDialog(
+            icon: DialogIcon.info,
+            messgae: '这是一条系统公告，请关注。',
+            confirmText: '关闭',
+          );
+        },
       ),
       ListTile(
         title: const Text('强提示警告对话框'),
-        onTap: () {},
+        onTap: () {
+          DialogX.to.showPromptDialog(
+            title: '强提醒标题',
+            messgae: '强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容。',
+            confirmText: '主要操作按钮',
+            cancelText: '次要操作按钮',
+          );
+        },
       ),
       ListTile(
         title: const Text('菜单对话框'),
-        onTap: () {},
+        onTap: () {
+          DialogX.to.showMenuDialog(title: 'MENU DIALOG', menus: [
+            DialogMenuItem(
+                title: 'Home',
+                icon: AntdIcon.home,
+                onTap: () {
+                  showToast('click');
+                }),
+            DialogMenuItem(
+                title: 'Camera',
+                icon: AntdIcon.camera,
+                onTap: () {
+                  showToast('click');
+                }),
+            DialogMenuItem(
+                title: 'Item',
+                subTitle: 'username: admin',
+                onTap: () {
+                  showToast('click');
+                }),
+            DialogMenuItem(
+                title: 'item',
+                onTap: () {
+                  showToast('click');
+                }),
+            DialogMenuItem(
+                title: 'item',
+                onTap: () {
+                  showToast('click');
+                }),
+          ]);
+        },
       ),
     ].toListView(
       separator: const DividerX(),
     );
+  }
+
+  Widget _buildDialogContent() {
+    return RichTextX(children: [
+      TextSpanItem('请阅读并同意'),
+      TextSpanItem(
+        '《隐私协议》',
+        onTap: () => openWebPage('https://baidu.com'),
+      ),
+      TextSpanItem('和'),
+      TextSpanItem(
+        '《用户政策》',
+        onTap: () => openWebPage('https://baidu.com'),
+      ),
+      TextSpanItem('，我们将在协议框架内为您提供更优质的服务。'),
+    ]);
   }
 
   @override

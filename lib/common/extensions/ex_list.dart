@@ -87,7 +87,7 @@ extension ExWidgetList<E> on List<Widget> {
         verticalDirection: verticalDirection,
         textBaseline: textBaseline,
         children: separator != null && length > 0
-            ? (expand((child) => [child, separator]).toList()..removeLast())
+            ? (expand((child) => [child, separator]).toList())
             : this,
       );
 
@@ -111,7 +111,7 @@ extension ExWidgetList<E> on List<Widget> {
         verticalDirection: verticalDirection,
         textBaseline: textBaseline,
         children: separator != null && length > 0
-            ? (expand((child) => [child, separator]).toList()..removeLast())
+            ? (expand((child) => [child, separator]).toList())
             : this,
       );
 

@@ -17,8 +17,8 @@ class DividerX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Divider(
-      height: 0.7,
-      thickness: 0.7,
+      height: 0.6,
+      thickness: 0.6,
     );
   }
 }

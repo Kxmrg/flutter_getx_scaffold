@@ -135,6 +135,10 @@ class IconX extends StatelessWidget {
             height: height ?? size ?? _defaultSize,
             fit: fit ?? BoxFit.contain,
             package: package,
+            colorFilter: color != null
+                ? ColorFilter.mode(color!, BlendMode.srcIn)
+                : null,
+            allowDrawingOutsideViewBox: true,
           );
         }
         break;
