@@ -7,6 +7,8 @@
 ![Flutter](https://img.shields.io/badge/Flutter-3.19.5-blue?logo=Flutter)
 ![Get](https://img.shields.io/badge/Get-4.6.6-orange)
 ![Dio](https://img.shields.io/badge/Dio-5.4.3+1-green)
+![MIT](https://img.shields.io/badge/License-MIT-red)
+<a href="https://github.com/Kxmrg/flutter_getx_scaffold">![Stars](https://img.shields.io/github/stars/Kxmrg/flutter_getx_scaffold?style=social)</a>
 
 </div>
 
