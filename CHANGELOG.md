@@ -1,3 +1,11 @@
 ## 0.0.1
 
-* Initial release
+- Initial release
+
+## 0.0.2
+
+- Modify README.md
+
+## 0.0.3
+
+- Modify README.md
