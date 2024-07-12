@@ -16,7 +16,7 @@
 
 简体中文 | [English](./README.en-US.md)
 
-<img src="./img.png" />
+![](https://raw.githubusercontent.com/Kxmrg/flutter_getx_scaffold/master/img.png)
 
 </div>
 
