@@ -157,9 +157,35 @@ class HomePage extends GetView<HomeController> {
 
   Widget _buildFloatingActionButton() {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        DialogX.to.showNoticeDialog(
+          title: '关于 Getx Scaffold',
+          content: _buildDialogContent(),
+          confirmText: '关闭',
+        );
+      },
       child: const Icon(Icons.info),
     ).padding(all: 20.w);
+  }
+
+  Widget _buildDialogContent() {
+    return RichTextX(children: [
+      TextSpanItem('GetXScaffold',
+          onTap: () =>
+              openWebPage('https://github.com/Kxmrg/flutter_getx_scaffold')),
+      TextSpanItem('快速开发脚手架在'),
+      TextSpanItem('GetX',
+          onTap: () => openWebPage('https://github.com/jonataslaw/getx')),
+      TextSpanItem(
+          '框架和一些常用插件的基础上，构建了一套完整的快速开发模板。其中包括新增了部分常用功能的全局方法、常用的扩展方法和各种工具类、部分常用组件的封装、简单易用的对话框、二次封装的'),
+      TextSpanItem('Dio',
+          onTap: () => openWebPage('https://github.com/cfug/dio')),
+      TextSpanItem(
+          '网络请求工具、二次封装的GetxController、二次封装的应用主题和国际化实现等。GetXScaffold是对以上这些内容的'),
+      TextSpanItem('过度封装', textColor: ThemeColor.error),
+      TextSpanItem(
+          '，包括一些组件的扩展方法会违背Flutter本身的开发规范，改变你的开发习惯。所以本脚手架单纯为了提高开发效率，减少重复代码，减少开发成本。如果您是刚接触 Flutter 开发并还处在学习过程中的话，并不推荐您使用该脚手架。建议您通过本示例项目或者源码了解全部使用方法。'),
+    ]);
   }
 
   @override

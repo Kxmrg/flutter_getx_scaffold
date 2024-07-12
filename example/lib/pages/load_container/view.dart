@@ -29,7 +29,8 @@ class LoadContainerPage extends GetView<LoadContainerController> {
       id: 'loadContainer',
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: Text(TextKey.zhuTi.tr), elevation: 1),
+          appBar:
+              AppBar(title: Text(TextKey.jiZaiRongQiZuJian.tr), elevation: 1),
           body: SafeArea(
             child: LoadContainer(
               controller: controller.loadController!,
