@@ -1,6 +1,6 @@
 name: getx_scaffold
 description: "Rapid development of scaffolding based on getx"
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Kxmrg
 repository: https://github.com/Kxmrg/flutter_getx_scaffold
 issue_tracker: https://github.com/Kxmrg/flutter_getx_scaffold/issues
