@@ -466,3 +466,369 @@ void setOrientationPortrait()
 void setOrientationLandscape()
 
 ```
+
+## 扩展方法
+#### String?扩展：
+```dart
+/// 是否为空或null
+bool get isEmptyOrNull => _isEmptyOrNull();
+
+/// 是否不为空或null
+bool get isNotEmptyOrNull => !_isEmptyOrNull();
+
+/// 格式化时间字符串
+String? dateFormat(String pattern) 
+
+/// 格式化时间字符串为日期
+String? toDateString() 
+
+/// 格式化时间字符串为日期时间
+String? toDateTimeString() 
+
+/// 格式化时间字符串为时间
+String? toTimeString() 
+
+/// 获取DateTime对象
+DateTime? getDateTime({bool? isUtc}) 
+
+/// MD5加密
+String? md5() 
+
+/// Base64编码
+String? encodeBase64() 
+
+/// Base64解码
+String? decodeBase64() 
+
+//转为金额字符串
+String? toPrice(
+int amount, {
+MoneyFormats format = MoneyFormats.NORMAL,
+MoneyUnit unit = MoneyUnit.NORMAL,
+}) 
+
+/// 转为int类型
+int? toInt({int defValue = 0}) 
+
+/// 转为double类型
+double? toDouble({double defValue = 0}) 
+
+/// 转为num类型
+num? toNumber({num defValue = 0}) 
+
+/// 判断是否为手机号(简易验证)
+bool isMobileSimple() 
+
+/// 判断是否为手机号(严格验证)
+bool isMobileExact() 
+
+/// 判断是否为座机号码
+bool isTel()
+
+/// 判断是否为身份证号码
+bool isIDCard18() 
+
+/// 判断是否成年
+bool isAdult()
+
+/// 判断是否为Email
+bool isEmail()
+
+/// 判断是否为Url
+bool isURL()
+
+/// 判断是否为IP
+bool isIP() 
+
+```
+#### num?扩展：
+```dart
+/// 根据格式将时间戳(Milliseconds)格式化日期
+String? dateFormat(String pattern, {bool isSecond = false})
+
+/// 将时间戳(Milliseconds)格式化日期
+String? toDateString({bool isSecond = false})
+
+/// 将时间戳(Milliseconds)格式化日期时间
+String? toDateTimeString({bool isSecond = false})
+
+/// 将时间戳(Milliseconds)格式化时间
+String? toTimeString({bool isSecond = false})
+
+/// 将字节转为容量单位
+String? toFileSize({int decimals = 0})
+
+/// 时间戳(Milliseconds)距离当前的时间
+String? getTimeDifference({bool isShowDay = true, bool isSecond = false}) 
+
+/// 时间戳(Milliseconds)距离当前的时间描述
+String? getTimeDifferenceDescription({bool isSecond = false})
+
+/// 转为金额字符串
+String? toPrice(
+int amount, {
+MoneyFormats format = MoneyFormats.NORMAL,
+MoneyUnit unit = MoneyUnit.NORMAL,
+}) 
+
+/// 加 (精确相加,防止精度丢失).
+/// add (without loosing precision).
+double? add(num value) 
+
+/// 减 (精确相减,防止精度丢失).
+/// subtract (without loosing precision).
+double? subtract(num value) 
+
+/// 乘 (精确相乘,防止精度丢失).
+/// multiply (without loosing precision).
+double? multiply(num value) 
+
+/// 除 (精确相除,防止精度丢失).
+/// divide (without loosing precision).
+double? divide(num value) 
+
+/// 间距
+Widget spacing()
+
+```
+
+#### List<Widget>扩展
+```dart
+/// 转 Wrap
+Widget toWrap();
+
+/// 转 Column
+Widget toColumn();
+
+/// 转 Row
+Widget toRow({);
+
+/// 转 ListView
+Widget toListView()
+
+// 转 Stack
+Widget toStack();
+
+// 使用示例：
+Widget _buildView() {
+    return <Widget>[
+        ListTile(
+        title: Text(TextKey.genSuiXiTong.tr),
+        trailing: GlobalService.to.themeMode == ThemeMode.system
+            ? const Icon(Icons.check)
+            : null,
+        onTap: () {
+            changeThemeMode(ThemeMode.system);
+        },
+        ),
+        ListTile(
+        title: Text(TextKey.liangSeZhuTi.tr),
+        trailing: GlobalService.to.themeMode == ThemeMode.light
+            ? const Icon(Icons.check)
+            : null,
+        onTap: () {
+            changeThemeMode(ThemeMode.light);
+        },
+        ),
+        ListTile(
+        title: Text(TextKey.anSeZhuTi.tr),
+        trailing: GlobalService.to.themeMode == ThemeMode.dark
+            ? const Icon(Icons.check)
+            : null,
+        onTap: () {
+            changeThemeMode(ThemeMode.dark);
+        },
+        ),
+    ].toListView(
+        separator: const DividerX(),
+    );
+}
+
+```
+
+#### Widget扩展：
+```dart
+/// 控制组件隐藏显示
+Widget visibility();
+
+/// 比例布局
+Widget aspectRatio();
+
+/// 卡片布局
+Widget card();
+
+/// 居中布局
+Widget center();
+
+/// 裁剪圆形
+Widget clipOval();
+
+/// 裁剪矩形
+Widget clipRect();
+
+/// 裁剪圆角
+Widget clipRRect();
+
+/// 阴影
+Widget elevation();
+
+/// expand 
+Widget expand();
+
+/// 缩放布局
+Widget fittedBox();
+
+/// 弹性布局
+Widget flexible();
+
+/// 百分比布局
+Widget fractionallySizedBox();
+
+/// 限制盒子 最大宽高
+Widget limitedBox();
+
+/// 偏移
+Widget offstage();
+
+/// 透明度
+Widget opacity();
+
+/// 溢出
+Widget overflow();
+
+/// Stack布局 位置
+Widget positioned();
+
+/// 墨水纹
+Widget inkWell();
+
+/// 涟漪
+Widget ripple();
+
+/// 比例缩放
+Widget scale();
+
+/// 滚动视图
+Widget scrollable();
+
+/// 滚动条
+Widget scrollbar();
+
+/// Transforms Matrix4
+Widget transform();
+
+/// Translate 变化位置
+Widget translate();
+
+/// 约束
+Widget constrained();
+
+/// 约束宽高
+Widget tight();
+
+/// 约束宽度
+Widget width();
+
+/// 约束高度
+Widget height();
+
+/// 取消父级约束
+Widget unConstrained();
+
+/// 安全区域
+Widget safeArea();
+
+/// 对齐
+Widget align();
+
+/// 对齐 上左边
+Widget alignTopLeft();
+
+/// 对齐 顶部居中
+Widget alignTopCenter();
+
+/// 对齐 上右边
+Widget alignTopRight();
+
+/// 对齐 左边
+Widget alignCenterLeft();
+
+/// 对齐 中间
+Widget alignCenter();
+
+/// 对齐 右边
+Widget alignCenterRight();
+
+/// 对齐 下左边
+Widget alignBottomLeft();
+
+/// 对齐 底部
+Widget alignBottomCenter();
+
+/// 对齐 下右边
+Widget alignBottomRight();
+
+/// 盒子装饰器
+Widget decorated();
+
+/// 背景颜色
+Widget backgroundColor();
+
+/// 边框
+Widget border();
+
+/// 阴影
+Widget boxShadow();
+
+/// 手势
+Widget gestures();
+
+/// 点击
+Widget onTap();
+
+/// 内间距
+Widget padding();
+
+/// Sliver 内间距
+Widget sliverPadding();
+
+/// 内间距 纵向
+Widget sliverPaddingVertical(double val);
+
+/// 内间距 横向
+Widget sliverPaddingHorizontal(double val);
+
+/// 内间距 上
+Widget sliverPaddingTop(double val);
+
+/// 内间距 下
+Widget sliverPaddingBottom(double val);
+
+/// 内间距 左
+Widget sliverPaddingLeft(double val);
+
+/// 内间距 右
+Widget sliverPaddingRight(double val);
+
+/// SliverToBoxAdapter
+Widget sliver();
+
+```
+
+## 常用组件
+GetXScaffold并不是一个UI组件库，里面仅封装了最常用的一些组件并优化了使用方法。如有其他需求请按需引入其他组件库。
+
+#### Dialog
+```dart
+// 显示确认弹窗
+DialogX.to.showConfirmDialog();
+
+// 显示通知弹窗
+DialogX.to.showNoticeDialog();
+
+// 显示提示弹窗
+DialogX.to.showPromptDialog();
+
+// 显示菜单弹窗
+DialogX.to.showMenuDialog();
+```
