@@ -2,7 +2,7 @@
 
 <div align="center">
 
-基于 GetX 的快速开发脚手架
+Rapid development of scaffolding based on getx
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.19.5-blue?logo=Flutter)
 ![Get](https://img.shields.io/badge/Get-4.6.6-orange)
@@ -14,17 +14,17 @@
 
 <div align="center">
 
-简体中文 | [English](./README.en-US.md)
+[简体中文](./README.md) | English
 
 <img src="./img.png" />
 
 </div>
 
-## 关于 GetX Scaffold
+## About GetX Scaffold
 
-GetXScaffold 快速开发脚手架在 GetX 框架和一些常用插件的基础上，构建了一套完整的快速开发模板。其中包括新增了部分常用功能的全局方法、常用的扩展方法和各种工具类、部分常用组件的封装、简单易用的对话框、二次封装的 Dio 网络请求工具、二次封装的 GetxController、二次封装的应用主题和国际化实现等。GetXScaffold 是对以上这些内容的过度封装，包括一些组件的扩展方法会违背 Flutter 本身的开发规范，改变你的开发习惯。所以本脚手架单纯为了提高开发效率，减少重复代码，减少开发成本。如果您是刚接触 Flutter 开发并还处在学习过程中的话，并不推荐您使用该脚手架。以下只是部分功能的使用示例，建议您通过示例项目或者源码了解全部使用方法。
+GetXScaffold is a rapid development scaffold built on the GetX framework and several commonly used plugins. It comprises a complete template for fast development, including globally accessible methods for common functionalities, useful extension methods, various utility classes, encapsulated components, easy-to-use dialogs, Dio network request tools with secondary encapsulation, GetxController with secondary encapsulation, application themes with secondary encapsulation, and internationalization implementation.GetXScaffold overly encapsulates the aforementioned content, including extension methods for some components that may deviate from Flutter's own development standards and alter your development habits. Therefore, this scaffold is purely aimed at improving development efficiency, reducing redundant code, and lowering development costs. If you are new to Flutter development and still in the learning phase, it is not recommended to use this scaffold. Below are just examples of some functionalities; it is advisable to explore all usage methods through sample projects or source code.
 
-## 运行示例项目
+## Run example
 
 ```
 cd example
@@ -32,24 +32,24 @@ flutter pub get
 flutter run
 ```
 
-## 快速开始
+## Quick Start
 
-#### 1. 添加依赖
+#### 1. Add Dependencies
 
-Flutter 工程中 pubspec.yaml 文件里加入以下依赖：
+Add the following dependencies to the pubspec.yaml file in the Flutter project:
 
 ```dart
 dependencies:
   getx_scaffold: ^0.0.1
 
-  # 如果您的项目中需要使用国际化，请添加以下依赖
+  # If your project needs internationalization, please add the following dependency.
   flutter_localizations:
     sdk: flutter
 ```
 
-#### 2. 初始化脚手架
+#### 2. Initialize Scaffold
 
-在 main.dart 中初始化 GetXScaffold：
+Initialize GetXScaffold in main.dart:
 
 ```dart
 import 'package:getx_scaffold/getx_scaffold.dart';
@@ -89,9 +89,9 @@ void main() async {
 }
 ```
 
-GetxApp 是 GetMaterialApp 嵌套了 ScreenUtilInit 对全局进行屏幕适配，通过 GlobalService 可以方便的实现多主题和多语言的切换。
+GetxApp nests GetMaterialApp with ScreenUtilInit for global screen adaptation. Through GlobalService, it facilitates seamless switching between multiple themes and languages.
 
-#### 3. 定义主题
+#### 3. Define themes
 
 ```dart
 import 'package:flutter/material.dart';
@@ -134,7 +134,7 @@ class AppTheme {
 }
 ```
 
-以上是主题示例，GetXScaffold 的所有内置组件均遵循 Material3 设计规范。如果你使用 colorScheme 定义了主题颜色，那么你可以通过以下方法使用所有的主题颜色：
+The above is an example of themes. All built-in components of GetXScaffold follow the Material3 design guidelines. If you define the theme colors using colorScheme, you can use all theme colors through the following methods:
 
 ```dart
 ThemeColor.onPrimary
@@ -143,9 +143,9 @@ ThemeColor.onSurface
 ......
 ```
 
-#### 4. 国际化
+#### 4. Internationalization
 
-GetXScaffold 再次简化的国际化实现，您需要创建 TranslationLibrary 并实现以下方法：
+To further simplify internationalization implementation with GetXScaffold, you need to create TranslationLibrary and implement the following methods:
 
 ```dart
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -180,7 +180,7 @@ class TranslationLibrary extends Translations {
 }
 ```
 
-在 main.dart GetxApp 中加入以下代码：
+Add the following code to main.dart in the GetX App:
 
 ```dart
 // 国际化配置
@@ -191,9 +191,9 @@ supportedLocales: TranslationLibrary.supportedLocales,
 localizationsDelegates: TranslationLibrary.localizationsDelegates,
 ```
 
-#### 5. 添加页面
+#### 5. Add Page
 
-GetXScaffold 的所有页面使用 GetView 加 GetxController 视图与逻辑分离的开发方式。这里注意，所有 GetxController 必须混入 BaseControllerMixin，以相应全局刷新。
+All pages in GetXScaffold adopt the development approach of separating views and logic using GetView with GetxController. Note that all GetxControllers must mix in BaseControllerMixin to respond to global refresh.
 
 ##### HomePage.dart
 
@@ -319,7 +319,7 @@ class HomeController extends GetxController with BaseControllerMixin {
 
 ```
 
-## 全局方法
+## Global methods
 
 ```dart
 /// 获取当前时间戳(Millisecond)
@@ -471,9 +471,9 @@ void setOrientationLandscape()
 
 ```
 
-## 扩展方法
+## Extension methods
 
-#### String?扩展：
+#### String? Extension：
 
 ```dart
 /// 是否为空或null
@@ -548,7 +548,7 @@ bool isIP()
 
 ```
 
-#### num?扩展：
+#### num? Extension：
 
 ```dart
 /// 根据格式将时间戳(Milliseconds)格式化日期
@@ -600,7 +600,7 @@ Widget spacing()
 
 ```
 
-#### List<Widget>扩展
+#### List<Widget> Extension
 
 ```dart
 /// 转 Wrap
@@ -655,7 +655,7 @@ Widget _buildView() {
 
 ```
 
-#### Widget 扩展：
+#### Widget Extension：
 
 ```dart
 /// 控制组件隐藏显示
@@ -827,7 +827,7 @@ Widget sliver();
 
 ## Widgets
 
-GetXScaffold 并不是一个 UI 组件库，里面仅封装了最常用的一些组件并优化了使用方法。如有其他需求请按需引入其他组件库。
+GetXScaffold is not a UI component library; it only encapsulates some of the most commonly used components and optimizes their usage. For other needs, please import additional component libraries as needed.
 
 ```dart
 import 'package:example/common/langs/index.dart';
@@ -1055,14 +1055,11 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
   }
 }
 
-
-.....
-
 ```
 
 #### LoadContainer
 
-内置了加载中，网络错误，空数据三种状态，通过控制器进行切换。每种状态的 Widget 可以自定义。
+Built-in loading, network error, and empty data states, switched via controllers. Widgets for each state can be customized.
 
 ```dart
 import 'package:example/common/langs/index.dart';
@@ -1153,7 +1150,7 @@ class LoadContainerController extends GetxController with BaseControllerMixin {
 
 #### AntdIcon
 
-脚手架中引入了 AntDesign 图标库，可以直接通过 AntdIcon.xxx 使用。[查看全部图标](https://www.iconfont.cn/collections/detail?spm=a313x.collections_index.i1.d9df05512.2f663a81stAHOv&cid=9402)
+The scaffold includes the AntDesign icon library, which can be directly accessed using AntdIcon.xxx.[View All](https://www.iconfont.cn/collections/detail?spm=a313x.collections_index.i1.d9df05512.2f663a81stAHOv&cid=9402)
 
 ```dart
 AntdIcon.home
@@ -1180,25 +1177,25 @@ DialogX.to.showMenuDialog();
 
 ## Utils
 
-整合了 common_utils 库和 nb_utils 库中的常用工具类，并补全了 RSAUtils 等工具类。
+Integrated common_utils and nb_utils libraries' common utility classes, and supplemented RSAUtils and other utility classes.
 
-1. DateUtil : 日期转换格式化输出。
-2. EncryptUtil : 异或对称加/解密，md5 加密，Base64 加/解密。
-3. JsonUtil : 简单封装 json 字符串转对象。
-4. JwtDecoder : jwt 解析。
-5. LogUtil : 全局 log 控制。
-6. MoneyUtil : 精确转换，元转分，分转元，支持格式输出。
-7. NumUtil : 保留 x 位小数, 精确加、减、乘、除, 防止精度丢失。
-8. ObjectUtil : 判断对象是否为空(String List Map),判断两个 List 是否相等。
-9. RegexUtil : 正则验证手机号，身份证，邮箱等等。
-10. RSAUtils : RSA 加密解密验签。
-11. TextUtil : 银行卡号每隔 4 位加空格，每隔 3 三位加逗号，隐藏手机号等等。
-12. TimelineUtil : 时间轴。
-13. TimerUtil : 倒计时，定时任务。
+1. DateUtil : Date conversion and formatted output.
+2. EncryptUtil : XOR symmetric encryption/decryption, MD5 encryption, Base64 encoding/decoding.
+3. JsonUtil : Simple encapsulation for converting JSON strings to objects.
+4. JwtDecoder : JWT decoding.
+5. LogUtil : Global log control
+6. MoneyUtil : Accurate conversion, yuan to fen, fen to yuan, supporting formatted output.
+7. NumUtil : Keep x decimal places, perform precise addition, subtraction, multiplication, and division to prevent loss of precision.
+8. ObjectUtil : Check if an object is empty (String, List, Map), and check if two Lists are equal.
+9. RegexUtil : Regular expression validation for phone numbers, ID cards, emails, and so on.
+10. RSAUtils : RSA encryption, decryption, and signature verification.
+11. TextUtil : Insert spaces every 4 digits in a bank card number, add commas every 3 digits, and hide phone numbers, etc.
+12. TimelineUtil : Timeline。
+13. TimerUtil : Countdown, scheduled tasks.
 
 ## 网络请求
 
-GetXScaffold 对 Dio 进行了二次封装，提供了更简洁的调用方式和完整的请求日志。通过 HttpService 进行调用。
+GetXScaffold has encapsulated Dio for a more concise invocation method and comprehensive request logging. It is invoked through HttpService.
 
 ```dart
 // 设置BaseURL
