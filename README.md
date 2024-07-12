@@ -909,7 +909,8 @@ KeepAliveWrapper(
 ```
 
 #### LoadContainer
-内置了加载中，网络错误，空数据三种状态，通过控制器进行切换。每种状态的Widget可以自定义。
+
+内置了加载中，网络错误，空数据三种状态，通过控制器进行切换。每种状态的 Widget 可以自定义。
 
 ```dart
 import 'package:example/common/langs/index.dart';
@@ -998,7 +999,6 @@ class LoadContainerController extends GetxController with BaseControllerMixin {
 }
 ```
 
-
 #### AntdIcon
 
 脚手架中引入了 AntDesign 图标库，可以直接通过 AntdIcon.xxx 使用。[查看全部图标](https://www.iconfont.cn/collections/detail?spm=a313x.collections_index.i1.d9df05512.2f663a81stAHOv&cid=9402)
@@ -1027,17 +1027,66 @@ DialogX.to.showMenuDialog();
 ```
 
 ## Utils
-整合了common_utils库和nb_utils库中的常用工具类，并补全了RSAUtils等工具类。
+
+整合了 common_utils 库和 nb_utils 库中的常用工具类，并补全了 RSAUtils 等工具类。
+
 1. DateUtil : 日期转换格式化输出。
-2. EncryptUtil : 异或对称加/解密，md5加密，Base64加/解密。
-3. JsonUtil : 简单封装json字符串转对象。
-4. JwtDecoder : jwt解析。
-5. LogUtil : 全局log控制。
+2. EncryptUtil : 异或对称加/解密，md5 加密，Base64 加/解密。
+3. JsonUtil : 简单封装 json 字符串转对象。
+4. JwtDecoder : jwt 解析。
+5. LogUtil : 全局 log 控制。
 6. MoneyUtil : 精确转换，元转分，分转元，支持格式输出。
-7. NumUtil : 保留x位小数, 精确加、减、乘、除, 防止精度丢失。
-8. ObjectUtil : 判断对象是否为空(String List Map),判断两个List是否相等。
+7. NumUtil : 保留 x 位小数, 精确加、减、乘、除, 防止精度丢失。
+8. ObjectUtil : 判断对象是否为空(String List Map),判断两个 List 是否相等。
 9. RegexUtil : 正则验证手机号，身份证，邮箱等等。
-10. RSAUtils : RSA加密解密验签。
-11. TextUtil : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等。
+10. RSAUtils : RSA 加密解密验签。
+11. TextUtil : 银行卡号每隔 4 位加空格，每隔 3 三位加逗号，隐藏手机号等等。
 12. TimelineUtil : 时间轴。
 13. TimerUtil : 倒计时，定时任务。
+
+## 网络请求
+
+GetXScaffold 对 Dio 进行了二次封装，提供了更简洁的调用方式和完整的请求日志。通过 HttpService 进行调用。
+
+```dart
+// 设置BaseURL
+HttpService.to.setBaseUrl('https://api.vvhan.com');
+
+// 设置Authorization
+HttpService.to.setAuthorization('1234567890');
+HttpService.to.clearAuthorization();
+
+// 统一的响应处理，这里返null则正常通过，返回Error字符串则会拦截该请求并弹出错误提示。这里可以对403等错误进行处理。
+HttpService.to.setOnResponseHandler(
+    (response) async {
+        try {
+            var result = BaseModel.fromJson(response.data);
+            if (result.success == true) {
+            return null;
+            } else {
+            return '服务器异常';
+            }
+        } on Exception catch (e) {
+            e.printInfo();
+            return '服务器异常';
+        }
+    },
+);
+// 取消统一响应处理
+HttpService.to.setOnResponseHandler(null);
+
+// get请求
+showLoading();
+var response = await HttpService.to.get(
+    '/api/wallpaper/acg?type=json',
+);
+if (response != null) {
+    dismissLoading();
+    var result = BaseModel.fromJson(response.data);
+    showToast(result.url ?? '');
+}
+
+// 取消请求
+HttpService.to.cancel();
+
+```

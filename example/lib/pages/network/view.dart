@@ -58,12 +58,12 @@ class NetworkPage extends GetView<NetworkController> {
       ListTile(
         title: const Text('请求接口'),
         onTap: () async {
-          Loading.show();
+          showLoading();
           var response = await HttpService.to.get(
             '/api/wallpaper/acg?type=json',
           );
           if (response != null) {
-            Loading.dismiss();
+            dismissLoading();
             var result = BaseModel.fromJson(response.data);
             showToast(result.url ?? '');
           }
