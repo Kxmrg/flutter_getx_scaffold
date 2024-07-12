@@ -468,7 +468,9 @@ void setOrientationLandscape()
 ```
 
 ## 扩展方法
+
 #### String?扩展：
+
 ```dart
 /// 是否为空或null
 bool get isEmptyOrNull => _isEmptyOrNull();
@@ -477,56 +479,56 @@ bool get isEmptyOrNull => _isEmptyOrNull();
 bool get isNotEmptyOrNull => !_isEmptyOrNull();
 
 /// 格式化时间字符串
-String? dateFormat(String pattern) 
+String? dateFormat(String pattern)
 
 /// 格式化时间字符串为日期
-String? toDateString() 
+String? toDateString()
 
 /// 格式化时间字符串为日期时间
-String? toDateTimeString() 
+String? toDateTimeString()
 
 /// 格式化时间字符串为时间
-String? toTimeString() 
+String? toTimeString()
 
 /// 获取DateTime对象
-DateTime? getDateTime({bool? isUtc}) 
+DateTime? getDateTime({bool? isUtc})
 
 /// MD5加密
-String? md5() 
+String? md5()
 
 /// Base64编码
-String? encodeBase64() 
+String? encodeBase64()
 
 /// Base64解码
-String? decodeBase64() 
+String? decodeBase64()
 
 //转为金额字符串
 String? toPrice(
 int amount, {
 MoneyFormats format = MoneyFormats.NORMAL,
 MoneyUnit unit = MoneyUnit.NORMAL,
-}) 
+})
 
 /// 转为int类型
-int? toInt({int defValue = 0}) 
+int? toInt({int defValue = 0})
 
 /// 转为double类型
-double? toDouble({double defValue = 0}) 
+double? toDouble({double defValue = 0})
 
 /// 转为num类型
-num? toNumber({num defValue = 0}) 
+num? toNumber({num defValue = 0})
 
 /// 判断是否为手机号(简易验证)
-bool isMobileSimple() 
+bool isMobileSimple()
 
 /// 判断是否为手机号(严格验证)
-bool isMobileExact() 
+bool isMobileExact()
 
 /// 判断是否为座机号码
 bool isTel()
 
 /// 判断是否为身份证号码
-bool isIDCard18() 
+bool isIDCard18()
 
 /// 判断是否成年
 bool isAdult()
@@ -538,10 +540,12 @@ bool isEmail()
 bool isURL()
 
 /// 判断是否为IP
-bool isIP() 
+bool isIP()
 
 ```
+
 #### num?扩展：
+
 ```dart
 /// 根据格式将时间戳(Milliseconds)格式化日期
 String? dateFormat(String pattern, {bool isSecond = false})
@@ -559,7 +563,7 @@ String? toTimeString({bool isSecond = false})
 String? toFileSize({int decimals = 0})
 
 /// 时间戳(Milliseconds)距离当前的时间
-String? getTimeDifference({bool isShowDay = true, bool isSecond = false}) 
+String? getTimeDifference({bool isShowDay = true, bool isSecond = false})
 
 /// 时间戳(Milliseconds)距离当前的时间描述
 String? getTimeDifferenceDescription({bool isSecond = false})
@@ -569,23 +573,23 @@ String? toPrice(
 int amount, {
 MoneyFormats format = MoneyFormats.NORMAL,
 MoneyUnit unit = MoneyUnit.NORMAL,
-}) 
+})
 
 /// 加 (精确相加,防止精度丢失).
 /// add (without loosing precision).
-double? add(num value) 
+double? add(num value)
 
 /// 减 (精确相减,防止精度丢失).
 /// subtract (without loosing precision).
-double? subtract(num value) 
+double? subtract(num value)
 
 /// 乘 (精确相乘,防止精度丢失).
 /// multiply (without loosing precision).
-double? multiply(num value) 
+double? multiply(num value)
 
 /// 除 (精确相除,防止精度丢失).
 /// divide (without loosing precision).
-double? divide(num value) 
+double? divide(num value)
 
 /// 间距
 Widget spacing()
@@ -593,6 +597,7 @@ Widget spacing()
 ```
 
 #### List<Widget>扩展
+
 ```dart
 /// 转 Wrap
 Widget toWrap();
@@ -601,7 +606,7 @@ Widget toWrap();
 Widget toColumn();
 
 /// 转 Row
-Widget toRow({);
+Widget toRow();
 
 /// 转 ListView
 Widget toListView()
@@ -646,7 +651,8 @@ Widget _buildView() {
 
 ```
 
-#### Widget扩展：
+#### Widget 扩展：
+
 ```dart
 /// 控制组件隐藏显示
 Widget visibility();
@@ -672,7 +678,7 @@ Widget clipRRect();
 /// 阴影
 Widget elevation();
 
-/// expand 
+/// expand
 Widget expand();
 
 /// 缩放布局
@@ -815,10 +821,197 @@ Widget sliver();
 
 ```
 
-## 常用组件
-GetXScaffold并不是一个UI组件库，里面仅封装了最常用的一些组件并优化了使用方法。如有其他需求请按需引入其他组件库。
+## Widgets
+
+GetXScaffold 并不是一个 UI 组件库，里面仅封装了最常用的一些组件并优化了使用方法。如有其他需求请按需引入其他组件库。
+
+```dart
+// Text
+TextX.titleLarge('Text');
+TextX.labelLarge('Text');
+TextX.bodySmall('Text');
+
+// Button
+ButtonX.primary('Button');
+ButtonX.outline('Button');
+ButtonX.text('Button');
+ButtonX.icon(Icons.add);
+
+// Icon
+IconX.icon(Icons.add);
+IconX.image('path');
+IconX.svg('path');
+
+// Image
+ImageX.url('http://a.com');
+ImageX.asset('path');
+ImageX.file('path');
+
+// TextTag
+TextTag('tag');
+
+// NavigationX
+Widget _buildNavigationBar() {
+    return NavigationX(
+        currentIndex: controller.pageIndex, // 当前选中的tab索引
+        onTap: (index) {
+            controller.pageIndex = index;
+            controller.updateUi();
+        }, // 切换tab事件
+        items: [
+            NavigationItemModel(
+                label: '首页',
+                icon: AntdIcon.home,
+                selectedIcon: AntdIcon.home_fill,
+                dot: true,
+            ),
+            NavigationItemModel(
+                label: '日历',
+                icon: AntdIcon.calendar,
+                selectedIcon: AntdIcon.calendar_fill,
+                badge: '18',
+            ),
+            NavigationItemModel(
+                label: '设置',
+                icon: AntdIcon.setting,
+                selectedIcon: AntdIcon.setting_fill,
+            ),
+            NavigationItemModel(
+                label: '设置',
+                icon: AntdIcon.setting,
+                selectedIcon: AntdIcon.setting_fill,
+            ),
+        ],
+    );
+}
+
+// 双击返回
+DoublePressBackWidget(
+    child: Scaffold(
+    appBar: AppBar(
+        title: const Text("GetxScaffold"),
+        centerTitle: true,
+        elevation: 1,
+    ),
+    floatingActionButton: _buildFloatingActionButton(),
+    body: _buildView(),
+    ),
+);
+
+// 保持状态
+KeepAliveWrapper(
+    keepAlive: true,
+    child: MainPage(),
+);
+
+.....
+
+```
+
+#### LoadContainer
+内置了加载中，网络错误，空数据三种状态，通过控制器进行切换。每种状态的Widget可以自定义。
+
+```dart
+import 'package:example/common/langs/index.dart';
+import 'package:flutter/material.dart';
+import 'package:getx_scaffold/getx_scaffold.dart';
+
+import 'index.dart';
+
+class LoadContainerPage extends GetView<LoadContainerController> {
+  const LoadContainerPage({super.key});
+
+  // 主视图
+  Widget _buildView() {
+    return <Widget>[
+      TextX.titleLarge('Page contents'),
+      ButtonX(
+        'Show Load Error',
+        onPressed: () => controller.onError(),
+      ).width(double.infinity).padding(top: 30.h, horizontal: 50.w),
+      ButtonX(
+        'Show Load Empty',
+        onPressed: () => controller.onEmpty(),
+      ).width(double.infinity).padding(top: 10.h, horizontal: 50.w),
+    ].toColumn(mainAxisSize: MainAxisSize.min).center();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<LoadContainerController>(
+      init: LoadContainerController(),
+      id: 'loadContainer',
+      builder: (_) {
+        return Scaffold(
+          appBar: AppBar(title: Text(TextKey.zhuTi.tr), elevation: 1),
+          body: SafeArea(
+            child: LoadContainer(
+              controller: controller.loadController!,
+              onReLoad: controller.onLoad,
+              child: _buildView(),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+```
+
+```dart
+import 'package:getx_scaffold/getx_scaffold.dart';
+
+class LoadContainerController extends GetxController with BaseControllerMixin {
+  @override
+  String get builderId => 'loadContainer';
+
+  LoadController? loadController = LoadController();
+
+  @override
+  void onInit() {
+    super.onInit();
+    onLoad();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    loadController?.dispose();
+    loadController = null;
+  }
+
+  void onLoad() {
+    loadController?.loading();
+    delayed(3000, () => loadController?.complete());
+  }
+
+  void onEmpty() {
+    loadController?.loading();
+    delayed(3000, () => loadController?.empty());
+  }
+
+  void onError() {
+    loadController?.loading();
+    delayed(3000, () => loadController?.error());
+  }
+}
+```
+
+
+#### AntdIcon
+
+脚手架中引入了 AntDesign 图标库，可以直接通过 AntdIcon.xxx 使用。[查看全部图标](https://www.iconfont.cn/collections/detail?spm=a313x.collections_index.i1.d9df05512.2f663a81stAHOv&cid=9402)
+
+```dart
+AntdIcon.home
+AntdIcon.home_fill
+......
+
+```
 
 #### Dialog
+
 ```dart
 // 显示确认弹窗
 DialogX.to.showConfirmDialog();
@@ -832,3 +1025,19 @@ DialogX.to.showPromptDialog();
 // 显示菜单弹窗
 DialogX.to.showMenuDialog();
 ```
+
+## Utils
+整合了common_utils库和nb_utils库中的常用工具类，并补全了RSAUtils等工具类。
+1. DateUtil : 日期转换格式化输出。
+2. EncryptUtil : 异或对称加/解密，md5加密，Base64加/解密。
+3. JsonUtil : 简单封装json字符串转对象。
+4. JwtDecoder : jwt解析。
+5. LogUtil : 全局log控制。
+6. MoneyUtil : 精确转换，元转分，分转元，支持格式输出。
+7. NumUtil : 保留x位小数, 精确加、减、乘、除, 防止精度丢失。
+8. ObjectUtil : 判断对象是否为空(String List Map),判断两个List是否相等。
+9. RegexUtil : 正则验证手机号，身份证，邮箱等等。
+10. RSAUtils : RSA加密解密验签。
+11. TextUtil : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等。
+12. TimelineUtil : 时间轴。
+13. TimerUtil : 倒计时，定时任务。
