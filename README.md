@@ -469,6 +469,38 @@ void setOrientationPortrait()
 /// Set orientation to landscape
 void setOrientationLandscape()
 
+/// SharedPreferences:
+
+/// Add a value in SharedPref based on their type - Must be a String, int, bool, double, Map<String, dynamic> or StringList
+Future<bool> setValue(String key, dynamic value, {bool print = true})
+
+/// Returns List of Keys that matches with given Key
+List<String> getMatchingSharedPrefKeys(String key)
+
+/// Returns a StringList if exists in SharedPref
+List<String>? getStringListAsync(String key)
+
+/// Returns a Bool if exists in SharedPref
+bool getBoolAsync(String key, {bool defaultValue = false})
+
+/// Returns a Double if exists in SharedPref
+double getDoubleAsync(String key, {double defaultValue = 0.0})
+
+/// Returns a Int if exists in SharedPref
+int getIntAsync(String key, {int defaultValue = 0})
+
+/// Returns a String if exists in SharedPref
+String getStringAsync(String key, {String defaultValue = ''}) 
+
+/// Returns a JSON if exists in SharedPref
+Map<String, dynamic> getJSONAsync(String key,{Map<String, dynamic>? defaultValue})
+
+/// remove key from SharedPref
+Future<bool> removeKey(String key)
+
+/// clear SharedPref
+Future<bool> clearSharedPref()
+
 ```
 
 ## 扩展方法
