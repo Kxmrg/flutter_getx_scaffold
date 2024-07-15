@@ -13,3 +13,9 @@
 ## 0.0.4
 
 - Adapted for Flutter version 3.22.2
+
+## 0.0.5
+
+- Update pubspec.yaml description
+
+

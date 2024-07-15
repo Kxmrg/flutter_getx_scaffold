@@ -162,7 +162,6 @@ class HttpService extends GetxService {
   void setOnResponseHandler(OnResponseHandler? handler) {
     _onResponseHandler = handler;
   }
-
 }
 
 /// 拦截器
