@@ -1,6 +1,6 @@
 name: getx_scaffold
-description: "Rapid development of scaffolding based on getx"
-version: 0.0.3
+description: "GetX Scaffold is a complete rapid development template built on the GetX framework and several commonly used plugins. It includes a variety of features such as globally available methods for common functionalities, commonly used extension methods and utility classes, encapsulation of frequently used components, user-friendly dialogs, Dio network request tools with secondary encapsulation, GetXController with secondary encapsulation, application themes with secondary encapsulation, and internationalization implementation."
+version: 0.0.4
 homepage: https://github.com/Kxmrg
 repository: https://github.com/Kxmrg/flutter_getx_scaffold
 issue_tracker: https://github.com/Kxmrg/flutter_getx_scaffold/issues
@@ -12,13 +12,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.18.1
+  intl: ^0.19.0
   crypto: ^3.0.3
   convert: ^3.1.1
-  decimal: ^2.3.3
+  decimal: ^3.0.2
   rational: ^2.2.3
   get: ^4.6.6
-  dio: ^5.4.3+1
+  dio: ^5.5.0+1
   flutter_screenutil: ^5.9.3
   flutter_easyloading: ^3.0.5
   connectivity_plus: ^6.0.3
@@ -36,7 +36,7 @@ dependencies:
   modal_bottom_sheet: ^3.0.0
 
 dev_dependencies:
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   assets:

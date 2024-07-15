@@ -44,7 +44,7 @@ class RichTextX extends StatelessWidget {
           style: TextStyle(
             fontSize: children[i].textSize ?? 14.sp,
             color: children[i].onTap == null
-                ? children[i].textColor ?? ThemeColor.onBackground
+                ? children[i].textColor ?? ThemeColor.onSurface
                 : children[i].textColor ?? ThemeColor.primary,
           ),
           recognizer: TapGestureRecognizer()

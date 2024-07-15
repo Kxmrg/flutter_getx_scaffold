@@ -64,7 +64,6 @@ class ButtonX extends StatelessWidget {
   final FocusNode? focusNode;
   final bool autofocus;
   final Clip clipBehavior;
-  final MaterialStatesController? statesController;
 
   const ButtonX(
     this.text, {
@@ -84,7 +83,6 @@ class ButtonX extends StatelessWidget {
     this.focusNode,
     this.autofocus = false,
     this.clipBehavior = Clip.none,
-    this.statesController,
     this.child,
     this.textColor,
     this.textSize,
@@ -111,7 +109,6 @@ class ButtonX extends StatelessWidget {
     this.focusNode,
     this.autofocus = false,
     this.clipBehavior = Clip.none,
-    this.statesController,
     this.child,
     this.textColor,
     this.textSize,
@@ -142,7 +139,6 @@ class ButtonX extends StatelessWidget {
     this.focusNode,
     this.autofocus = false,
     this.clipBehavior = Clip.none,
-    this.statesController,
     this.child,
     this.textColor,
     this.textSize,
@@ -171,7 +167,6 @@ class ButtonX extends StatelessWidget {
     this.focusNode,
     this.autofocus = false,
     this.clipBehavior = Clip.none,
-    this.statesController,
     this.textColor,
     this.textSize,
     this.textWeight,
@@ -209,8 +204,7 @@ class ButtonX extends StatelessWidget {
         onLongPress = null,
         onHover = null,
         onFocusChange = null,
-        clipBehavior = Clip.none,
-        statesController = null;
+        clipBehavior = Clip.none;
 
   Widget _buildChild() {
     if (child != null) {
@@ -265,7 +259,6 @@ class ButtonX extends StatelessWidget {
           focusNode: focusNode,
           autofocus: autofocus,
           clipBehavior: clipBehavior,
-          statesController: statesController,
           child: _buildChild(),
         );
         break;
@@ -293,7 +286,6 @@ class ButtonX extends StatelessWidget {
           focusNode: focusNode,
           autofocus: autofocus,
           clipBehavior: clipBehavior,
-          statesController: statesController,
           child: _buildChild(),
         );
         break;
@@ -317,7 +309,6 @@ class ButtonX extends StatelessWidget {
           focusNode: focusNode,
           autofocus: autofocus,
           clipBehavior: clipBehavior,
-          statesController: statesController,
           child: _buildChild(),
         );
         break;

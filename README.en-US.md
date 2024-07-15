@@ -24,6 +24,13 @@ Rapid development of scaffolding based on getx
 
 GetXScaffold is a rapid development scaffold built on the GetX framework and several commonly used plugins. It comprises a complete template for fast development, including globally accessible methods for common functionalities, useful extension methods, various utility classes, encapsulated components, easy-to-use dialogs, Dio network request tools with secondary encapsulation, GetxController with secondary encapsulation, application themes with secondary encapsulation, and internationalization implementation.GetXScaffold overly encapsulates the aforementioned content, including extension methods for some components that may deviate from Flutter's own development standards and alter your development habits. Therefore, this scaffold is purely aimed at improving development efficiency, reducing redundant code, and lowering development costs. If you are new to Flutter development and still in the learning phase, it is not recommended to use this scaffold. Below are just examples of some functionalities; it is advisable to explore all usage methods through sample projects or source code.
 
+## Flutter Version
+
+| Version | Flutter Version |
+| ------- | ------------ |
+| 0.0.3   | 3.19.5       |
+| 0.0.4   | 3.22.2       |
+
 ## Run example
 
 ```
@@ -437,13 +444,7 @@ Future<String?> getDeviceSystemVersion()
 void hideKeyboard()
 
 /// Change status bar Color and Brightness
-Future<void> setStatusBarColor(
-  Color statusBarColor, {
-  Color? systemNavigationBarColor,
-  Brightness? statusBarBrightness,
-  Brightness? statusBarIconBrightness,
-  int delayInMilliSeconds = 200,
-})
+Future<void> setStatusBarColor()
 
 /// Dark Status Bar
 void setDarkStatusBar()
@@ -468,6 +469,38 @@ void setOrientationPortrait()
 
 /// Set orientation to landscape
 void setOrientationLandscape()
+
+/// SharedPreferences:
+
+/// Add a value in SharedPref based on their type - Must be a String, int, bool, double, Map<String, dynamic> or StringList
+Future<bool> setValue(String key, dynamic value, {bool print = true})
+
+/// Returns List of Keys that matches with given Key
+List<String> getMatchingSharedPrefKeys(String key)
+
+/// Returns a StringList if exists in SharedPref
+List<String>? getStringListAsync(String key)
+
+/// Returns a Bool if exists in SharedPref
+bool getBoolAsync(String key, {bool defaultValue = false})
+
+/// Returns a Double if exists in SharedPref
+double getDoubleAsync(String key, {double defaultValue = 0.0})
+
+/// Returns a Int if exists in SharedPref
+int getIntAsync(String key, {int defaultValue = 0})
+
+/// Returns a String if exists in SharedPref
+String getStringAsync(String key, {String defaultValue = ''}) 
+
+/// Returns a JSON if exists in SharedPref
+Map<String, dynamic> getJSONAsync(String key,{Map<String, dynamic>? defaultValue})
+
+/// remove key from SharedPref
+Future<bool> removeKey(String key)
+
+/// clear SharedPref
+Future<bool> clearSharedPref()
 
 ```
 

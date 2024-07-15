@@ -43,17 +43,13 @@ class ThemeColorPage extends GetView<ThemeColorController> {
         color: ThemeColor.onErrorContainer,
       ).padding(all: 10.w).backgroundColor(ThemeColor.errorContainer),
       TextX.titleSmall(
-        'ThemeColor.onBackground',
-        color: ThemeColor.onBackground,
-      ).padding(all: 10.w).backgroundColor(ThemeColor.background),
-      TextX.titleSmall(
         'ThemeColor.onSurface',
         color: ThemeColor.onSurface,
       ).padding(all: 10.w).backgroundColor(ThemeColor.surface),
       TextX.titleSmall(
         'ThemeColor.onSurfaceVariant',
         color: ThemeColor.onSurfaceVariant,
-      ).padding(all: 10.w).backgroundColor(ThemeColor.surfaceVariant),
+      ).padding(all: 10.w).backgroundColor(ThemeColor.surface),
       TextX.titleSmall(
         'ThemeColor.outline',
         color: ThemeColor.onPrimary,

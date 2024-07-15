@@ -24,6 +24,13 @@
 
 GetXScaffold 快速开发脚手架在 GetX 框架和一些常用插件的基础上，构建了一套完整的快速开发模板。其中包括新增了部分常用功能的全局方法、常用的扩展方法和各种工具类、部分常用组件的封装、简单易用的对话框、二次封装的 Dio 网络请求工具、二次封装的 GetxController、二次封装的应用主题和国际化实现等。GetXScaffold 是对以上这些内容的过度封装，包括一些组件的扩展方法会违背 Flutter 本身的开发规范，改变你的开发习惯。所以本脚手架单纯为了提高开发效率，减少重复代码，减少开发成本。如果您是刚接触 Flutter 开发并还处在学习过程中的话，并不推荐您使用该脚手架。以下只是部分功能的使用示例，建议您通过示例项目或者源码了解全部使用方法。
 
+## 适配 Flutter 版本
+
+| Version | Flutter 版本 |
+| ------- | ------------ |
+| 0.0.3   | 3.19.5       |
+| 0.0.4   | 3.22.2       |
+
 ## 运行示例项目
 
 ```
@@ -437,13 +444,7 @@ Future<String?> getDeviceSystemVersion()
 void hideKeyboard()
 
 /// Change status bar Color and Brightness
-Future<void> setStatusBarColor(
-  Color statusBarColor, {
-  Color? systemNavigationBarColor,
-  Brightness? statusBarBrightness,
-  Brightness? statusBarIconBrightness,
-  int delayInMilliSeconds = 200,
-})
+Future<void> setStatusBarColor()
 
 /// Dark Status Bar
 void setDarkStatusBar()
@@ -490,7 +491,7 @@ double getDoubleAsync(String key, {double defaultValue = 0.0})
 int getIntAsync(String key, {int defaultValue = 0})
 
 /// Returns a String if exists in SharedPref
-String getStringAsync(String key, {String defaultValue = ''}) 
+String getStringAsync(String key, {String defaultValue = ''})
 
 /// Returns a JSON if exists in SharedPref
 Map<String, dynamic> getJSONAsync(String key,{Map<String, dynamic>? defaultValue})

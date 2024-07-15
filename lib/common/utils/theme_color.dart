@@ -26,12 +26,8 @@ class ThemeColor {
       Theme.of(Get.context!).colorScheme.errorContainer;
   static get onErrorContainer =>
       Theme.of(Get.context!).colorScheme.onErrorContainer;
-  static get background => Theme.of(Get.context!).colorScheme.background;
-  static get onBackground => Theme.of(Get.context!).colorScheme.onBackground;
   static get surface => Theme.of(Get.context!).colorScheme.surface;
   static get onSurface => Theme.of(Get.context!).colorScheme.onSurface;
-  static get surfaceVariant =>
-      Theme.of(Get.context!).colorScheme.surfaceVariant;
   static get onSurfaceVariant =>
       Theme.of(Get.context!).colorScheme.onSurfaceVariant;
   static get outline => Theme.of(Get.context!).colorScheme.outline;

@@ -104,7 +104,7 @@ class ImageX extends StatelessWidget {
         child: IconX.icon(
           Icons.bolt,
           size: 20.sp,
-          color: ThemeColor.onBackground,
+          color: ThemeColor.onSurface,
         ),
       );
 
@@ -187,7 +187,7 @@ class ImageX extends StatelessWidget {
           child: IconX.icon(
             Icons.close,
             size: 20.sp,
-            color: ThemeColor.onBackground,
+            color: ThemeColor.onSurface,
           ),
         );
     }

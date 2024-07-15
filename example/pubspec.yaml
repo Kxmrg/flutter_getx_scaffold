@@ -12,14 +12,14 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  flutter_native_splash: ^2.4.0
+  flutter_native_splash: ^2.4.1
   getx_scaffold:
     path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
   icons_launcher: ^2.1.7
 
 # flutter_icons 应用启动图标配置 https://pub-web.flutter-io.cn/packages/icons_launcher
