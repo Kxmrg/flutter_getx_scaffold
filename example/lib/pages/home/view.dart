@@ -166,6 +166,7 @@ class HomePage extends GetView<HomeController> {
       ),
     ]
         .toListView(
+          primary: true,
           separator: const DividerX(),
         )
         .scrollbar()

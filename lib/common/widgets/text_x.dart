@@ -253,13 +253,13 @@ class TextX extends StatelessWidget {
       text,
       style: style?.copyWith(
             color: color,
-            fontSize: size,
+            fontSize: size ?? 14.sp,
             fontWeight: weight,
             height: height,
           ) ??
           TextStyle(
             color: color,
-            fontSize: size,
+            fontSize: size ?? 14.sp,
             fontWeight: weight,
             height: height,
           ),

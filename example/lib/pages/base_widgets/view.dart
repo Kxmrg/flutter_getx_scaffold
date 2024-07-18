@@ -163,7 +163,7 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
     ]
         .toColumn(crossAxisAlignment: CrossAxisAlignment.start)
         .padding(all: 10.w, bottom: 50.w)
-        .scrollable()
+        .scrollable(primary: true)
         .scrollbar()
         .width(1.sw);
   }
