@@ -18,4 +18,7 @@
 
 - Update pubspec.yaml description
 
+## 0.1.0
 
+- Add PermissionUtil
+- Fix Android example code

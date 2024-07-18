@@ -502,6 +502,24 @@ Future<bool> removeKey(String key)
 /// clear SharedPref
 Future<bool> clearSharedPref()
 
+/// 申请权限
+Future<bool> requestPermission({
+  required Permission permission,
+  String? title,
+  String? confirmText,
+  required String message,
+  required String error,
+})
+
+/// 申请相机权限
+Future<bool> requestCameraPermission()
+
+/// 申请相册权限
+Future<bool> requestPhotosPermission()
+
+/// 申请蓝牙权限
+Future<bool> requestBluetoothPermission()
+
 ```
 
 ## Extension methods

@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:example/pages/base_widgets/index.dart';
 import 'package:example/pages/dialog/index.dart';
 import 'package:example/pages/load_container/index.dart';
 import 'package:example/pages/network/index.dart';
+import 'package:example/pages/permission/index.dart';
 import 'package:example/pages/theme_color/index.dart';
 import 'package:flutter/material.dart';
 import 'package:example/common/langs/index.dart';
@@ -60,6 +63,12 @@ class HomePage extends GetView<HomeController> {
         },
       ),
       ListTile(
+        title: Text(TextKey.shenQingQuanXian.tr),
+        onTap: () {
+          Get.to(() => const PermissionPage());
+        },
+      ),
+      ListTile(
         title: Text(TextKey.huoQuDangQianShiJianChuo.tr),
         onTap: () async {
           showToast(getTimeStamp(isSecond: true).toString());
@@ -94,10 +103,18 @@ class HomePage extends GetView<HomeController> {
       ListTile(
         title: Text(TextKey.sheBeiXinXi.tr),
         onTap: () async {
-          String deviceName = await getDeviceName() ?? 'unknown';
-          String deviceSystemVersion =
-              await getDeviceSystemVersion() ?? 'unknown';
-          showToast('$deviceName $deviceSystemVersion');
+          var infos = await getDeviceInfo();
+          log(infos.toString());
+          String deviceName = await getDeviceModel() ?? 'unknown';
+          String version = '';
+          if (Platform.isAndroid) {
+            int? code = await getAndroidSdkVersion();
+            version = code?.toString() ?? 'unknown';
+          }
+          if (Platform.isIOS) {
+            version = await getIosSystemVersion() ?? 'unknown';
+          }
+          showToast('$deviceName $version');
         },
       ),
       ListTile(

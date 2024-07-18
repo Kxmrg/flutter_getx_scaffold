@@ -502,6 +502,24 @@ Future<bool> removeKey(String key)
 /// clear SharedPref
 Future<bool> clearSharedPref()
 
+/// 申请权限
+Future<bool> requestPermission({
+  required Permission permission,
+  String? title,
+  String? confirmText,
+  required String message,
+  required String error,
+})
+
+/// 申请相机权限
+Future<bool> requestCameraPermission()
+
+/// 申请相册权限
+Future<bool> requestPhotosPermission()
+
+/// 申请蓝牙权限
+Future<bool> requestBluetoothPermission()
+
 ```
 
 ## 扩展方法
@@ -1273,5 +1291,77 @@ if (response != null) {
 
 // 取消请求
 HttpService.to.cancel();
+
+```
+
+## 权限
+国内Android应用市场大部分都要求在申请权限前，要弹窗提示用户申请权限的原因。GetXScaffold封装了这部分的逻辑，可以通过全局方法直接调用。并且将相册权限这种在不同SDK版本有差异的权限封装成了一个方法，简化申请权限流程。在使用前请在对应平台的配置文件设置对应权限。
+参考：[permission_handler](https://pub-web.flutter-io.cn/packages/permission_handler)
+
+```dart
+
+import 'package:example/common/langs/index.dart';
+import 'package:flutter/material.dart';
+import 'package:getx_scaffold/getx_scaffold.dart';
+
+import 'index.dart';
+
+class PermissionPage extends GetView<PermissionController> {
+  const PermissionPage({super.key});
+
+  // 主视图
+  Widget _buildView() {
+    return <Widget>[
+      ListTile(
+        title: const Text('申请相机权限'),
+        onTap: () async {
+          if (await requestCameraPermission()) {
+            showSuccessToast('已获取相机权限');
+          }
+        },
+      ),
+      ListTile(
+        title: const Text('申请相册权限'),
+        onTap: () async {
+          if (await requestPhotosPermission()) {
+            showSuccessToast('已获取相册权限');
+          }
+        },
+      ),
+      ListTile(
+        title: const Text('申请麦克风权限'),
+        onTap: () async {
+          var result = await requestPermission(
+            permission: Permission.microphone,
+            message: '我们申请使用您设备的麦克风权限，用于拍摄录音',
+            error: '请授权麦克风权限',
+          );
+          if (result) {
+            showSuccessToast('已获取麦克风权限');
+          }
+        },
+      ),
+    ].toListView(
+      separator: const DividerX(),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<PermissionController>(
+      init: PermissionController(),
+      id: 'permission',
+      builder: (_) {
+        return Scaffold(
+          appBar:
+              AppBar(title: Text(TextKey.shenQingQuanXian.tr), elevation: 1),
+          body: SafeArea(
+            child: _buildView(),
+          ),
+        );
+      },
+    );
+  }
+}
 
 ```

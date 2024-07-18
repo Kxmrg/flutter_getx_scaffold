@@ -27,3 +27,4 @@ export './shared_pref.dart';
 export './theme_color.dart';
 export './jwt_decoder.dart';
 export './rsa_util.dart';
+export './permission_util.dart';

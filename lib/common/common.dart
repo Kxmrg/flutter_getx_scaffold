@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -226,22 +227,38 @@ Future<BaseDeviceInfo> getDeviceInfo() async {
   return await GlobalService.to.getDeviceInfo();
 }
 
-// 获取设备名称
-Future<String?> getDeviceName() async {
-  var deviceInfo = await getDeviceInfo();
-  var data = deviceInfo.data;
-  if (data.containsKey('name')) {
-    return data['name'];
+// 获取设备型号
+Future<String?> getDeviceModel() async {
+  BaseDeviceInfo deviceInfo = await getDeviceInfo();
+  if (Platform.isAndroid) {
+    AndroidDeviceInfo androidDeviceInfo =
+        AndroidDeviceInfo.fromMap(deviceInfo.data);
+    return '${androidDeviceInfo.brand} ${androidDeviceInfo.model}';
+  }
+  if (Platform.isIOS) {
+    IosDeviceInfo iosDeviceInfo = IosDeviceInfo.fromMap(deviceInfo.data);
+    return iosDeviceInfo.utsname.machine;
   }
   return null;
 }
 
-// 获取系统版本
-Future<String?> getDeviceSystemVersion() async {
-  var deviceInfo = await getDeviceInfo();
-  var data = deviceInfo.data;
-  if (data.containsKey('systemVersion')) {
-    return data['systemVersion'];
+// 获取 IOS系统版本
+Future<String?> getIosSystemVersion() async {
+  if (Platform.isIOS) {
+    BaseDeviceInfo deviceInfo = await getDeviceInfo();
+    IosDeviceInfo iosDeviceInfo = IosDeviceInfo.fromMap(deviceInfo.data);
+    return iosDeviceInfo.systemVersion;
+  }
+  return null;
+}
+
+// 获取Android SDK Version
+Future<int?> getAndroidSdkVersion() async {
+  if (Platform.isAndroid) {
+    BaseDeviceInfo deviceInfo = await getDeviceInfo();
+    AndroidDeviceInfo androidDeviceInfo =
+        AndroidDeviceInfo.fromMap(deviceInfo.data);
+    return androidDeviceInfo.version.sdkInt;
   }
   return null;
 }
@@ -332,4 +349,36 @@ void setOrientationLandscape() {
     DeviceOrientation.landscapeRight,
     DeviceOrientation.landscapeLeft,
   ]);
+}
+
+/// 申请权限
+Future<bool> requestPermission({
+  required Permission permission,
+  String? title,
+  String? confirmText,
+  required String message,
+  required String error,
+}) async {
+  return await PermissionUtil.request(
+    permission: permission,
+    title: title,
+    confirmText: confirmText,
+    message: message,
+    error: error,
+  );
+}
+
+/// 申请相机权限
+Future<bool> requestCameraPermission() async {
+  return await PermissionUtil.camera();
+}
+
+/// 申请相册权限
+Future<bool> requestPhotosPermission() async {
+  return await PermissionUtil.photos();
+}
+
+/// 申请蓝牙权限 仅Android需要申请 IOS默认开启
+Future<bool> requestBluetoothPermission() async {
+  return await PermissionUtil.bluetooth();
 }

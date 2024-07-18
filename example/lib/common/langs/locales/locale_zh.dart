@@ -23,4 +23,5 @@ const Map<String, String> zh = {
   TextKey.shiYongZhuTiSe: '使用主题色',
   TextKey.jiZaiRongQiZuJian: '加载容器组件',
   TextKey.qingChuTuPianHuanCun: '清除全部图片缓存',
+  TextKey.shenQingQuanXian: '申请权限',
 };

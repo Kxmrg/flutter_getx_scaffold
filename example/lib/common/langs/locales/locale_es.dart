@@ -23,4 +23,5 @@ const Map<String, String> es = {
   TextKey.shiYongZhuTiSe: 'Usar colores temáticos',
   TextKey.jiZaiRongQiZuJian: 'Componentes del contenedor de carga',
   TextKey.qingChuTuPianHuanCun: 'Borrar toda la caché de imágenes',
+  TextKey.shenQingQuanXian: 'Autoridad de solicitud',
 };

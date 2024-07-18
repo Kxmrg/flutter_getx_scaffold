@@ -23,4 +23,5 @@ const Map<String, String> en = {
   TextKey.shiYongZhuTiSe: 'Use theme color',
   TextKey.jiZaiRongQiZuJian: 'Loading container widget',
   TextKey.qingChuTuPianHuanCun: 'Clear disk cached images',
+  TextKey.shenQingQuanXian: 'Request permission',
 };

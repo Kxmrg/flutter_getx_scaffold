@@ -23,8 +23,8 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.getx_scaffold"
-    compileSdk flutter.compileSdkVersion
+    namespace "com.example.example"
+    compileSdk 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {

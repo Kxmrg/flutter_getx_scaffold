@@ -21,4 +21,5 @@ class TextKey {
   static const shiYongZhuTiSe = 'shiYongZhuTiSe';
   static const jiZaiRongQiZuJian = 'jiZaiRongQiZuJian';
   static const qingChuTuPianHuanCun = 'qingChuTuPianHuanCun';
+  static const shenQingQuanXian = 'shenQingQuanXian';
 }
