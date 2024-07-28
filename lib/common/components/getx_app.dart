@@ -78,6 +78,7 @@ class GetxApp extends StatelessWidget {
   final ThemeData? highContrastTheme;
   final ThemeData? highContrastDarkTheme;
   final Map<Type, Action<Intent>>? actions;
+  final bool Function()? builderFunction;
 
   const GetxApp({
     super.key,
@@ -142,6 +143,7 @@ class GetxApp extends StatelessWidget {
     this.highContrastTheme,
     this.highContrastDarkTheme,
     this.actions,
+    this.builderFunction,
   });
 
   @override
@@ -215,6 +217,7 @@ class GetxApp extends StatelessWidget {
           builder: (context, widget) {
             // EasyLoading 初始化
             widget = EasyLoading.init()(context, widget);
+            builderFunction?();
             Loading.init();
             // 不随系统字体缩放比例
             return MediaQuery(
