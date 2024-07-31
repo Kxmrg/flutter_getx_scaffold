@@ -47,6 +47,12 @@ void main() async {
       title: 'GetxScaffold',
       // 首页
       home: const HomePage(),
+      // Builder
+      builder: (context, widget) {
+        // do something....
+
+        return widget!;
+      },
     ),
   );
 }

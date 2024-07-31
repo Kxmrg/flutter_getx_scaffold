@@ -78,6 +78,7 @@ class GetxApp extends StatelessWidget {
   final ThemeData? highContrastTheme;
   final ThemeData? highContrastDarkTheme;
   final Map<Type, Action<Intent>>? actions;
+  final TransitionBuilder? builder;
 
   const GetxApp({
     super.key,
@@ -142,6 +143,7 @@ class GetxApp extends StatelessWidget {
     this.highContrastTheme,
     this.highContrastDarkTheme,
     this.actions,
+    this.builder,
   });
 
   @override
@@ -220,7 +222,7 @@ class GetxApp extends StatelessWidget {
             return MediaQuery(
               data: MediaQuery.of(context)
                   .copyWith(textScaler: const TextScaler.linear(1.0)),
-              child: widget,
+              child: builder == null ? widget : builder!(context, widget),
             );
           },
         );
