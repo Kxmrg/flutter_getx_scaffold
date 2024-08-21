@@ -30,6 +30,7 @@ GetXScaffold 快速开发脚手架在 GetX 框架和一些常用插件的基础�
 | ------- | ------------ |
 | 0.0.3   | 3.19.5       |
 | 0.0.4   | 3.22.2       |
+| 0.1.2   | 3.24.0       |
 
 ## 运行示例项目
 
@@ -37,6 +38,11 @@ GetXScaffold 快速开发脚手架在 GetX 框架和一些常用插件的基础�
 cd example
 flutter pub get
 flutter run
+
+# 如果提示 Error: Type 'UnmodifiableUint8ListView' not found.请更新win32库
+
+flutter pub upgrade win32
+
 ```
 
 ## 快速开始
@@ -1301,7 +1307,8 @@ HttpService.to.cancel();
 ```
 
 ## 权限
-国内Android应用市场大部分都要求在申请权限前，要弹窗提示用户申请权限的原因。GetXScaffold封装了这部分的逻辑，可以通过全局方法直接调用。并且将相册权限这种在不同SDK版本有差异的权限封装成了一个方法，简化申请权限流程。在使用前请在对应平台的配置文件设置对应权限。
+
+国内 Android 应用市场大部分都要求在申请权限前，要弹窗提示用户申请权限的原因。GetXScaffold 封装了这部分的逻辑，可以通过全局方法直接调用。并且将相册权限这种在不同 SDK 版本有差异的权限封装成了一个方法，简化申请权限流程。在使用前请在对应平台的配置文件设置对应权限。
 参考：[permission_handler](https://pub-web.flutter-io.cn/packages/permission_handler)
 
 ```dart

@@ -30,6 +30,7 @@ GetXScaffold is a rapid development scaffold built on the GetX framework and sev
 | ------- | ------------ |
 | 0.0.3   | 3.19.5       |
 | 0.0.4   | 3.22.2       |
+| 0.1.2   | 3.24.0       |
 
 ## Run example
 
@@ -37,6 +38,11 @@ GetXScaffold is a rapid development scaffold built on the GetX framework and sev
 cd example
 flutter pub get
 flutter run
+
+# If prompted with Error: Type 'UnimodiableUint8ListView' not found. Please update the win32 library
+
+flutter pub upgrade win32
+
 ```
 
 ## Quick Start
