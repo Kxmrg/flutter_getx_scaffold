@@ -317,7 +317,7 @@ class ButtonX extends StatelessWidget {
           icon: child ??
               IconX.icon(
                 icon,
-                size: 20.sp,
+                size: iconSize ?? 20.sp,
                 color: foregroundColor ?? ThemeColor.onPrimaryContainer,
               ),
           style: style ??
