@@ -315,7 +315,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.1"
+    version: "0.1.2"
   html:
     dependency: transitive
     description:
@@ -689,6 +689,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  slider_captcha:
+    dependency: transitive
+    description:
+      name: slider_captcha
+      sha256: b3ee90c1d9f35df3085119c5741f31d23b22aa39ee896ee7c37f58396abcefc2
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   source_span:
     dependency: transitive
     description:

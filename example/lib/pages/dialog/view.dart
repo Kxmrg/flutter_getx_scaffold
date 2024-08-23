@@ -92,6 +92,26 @@ class DialogPage extends GetView<DialogController> {
           ]);
         },
       ),
+      ListTile(
+        title: const Text('滑动验证码对话框'),
+        onTap: () {
+          DialogX.to.showCaptchaDialog(
+            [
+              'assets/images/captcha_bg1.jpg',
+              'assets/images/captcha_bg2.jpg',
+              'assets/images/captcha_bg3.jpg',
+              'assets/images/captcha_bg4.jpg',
+            ],
+            (result) {
+              if (result) {
+                showSuccessToast('通过验证');
+              } else {
+                showErrorToast('验证失败');
+              }
+            },
+          );
+        },
+      ),
     ].toListView(
       separator: const DividerX(),
     );

@@ -206,6 +206,34 @@ class ButtonX extends StatelessWidget {
         onFocusChange = null,
         clipBehavior = Clip.none;
 
+  ButtonX.back(
+    this.onPressed, {
+    super.key,
+  })  : type = ButtonType.icon,
+        text = '',
+        icon = Icons.arrow_back,
+        iconSize = 24.sp,
+        innerPadding = EdgeInsets.all(14.sp),
+        borderRadius = 15.r,
+        borderWidth = null,
+        backgroundColor = null,
+        foregroundColor = null,
+        minSize = null,
+        child = null,
+        textColor = null,
+        textSize = null,
+        textWeight = null,
+        textStyle = null,
+        dot = null,
+        badge = null,
+        onLongPress = null,
+        onHover = null,
+        onFocusChange = null,
+        style = null,
+        focusNode = null,
+        autofocus = false,
+        clipBehavior = Clip.none;
+
   Widget _buildChild() {
     if (child != null) {
       return child!;

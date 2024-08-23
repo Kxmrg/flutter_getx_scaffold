@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
@@ -379,5 +381,47 @@ class DialogX {
       context: Get.context!,
       builder: (context) => child,
     );
+  }
+
+  void showCaptchaDialog(
+    List<String> captchaImages,
+    Function(bool) onConfirm, {
+    String slideBarText = '滑动拼图到正确的位置',
+  }) {
+    if (captchaImages.isEmpty) {
+      return;
+    }
+    final random = Random();
+    int randomInt = random.nextInt(captchaImages.length);
+    String image = captchaImages[randomInt];
+    Get.dialog(_buildCaptchaView(image, slideBarText, onConfirm));
+  }
+
+  Widget _buildCaptchaView(
+      String image, String slideBarText, Function(bool) onConfirm) {
+    return <Widget>[
+      SliderCaptcha(
+        image: Image.asset(
+          image,
+          fit: BoxFit.fitWidth,
+        ).clipRRect(all: 4.r),
+        imageToBarPadding: 15.w,
+        colorBar: ThemeColor.surface,
+        colorCaptChar: ThemeColor.primaryContainer,
+        title: slideBarText,
+        onConfirm: (value) async {
+          Get.back();
+          onConfirm.call(value);
+        },
+      ),
+    ]
+        .toColumn(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+        )
+        .padding(all: 15.w)
+        .card()
+        .width(0.9.sw)
+        .center();
   }
 }

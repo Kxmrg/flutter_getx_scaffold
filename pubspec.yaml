@@ -35,6 +35,7 @@ dependencies:
   lottie: ^3.1.2
   modal_bottom_sheet: ^3.0.0
   permission_handler: ^11.3.1
+  slider_captcha: ^1.0.0
 
 dev_dependencies:
   flutter_lints: ^4.0.0
