@@ -65,12 +65,36 @@ extension ExString on String? {
     return dateTime;
   }
 
-  /// MD5加密
+  /// MD5散列
   String? md5() {
     if (this == null) {
       return null;
     }
     return EncryptUtil.encodeMd5(this!);
+  }
+
+  /// SHA1散列
+  String? sha1() {
+    if (this == null) {
+      return null;
+    }
+    return EncryptUtil.encodeSha1(this!);
+  }
+
+  /// SHA256散列
+  String? sha256() {
+    if (this == null) {
+      return null;
+    }
+    return EncryptUtil.encodeSha256(this!);
+  }
+
+  /// SHA512散列
+  String? sha512() {
+    if (this == null) {
+      return null;
+    }
+    return EncryptUtil.encodeSha512(this!);
   }
 
   /// Base64编码

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -381,4 +382,20 @@ Future<bool> requestPhotosPermission() async {
 /// 申请蓝牙权限 仅Android需要申请 IOS默认开启
 Future<bool> requestBluetoothPermission() async {
   return await PermissionUtil.bluetooth();
+}
+
+/// 生成32位唯一字符串
+String generateNonce() {
+  int timestamp = getTimeStamp();
+  int randomNumber = generateRandomNumber(10);
+  return '$timestamp$randomNumber'.md5()!;
+}
+
+/// 生成随机数
+int generateRandomNumber(int length) {
+  final Random random = Random();
+  final minValue = pow(10, length - 1).toInt();
+  final maxValue = pow(10, length).toInt() - 1;
+  final randomNumber = minValue + random.nextInt(maxValue - minValue + 1);
+  return randomNumber;
 }

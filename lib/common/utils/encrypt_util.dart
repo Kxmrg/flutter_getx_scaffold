@@ -12,10 +12,31 @@ import 'package:convert/convert.dart';
 
 /// Encrypt Util.
 class EncryptUtil {
-  /// md5 加密
+  /// md5 散列计算
   static String encodeMd5(String data) {
     var content = const Utf8Encoder().convert(data);
     var digest = md5.convert(content);
+    return hex.encode(digest.bytes);
+  }
+
+  /// sha1 散列计算
+  static String encodeSha1(String data) {
+    var content = const Utf8Encoder().convert(data);
+    var digest = sha1.convert(content);
+    return hex.encode(digest.bytes);
+  }
+
+  /// sha256 散列计算
+  static String encodeSha256(String data) {
+    var content = const Utf8Encoder().convert(data);
+    var digest = sha256.convert(content);
+    return hex.encode(digest.bytes);
+  }
+
+  /// sha512 散列计算
+  static String encodeSha512(String data) {
+    var content = const Utf8Encoder().convert(data);
+    var digest = sha512.convert(content);
     return hex.encode(digest.bytes);
   }
 
