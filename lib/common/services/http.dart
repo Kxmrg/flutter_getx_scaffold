@@ -14,6 +14,11 @@ import 'package:getx_scaffold/getx_scaffold.dart';
 typedef OnResponseHandler = Future<String?> Function(
     Response<dynamic> response);
 
+/// 请求处理拦截器
+/// 如返回true则中断后面流程
+typedef OnRequestHandler = Future<bool> Function(
+    RequestOptions options, RequestInterceptorHandler handler);
+
 /// 网络请求服务
 class HttpService extends GetxService {
   static const showLog = 'showLog';
@@ -162,12 +167,28 @@ class HttpService extends GetxService {
   void setOnResponseHandler(OnResponseHandler? handler) {
     _onResponseHandler = handler;
   }
+
+  OnRequestHandler? _onRequestHandler;
+
+  OnRequestHandler? get onRequestHandler => _onRequestHandler;
+
+  /// 设置请求拦截器
+  void setOnRequestHandler(OnRequestHandler? handler) {
+    _onRequestHandler = handler;
+  }
 }
 
 /// 拦截器
 class DioInterceptors extends Interceptor {
   @override
-  void onRequest(options, handler) {
+  void onRequest(options, handler) async {
+    OnRequestHandler? onRequestHandler = HttpService.to.onRequestHandler;
+    if (onRequestHandler != null) {
+      if (await onRequestHandler(options, handler)) {
+        return;
+      }
+    }
+
     String? authorization = HttpService.to.authorization;
     if (authorization.isNotEmptyOrNull) {
       if (!options.headers.containsKey('Authorization')) {

@@ -398,7 +398,7 @@ class DialogX {
   }
 
   Widget _buildCaptchaView(
-      String image, String slideBarText, Function(bool) onConfirm) {
+      String image, String slideBarText, Function(bool) callback) {
     return <Widget>[
       SliderCaptcha(
         image: Image.asset(
@@ -411,7 +411,7 @@ class DialogX {
         title: slideBarText,
         onConfirm: (value) async {
           Get.back();
-          onConfirm.call(value);
+          callback(value);
         },
       ),
     ]
