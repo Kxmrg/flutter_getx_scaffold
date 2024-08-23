@@ -21,6 +21,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// 插件包名
 const String pluginPackageName = 'getx_scaffold';
 
+late final bool isDebugMode;
+
 /// 初始化脚手架
 Future<WidgetsBinding> init({
   bool isDebug = false,
@@ -29,7 +31,8 @@ Future<WidgetsBinding> init({
   int dioTimeOut = 10,
   List<Locale>? supportedLocales,
 }) async {
-  Logger.init(isDebug, logTag, networkLog);
+  isDebugMode = isDebug;
+  Logger.init(isDebugMode, logTag, networkLog);
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync(
       () => GlobalService().init(supportedLocales: supportedLocales));
@@ -387,8 +390,8 @@ Future<bool> requestBluetoothPermission() async {
 /// 生成32位唯一字符串
 String generateNonce() {
   int timestamp = getTimeStamp();
-  int randomNumber = generateRandomNumber(10);
-  return '$timestamp$randomNumber'.md5()!;
+  int randomNumber = generateRandomNumber(6);
+  return '$timestamp$randomNumber'.md5() ?? '';
 }
 
 /// 生成随机数
