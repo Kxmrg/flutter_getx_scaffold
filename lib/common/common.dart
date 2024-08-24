@@ -117,6 +117,11 @@ void showLoading([String? msg]) {
   Loading.show(msg);
 }
 
+/// 显示成功
+void showSuccess([String? msg]) {
+  Loading.success(msg);
+}
+
 /// 显示错误
 void showError([String? msg]) {
   Loading.error(msg);
