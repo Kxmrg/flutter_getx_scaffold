@@ -77,6 +77,7 @@ extension ExWidgetList<E> on List<Widget> {
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline? textBaseline,
     Widget? separator,
+    bool removeLast = true,
   }) =>
       Column(
         key: key,
@@ -87,7 +88,9 @@ extension ExWidgetList<E> on List<Widget> {
         verticalDirection: verticalDirection,
         textBaseline: textBaseline,
         children: separator != null && length > 0
-            ? (expand((child) => [child, separator]).toList())
+            ? (removeLast
+                ? (expand((child) => [child, separator]).toList()..removeLast())
+                : (expand((child) => [child, separator]).toList()))
             : this,
       );
 
@@ -101,6 +104,7 @@ extension ExWidgetList<E> on List<Widget> {
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline? textBaseline,
     Widget? separator,
+    bool removeLast = true,
   }) =>
       Row(
         key: key,
@@ -111,7 +115,9 @@ extension ExWidgetList<E> on List<Widget> {
         verticalDirection: verticalDirection,
         textBaseline: textBaseline,
         children: separator != null && length > 0
-            ? (expand((child) => [child, separator]).toList())
+            ? (removeLast
+                ? (expand((child) => [child, separator]).toList()..removeLast())
+                : (expand((child) => [child, separator]).toList()))
             : this,
       );
 
@@ -139,6 +145,7 @@ extension ExWidgetList<E> on List<Widget> {
     String? restorationId,
     Clip clipBehavior = Clip.hardEdge,
     Widget? separator,
+    bool removeLast = true,
   }) =>
       ListView(
         key: key,
@@ -162,7 +169,9 @@ extension ExWidgetList<E> on List<Widget> {
         restorationId: restorationId,
         clipBehavior: clipBehavior,
         children: separator != null && length > 0
-            ? (expand((child) => [child, separator]).toList())
+            ? (removeLast
+                ? (expand((child) => [child, separator]).toList()..removeLast())
+                : (expand((child) => [child, separator]).toList()))
             : this,
       );
 

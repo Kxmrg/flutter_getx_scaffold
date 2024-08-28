@@ -22,6 +22,8 @@ class ListTileX extends StatelessWidget {
 
   final Function()? onLongPress;
 
+  final Color? backgroundColor;
+
   const ListTileX({
     super.key,
     this.icon,
@@ -34,6 +36,7 @@ class ListTileX extends StatelessWidget {
     this.onTap,
     this.onLongPress,
     this.showTrailing = true,
+    this.backgroundColor,
   });
 
   Widget _buildTitle() {
@@ -41,7 +44,7 @@ class ListTileX extends StatelessWidget {
       return titleWidget!;
     }
     return <Widget>[
-      TextX.labelMedium(
+      TextX.labelLarge(
         title ?? '',
         maxLines: 1,
         softWrap: false,
@@ -106,6 +109,6 @@ class ListTileX extends StatelessWidget {
           onLongPress!();
         }
       },
-    ).backgroundColor(ThemeColor.surface);
+    ).backgroundColor(backgroundColor ?? ThemeColor.surface);
   }
 }

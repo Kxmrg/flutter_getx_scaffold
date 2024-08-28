@@ -164,6 +164,10 @@ class HomePage extends GetView<HomeController> {
           }
         },
       ),
+      const ListTileX(
+        title: 'ListTileX',
+        subTitle: 'subTitle',
+      )
     ]
         .toListView(
           primary: true,
