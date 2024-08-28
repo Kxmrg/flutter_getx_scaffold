@@ -36,6 +36,7 @@ class AppTheme {
       brightness: Brightness.dark,
     ),
     appBarTheme: const AppBarTheme(
+      backgroundColor: Color.fromARGB(255, 34, 34, 34),
       centerTitle: true,
       titleTextStyle: TextStyle(
         fontSize: 18,

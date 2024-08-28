@@ -151,7 +151,7 @@ class IconX extends StatelessWidget {
           child: widget,
         );
       } else if (badge.isNotEmptyOrNull) {
-        double horizontalPadding = 6.sp;
+        double horizontalPadding = 7.sp;
         if (badge!.length == 1) {
           horizontalPadding = 8.sp;
         }
@@ -167,8 +167,8 @@ class IconX extends StatelessWidget {
           badgeStyle: badges.BadgeStyle(
             shape: badges.BadgeShape.square,
             padding: EdgeInsets.symmetric(
-                vertical: 1.sp, horizontal: horizontalPadding),
-            borderRadius: BorderRadius.circular(6.r),
+                vertical: 2.sp, horizontal: horizontalPadding),
+            borderRadius: BorderRadius.circular(7.r),
             elevation: 10,
           ),
           child: widget,

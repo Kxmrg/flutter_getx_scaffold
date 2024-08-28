@@ -218,6 +218,8 @@ class GetxApp extends StatelessWidget {
             // EasyLoading 初始化
             widget = EasyLoading.init()(context, widget);
             Loading.init();
+            // 根据系统主题切换导航栏颜色
+            GlobalService.to.updateNavigationBar(context);
             // 不随系统字体缩放比例
             return MediaQuery(
               data: MediaQuery.of(context)

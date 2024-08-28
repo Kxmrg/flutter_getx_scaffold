@@ -69,6 +69,7 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
         ),
         ButtonX.secondary(
           'Secondary',
+          badge: 'NEW',
           onPressed: () {},
         ),
         ButtonX.outline(

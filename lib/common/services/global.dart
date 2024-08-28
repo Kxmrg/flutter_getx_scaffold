@@ -114,6 +114,11 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
           systemNavigationBarIconBrightness: isDarkMode
               ? Brightness.light // Light icons on dark background
               : Brightness.dark,
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness:
+              isDarkMode ? Brightness.light : Brightness.dark,
+          statusBarBrightness: isDarkMode ? Brightness.dark : Brightness.light,
+          systemStatusBarContrastEnforced: isDarkMode,
         ),
       );
     }
