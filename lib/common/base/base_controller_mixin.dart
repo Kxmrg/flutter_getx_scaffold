@@ -88,6 +88,9 @@ mixin BaseControllerMixin on GetxController {
 
   /// 刷新UI
   void updateUi() {
-    update([builderId]);
+    // 延时刷新UI
+    delayed(300, () {
+      update([builderId]);
+    });
   }
 }
