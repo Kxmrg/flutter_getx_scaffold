@@ -119,6 +119,34 @@ class ButtonX extends StatelessWidget {
     this.dot,
     this.badge,
   })  : type = ButtonType.general,
+        backgroundColor = ThemeColor.primary,
+        foregroundColor = ThemeColor.onPrimary;
+
+  ButtonX.secondary(
+    this.text, {
+    super.key,
+    this.borderRadius,
+    this.borderWidth,
+    this.innerPadding, // 内边距
+    this.minSize, // 最小尺寸限制
+    this.onPressed,
+    this.onLongPress,
+    this.onHover,
+    this.onFocusChange,
+    this.style,
+    this.focusNode,
+    this.autofocus = false,
+    this.clipBehavior = Clip.none,
+    this.child,
+    this.textColor,
+    this.textSize,
+    this.textWeight,
+    this.textStyle,
+    this.icon,
+    this.iconSize,
+    this.dot,
+    this.badge,
+  })  : type = ButtonType.general,
         backgroundColor = ThemeColor.primaryContainer,
         foregroundColor = ThemeColor.onPrimaryContainer;
 
@@ -213,7 +241,7 @@ class ButtonX extends StatelessWidget {
         text = '',
         icon = Icons.arrow_back,
         iconSize = 24.sp,
-        innerPadding = EdgeInsets.all(14.sp),
+        innerPadding = null,
         borderRadius = 15.r,
         borderWidth = null,
         backgroundColor = null,
@@ -277,7 +305,8 @@ class ButtonX extends StatelessWidget {
                 ),
                 backgroundColor: backgroundColor,
                 foregroundColor: foregroundColor,
-                padding: innerPadding,
+                padding: innerPadding ??
+                    EdgeInsets.symmetric(vertical: 11.h, horizontal: 16.w),
                 minimumSize: minSize,
               ),
           onPressed: onPressed,
@@ -304,7 +333,8 @@ class ButtonX extends StatelessWidget {
                 ),
                 backgroundColor: backgroundColor,
                 foregroundColor: foregroundColor,
-                padding: innerPadding,
+                padding: innerPadding ??
+                    EdgeInsets.symmetric(vertical: 11.h, horizontal: 16.w),
                 minimumSize: minSize,
               ),
           onPressed: onPressed,
@@ -327,7 +357,8 @@ class ButtonX extends StatelessWidget {
                 ),
                 backgroundColor: backgroundColor,
                 foregroundColor: foregroundColor,
-                padding: innerPadding,
+                padding: innerPadding ??
+                    EdgeInsets.symmetric(vertical: 11.h, horizontal: 16.w),
                 minimumSize: minSize,
               ),
           onPressed: onPressed,
@@ -346,15 +377,11 @@ class ButtonX extends StatelessWidget {
               IconX.icon(
                 icon,
                 size: iconSize ?? 20.sp,
-                color: foregroundColor ?? ThemeColor.onPrimaryContainer,
+                color: foregroundColor ?? ThemeColor.primary,
               ),
           style: style ??
               IconButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.all(Radius.circular(borderRadius ?? 7.r)),
-                ),
-                backgroundColor: backgroundColor ?? ThemeColor.primaryContainer,
+                backgroundColor: backgroundColor,
                 foregroundColor: foregroundColor,
                 padding: innerPadding,
                 minimumSize: minSize,
@@ -388,7 +415,7 @@ class ButtonX extends StatelessWidget {
         badgeStyle: badges.BadgeStyle(
           shape: badges.BadgeShape.square,
           padding: EdgeInsets.symmetric(
-              vertical: 0.5.sp, horizontal: horizontalPadding),
+              vertical: 1.sp, horizontal: horizontalPadding),
           borderRadius: BorderRadius.circular(6.r),
           elevation: 10,
         ),

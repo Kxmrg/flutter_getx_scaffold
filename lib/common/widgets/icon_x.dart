@@ -167,7 +167,7 @@ class IconX extends StatelessWidget {
           badgeStyle: badges.BadgeStyle(
             shape: badges.BadgeShape.square,
             padding: EdgeInsets.symmetric(
-                vertical: 0.5.sp, horizontal: horizontalPadding),
+                vertical: 1.sp, horizontal: horizontalPadding),
             borderRadius: BorderRadius.circular(6.r),
             elevation: 10,
           ),

@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -95,7 +97,26 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
       await setValue(
           themeCodeKey, themeMode == ThemeMode.dark ? 'dark' : 'light');
     }
+    updateNavigationBar();
     refreshAppui();
+  }
+
+  updateNavigationBar([BuildContext? context]) {
+    if (Platform.isAndroid) {
+      bool isDarkMode = isDarkModel(context ?? Get.context!);
+      if (_themeMode != ThemeMode.system) {
+        isDarkMode = _themeMode == ThemeMode.dark;
+      }
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          systemNavigationBarDividerColor: Colors.transparent,
+          systemNavigationBarColor: isDarkMode ? Colors.black87 : Colors.white,
+          systemNavigationBarIconBrightness: isDarkMode
+              ? Brightness.light // Light icons on dark background
+              : Brightness.dark,
+        ),
+      );
+    }
   }
 
   /// 监听平台切换了主题模式

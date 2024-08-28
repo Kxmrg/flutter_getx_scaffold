@@ -29,10 +29,11 @@ class TextTag extends StatelessWidget {
       return TextX.labelSmall(
         text,
         color: color ?? ThemeColor.primary,
+        weight: FontWeight.w500,
       )
           .padding(
             horizontal: 10.w,
-            vertical: 3.h,
+            vertical: 4.h,
           )
           .border(
             radius: 5.r,
@@ -42,15 +43,16 @@ class TextTag extends StatelessWidget {
     } else {
       return TextX.labelSmall(
         text,
-        color: ThemeColor.onPrimaryContainer,
+        color: ThemeColor.onPrimary,
+        weight: FontWeight.w500,
       )
           .padding(
             horizontal: 10.w,
-            vertical: 3.h,
+            vertical: 4.h,
           )
           .border(
             radius: 5.r,
-            backgroundColor: color ?? ThemeColor.primaryContainer,
+            backgroundColor: color ?? ThemeColor.primary,
           );
     }
   }

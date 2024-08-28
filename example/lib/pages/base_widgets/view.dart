@@ -62,13 +62,13 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
       //Button
       <Widget>[
         ButtonX(
-          'General',
+          'Primary',
           dot: true,
           icon: Icons.info,
           onPressed: () {},
         ),
-        ButtonX.primary(
-          'Primary',
+        ButtonX.secondary(
+          'Secondary',
           onPressed: () {},
         ),
         ButtonX.outline(
@@ -96,6 +96,7 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
           borderRadius: 3.r,
           onPressed: () {},
         ),
+        ButtonX.back(() {}),
       ].toWrap(spacing: 10.w).padding(top: 10.w),
       //Icon
       //Antd图标库：https://www.iconfont.cn/collections/detail?spm=a313x.collections_index.i1.d9df05512.40943a815QJHPE&cid=9402
@@ -153,7 +154,7 @@ class BaseWidgetsPage extends GetView<BaseWidgetsController> {
         'assets/lottie/error.json',
         package: pluginPackageName,
         width: 0.7.sw,
-      ).padding(top: 10.w),
+      ).card().padding(top: 10.w),
       //image
       ImageX.url(
         'https://i0.hdslb.com/bfs/archive/ac72ae36271a6970f92b1de485e6ae6c9e4c1ebb.jpg',

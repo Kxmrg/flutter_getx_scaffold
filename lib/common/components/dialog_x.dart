@@ -407,7 +407,7 @@ class DialogX {
         ).clipRRect(all: 4.r),
         imageToBarPadding: 15.w,
         colorBar: ThemeColor.surface,
-        colorCaptChar: ThemeColor.primaryContainer,
+        colorCaptChar: ThemeColor.surface,
         title: slideBarText,
         onConfirm: (value) async {
           Get.back();

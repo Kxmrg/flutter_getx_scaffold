@@ -62,7 +62,7 @@ class NavigationX extends StatelessWidget {
           child: <Widget>[
             IconX.icon(
               i == currentIndex ? item.selectedIcon ?? item.icon : item.icon,
-              size: 24.sp,
+              size: 22.sp,
               color: color,
               dot: item.dot,
               badge: item.badge,
@@ -71,7 +71,7 @@ class NavigationX extends StatelessWidget {
               item.label,
               color: color,
               weight: weight,
-            ).padding(top: 2.h),
+            ).padding(top: 1.h),
           ].toColumn(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
@@ -83,7 +83,7 @@ class NavigationX extends StatelessWidget {
       );
     }
     return BottomAppBar(
-      height: 70.h,
+      height: 68.h,
       padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
       child: widgets.toRow(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

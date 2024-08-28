@@ -50,7 +50,7 @@ void main() async {
       // Builder
       builder: (context, widget) {
         // do something....
-
+        GlobalService.to.updateNavigationBar(context);
         return widget!;
       },
     ),
