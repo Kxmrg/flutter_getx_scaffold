@@ -22,3 +22,7 @@
 
 - Add PermissionUtil
 - Fix Android example code
+
+## 0.2.0
+
+- Fixs

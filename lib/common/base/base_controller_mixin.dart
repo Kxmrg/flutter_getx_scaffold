@@ -28,7 +28,10 @@ mixin BaseControllerMixin on GetxController {
   void onInit() {
     super.onInit();
     refreshUiSubscription = eventListen<RefreshUiEvent>((event) {
-      updateUi();
+      // 延时刷新UI
+      delayed(300, () {
+        updateUi();
+      });
     });
     if (listenLifecycleEvent) {
       lifecycleSubscription = eventListen<LifecycleEvent>((event) {
@@ -88,9 +91,6 @@ mixin BaseControllerMixin on GetxController {
 
   /// 刷新UI
   void updateUi() {
-    // 延时刷新UI
-    delayed(300, () {
-      update([builderId]);
-    });
+    update([builderId]);
   }
 }
