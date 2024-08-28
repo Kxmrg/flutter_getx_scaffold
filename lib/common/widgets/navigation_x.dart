@@ -54,9 +54,12 @@ class NavigationX extends StatelessWidget {
           style: ButtonStyle(
               elevation: WidgetStateProperty.all(0),
               backgroundColor: WidgetStateProperty.all(Colors.transparent),
+              overlayColor: WidgetStateProperty.all<Color>(
+                ThemeColor.primary.withOpacity(0.05),
+              ),
               shape: WidgetStateProperty.all(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                  borderRadius: BorderRadius.all(Radius.circular(14.r)),
                 ),
               )),
           child: <Widget>[
