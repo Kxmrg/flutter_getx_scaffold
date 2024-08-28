@@ -30,7 +30,7 @@ class PermissionUtil {
     DialogX.to.showPromptDialog(
       icon: DialogIcon.warn,
       title: title ?? '授权确认',
-      messgae: message,
+      message: message,
       barrierDismissible: false,
       confirmText: confirmText ?? '确认授权',
       onConfirm: () async {

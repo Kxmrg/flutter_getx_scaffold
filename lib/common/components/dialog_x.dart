@@ -46,7 +46,7 @@ class DialogX {
   void showConfirmDialog({
     DialogIcon? icon,
     String? title,
-    String? messgae,
+    String? message,
     Widget? content,
     String confirmText = '确认',
     String cancelText = '取消',
@@ -68,7 +68,7 @@ class DialogX {
       _buildDialog(
         icon: icon,
         title: title,
-        messgae: messgae,
+        message: message,
         content: content,
         confirmText: confirmText,
         cancelText: cancelText,
@@ -93,7 +93,7 @@ class DialogX {
   void showNoticeDialog({
     DialogIcon? icon,
     String? title,
-    String? messgae,
+    String? message,
     Widget? content,
     String confirmText = '确认',
     Function? onConfirm,
@@ -111,7 +111,7 @@ class DialogX {
       _buildDialog(
         icon: icon,
         title: title,
-        messgae: messgae,
+        message: message,
         content: content,
         confirmText: confirmText,
         onConfirm: onConfirm,
@@ -132,7 +132,7 @@ class DialogX {
   void showPromptDialog({
     DialogIcon? icon = DialogIcon.warn,
     String? title,
-    String? messgae,
+    String? message,
     Widget? content,
     String confirmText = '确认',
     String? cancelText = '取消',
@@ -152,7 +152,7 @@ class DialogX {
       _buildPromptDialog(
         icon: icon,
         title: title,
-        messgae: messgae,
+        message: message,
         content: content,
         confirmText: confirmText,
         cancelText: cancelText,
@@ -174,7 +174,7 @@ class DialogX {
   Widget _buildDialog({
     DialogIcon? icon,
     String? title,
-    String? messgae,
+    String? message,
     Widget? content,
     required String confirmText,
     String? cancelText,
@@ -187,9 +187,9 @@ class DialogX {
       if (icon != null) _buildIcon(icon).padding(bottom: 16.h),
       if (title.isNotEmptyOrNull)
         TextX.titleSmall(title!).padding(bottom: 16.h),
-      if (messgae.isNotEmptyOrNull)
-        TextX.bodyMedium(messgae!).padding(bottom: 16.h),
-      if (messgae.isEmptyOrNull && content != null)
+      if (message.isNotEmptyOrNull)
+        TextX.bodyMedium(message!).padding(bottom: 16.h),
+      if (message.isEmptyOrNull && content != null)
         content.padding(bottom: 16.h),
       <Widget>[
         ButtonX.text(
@@ -236,7 +236,7 @@ class DialogX {
   Widget _buildPromptDialog({
     DialogIcon? icon,
     String? title,
-    String? messgae,
+    String? message,
     Widget? content,
     required String confirmText,
     String? cancelText,
@@ -246,13 +246,13 @@ class DialogX {
     return <Widget>[
       if (icon != null) _buildIcon(icon).padding(bottom: 8.h),
       if (title.isNotEmptyOrNull) TextX.titleSmall(title!).padding(bottom: 8.h),
-      if (messgae.isNotEmptyOrNull)
+      if (message.isNotEmptyOrNull)
         TextX.bodyMedium(
-          messgae!,
+          message!,
           maxLines: 5,
           softWrap: true,
         ).padding(bottom: 8.h),
-      if (messgae.isEmptyOrNull && content != null)
+      if (message.isEmptyOrNull && content != null)
         content.padding(bottom: 8.h),
       <Widget>[
         ButtonX.primary(

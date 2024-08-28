@@ -15,7 +15,7 @@ class DialogPage extends GetView<DialogController> {
         onTap: () {
           DialogX.to.showConfirmDialog(
             title: '提示',
-            messgae: '你确定要删除该条记录吗？',
+            message: '你确定要删除该条记录吗？',
             onConfirm: () {
               showSuccessToast('Confirm');
             },
@@ -41,7 +41,7 @@ class DialogPage extends GetView<DialogController> {
         onTap: () {
           DialogX.to.showNoticeDialog(
             icon: DialogIcon.info,
-            messgae: '这是一条系统公告，请关注。',
+            message: '这是一条系统公告，请关注。',
             confirmText: '关闭',
           );
         },
@@ -51,7 +51,7 @@ class DialogPage extends GetView<DialogController> {
         onTap: () {
           DialogX.to.showPromptDialog(
             title: '强提醒标题',
-            messgae: '强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容。',
+            message: '强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容强提醒内容。',
             confirmText: '主要操作按钮',
             cancelText: '次要操作按钮',
           );
