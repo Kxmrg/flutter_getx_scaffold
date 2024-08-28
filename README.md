@@ -127,6 +127,8 @@ GetxApp 是 GetMaterialApp 嵌套了 ScreenUtilInit 对全局进行屏幕适配�
 
 #### 3. 定义主题
 
+最近新项目的使用中，发现这 Material3 实在没法用，各种配色问题莫名其妙。从 0.2.0 开始推荐使用 Material2 重新适配，具体主题设置参考 Example。
+
 ```dart
 import 'package:flutter/material.dart';
 
@@ -135,37 +137,49 @@ class AppTheme {
 
   static const Color themeColor = Color.fromARGB(255, 11, 107, 47);
 
-  static const Color darkThemeColor = Color.fromARGB(255, 27, 31, 139);
+  static const Color darkThemeColor = Color.fromARGB(255, 12, 16, 121);
 
   /// 亮色主题样式
   static ThemeData light = ThemeData(
+    useMaterial3: false,
+    fontFamily: fontMontserrat,
     colorScheme: ColorScheme.fromSeed(
       seedColor: themeColor,
       brightness: Brightness.light,
     ),
-    fontFamily: fontMontserrat,
-    cardTheme: CardTheme(
-      surfaceTintColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.white,
+      foregroundColor: Color.fromARGB(200, 0, 0, 0),
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: Color.fromARGB(200, 0, 0, 0),
       ),
     ),
   );
 
   /// 暗色主题样式
   static ThemeData dark = ThemeData(
+    useMaterial3: false,
+    fontFamily: fontMontserrat,
     colorScheme: ColorScheme.fromSeed(
       seedColor: darkThemeColor,
       brightness: Brightness.dark,
     ),
-    fontFamily: fontMontserrat,
-    cardTheme: CardTheme(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6),
+    appBarTheme: const AppBarTheme(
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
       ),
+    ),
+    bottomAppBarTheme: const BottomAppBarTheme(
+      color: Color.fromARGB(255, 34, 34, 34),
     ),
   );
 }
+
 ```
 
 以上是主题示例，GetXScaffold 的所有内置组件均遵循 Material3 设计规范。如果你使用 colorScheme 定义了主题颜色，那么你可以通过以下方法使用所有的主题颜色：
