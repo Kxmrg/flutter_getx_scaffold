@@ -37,14 +37,14 @@ GetXScaffold 快速开发脚手架在 GetX 框架和一些常用插件的基础�
 
 #### 0.2.0
 
-- 最近做的新项目的使用中，发现这 Material3 实在没法用，各种配色问题莫名其妙。从 0.2.0 开始推荐使用 Material2 重新适配，具体主题设置参考 Example。
-- 升级 flutter 版本到 3.24.1
-- ButtonX.icon iconSize 参数不生效
+- 最近新项目的使用中，发现这 Material3 实在没法用，各种配色问题莫名其妙。从 0.2.0 开始推荐使用 Material2 重新适配，具体主题设置参考 Example。
+- 适配 Flutter SDK 版本到 3.24.1
+- 修复 ButtonX.icon iconSize 参数不生效的问题
 - 新增滑动验证码 Dialog
 - HttpService 新增错误拦截和请求拦截
 - EncryptUtil ExString 新增 sha1 sha256 sha512 散列算法
-- 新增随机数生成和 Nonce 生成全局方法
-- refreshAppui 延时 300ms 刷新，处理主题更新后显示正常的问题
+- 新增随机数生成和 Nonce 生成的全局方法
+- refreshAppui 延时 300ms 刷新，处理主题更新后显示不正常的问题
 - Android 端修改主题自动修改底部导航栏颜色
 
 ## 运行示例项目
