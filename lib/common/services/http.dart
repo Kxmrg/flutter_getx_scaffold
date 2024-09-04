@@ -11,8 +11,7 @@ import 'package:getx_scaffold/getx_scaffold.dart';
  */
 
 /// Response统一处理回调
-typedef OnResponseHandler = Future<String?> Function(
-    Response<dynamic> response);
+typedef OnResponseHandler = Future<String?> Function(Response<dynamic> response);
 
 /// 请求处理拦截器
 /// 如返回true则中断后面流程
@@ -38,12 +37,14 @@ class HttpService extends GetxService {
   /// [timeout] 请求超时时间
   Future<HttpService> init({int timeout = 10}) async {
     BaseOptions options = BaseOptions(
-      connectTimeout: Duration(seconds: timeout),
-      receiveTimeout: Duration(seconds: timeout),
-      sendTimeout: Duration(seconds: timeout),
-      contentType: 'application/json; charset=utf-8',
-      responseType: ResponseType.json,
-    );
+        connectTimeout: Duration(seconds: timeout),
+        receiveTimeout: Duration(seconds: timeout),
+        sendTimeout: Duration(seconds: timeout),
+        contentType: 'application/json; charset=utf-8',
+        responseType: ResponseType.json,
+        headers: {
+          'Accept': 'application/json',
+        });
     // 初始化dio
     _dio = Dio(options);
     // Log拦截器
