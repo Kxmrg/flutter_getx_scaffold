@@ -127,7 +127,7 @@ extension ExWidgetList<E> on List<Widget> {
     Axis scrollDirection = Axis.vertical,
     bool reverse = false,
     ScrollController? controller,
-    bool? primary,
+    bool? primary = true,
     ScrollPhysics? physics,
     bool shrinkWrap = false,
     EdgeInsetsGeometry? padding,
