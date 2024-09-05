@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const String fontMontserrat = 'Montserrat';
+  static const String Font_Montserrat = 'Montserrat';
+
+  static const String Font_YuYang = 'YuYang';
 
   static const Color themeColor = Color(0xFFE73B26);
 
   static const Color secondaryColor = Colors.orange;
 
-  static const Color darkThemeColor = Color.fromARGB(255, 4, 39, 156);
+  static const Color darkThemeColor = Color(0xFF032896);
 
   /// 亮色主题样式
   static ThemeData light = ThemeData(
     useMaterial3: false,
-    fontFamily: fontMontserrat,
+    fontFamily: Font_Montserrat,
     colorScheme: ColorScheme.fromSeed(
       seedColor: themeColor,
       primary: themeColor,
       secondary: secondaryColor,
       brightness: Brightness.light,
-      surface: const Color.fromARGB(255, 250, 250, 250),
+      surface: Colors.white,
       surfaceTint: Colors.transparent,
     ),
     appBarTheme: const AppBarTheme(
@@ -36,11 +38,11 @@ class AppTheme {
   /// 暗色主题样式
   static ThemeData dark = ThemeData(
     useMaterial3: false,
-    fontFamily: fontMontserrat,
+    fontFamily: Font_Montserrat,
     colorScheme: ColorScheme.fromSeed(
       seedColor: darkThemeColor,
       brightness: Brightness.dark,
-      surface: const Color.fromARGB(255, 48, 48, 48),
+      surface: const Color.fromARGB(255, 42, 42, 42),
       surfaceTint: Colors.transparent,
     ),
     appBarTheme: const AppBarTheme(
