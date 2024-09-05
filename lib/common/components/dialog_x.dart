@@ -63,6 +63,7 @@ class DialogX {
     Curve? transitionCurve,
     String? name,
     RouteSettings? routeSettings,
+    double? width,
   }) {
     Get.dialog(
       _buildDialog(
@@ -76,6 +77,7 @@ class DialogX {
         onConfirm: onConfirm,
         onCancel: onCancel,
         onMore: onMore,
+        width: width,
       ),
       barrierDismissible: barrierDismissible,
       barrierColor: barrierColor,
@@ -106,6 +108,7 @@ class DialogX {
     Curve? transitionCurve,
     String? name,
     RouteSettings? routeSettings,
+    double? width,
   }) {
     Get.dialog(
       _buildDialog(
@@ -115,6 +118,7 @@ class DialogX {
         content: content,
         confirmText: confirmText,
         onConfirm: onConfirm,
+        width: width,
       ),
       barrierDismissible: barrierDismissible,
       barrierColor: barrierColor,
@@ -147,6 +151,7 @@ class DialogX {
     Curve? transitionCurve,
     String? name,
     RouteSettings? routeSettings,
+    double? width,
   }) {
     Get.dialog(
       _buildPromptDialog(
@@ -158,6 +163,7 @@ class DialogX {
         cancelText: cancelText,
         onConfirm: onConfirm,
         onCancel: onCancel,
+        width: width,
       ),
       barrierDismissible: barrierDismissible,
       barrierColor: barrierColor,
@@ -182,6 +188,7 @@ class DialogX {
     Function? onConfirm,
     Function? onCancel,
     Function? onMore,
+    double? width,
   }) {
     return <Widget>[
       if (icon != null) _buildIcon(icon).padding(bottom: 16.h),
@@ -229,7 +236,7 @@ class DialogX {
         )
         .padding(all: 20.w, top: 30.w)
         .card()
-        .width(0.75.sw)
+        .width(width ?? 0.75.sw)
         .center();
   }
 
@@ -242,6 +249,7 @@ class DialogX {
     String? cancelText,
     Function? onConfirm,
     Function? onCancel,
+    double? width,
   }) {
     return <Widget>[
       if (icon != null) _buildIcon(icon).padding(bottom: 8.h),
@@ -271,7 +279,7 @@ class DialogX {
               onCancel?.call();
               Get.back();
             },
-          ),
+          ).padding(top: 10.h),
       ].toColumn(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -283,7 +291,7 @@ class DialogX {
         )
         .padding(all: 20.w, top: 30.w)
         .card()
-        .width(0.75.sw)
+        .width(width ?? 0.75.sw)
         .center();
   }
 
@@ -387,6 +395,7 @@ class DialogX {
     List<String> captchaImages,
     Function(bool) onConfirm, {
     String slideBarText = '滑动拼图到正确的位置',
+    double? width,
   }) {
     if (captchaImages.isEmpty) {
       return;
@@ -394,11 +403,22 @@ class DialogX {
     final random = Random();
     int randomInt = random.nextInt(captchaImages.length);
     String image = captchaImages[randomInt];
-    Get.dialog(_buildCaptchaView(image, slideBarText, onConfirm));
+    Get.dialog(
+      _buildCaptchaView(
+        image,
+        width,
+        slideBarText,
+        onConfirm,
+      ),
+    );
   }
 
   Widget _buildCaptchaView(
-      String image, String slideBarText, Function(bool) callback) {
+    String image,
+    double? width,
+    String slideBarText,
+    Function(bool) callback,
+  ) {
     return <Widget>[
       SliderCaptcha(
         image: Image.asset(
@@ -421,7 +441,7 @@ class DialogX {
         )
         .padding(all: 15.w)
         .card()
-        .width(0.9.sw)
+        .width(width ?? 0.9.sw)
         .center();
   }
 }
