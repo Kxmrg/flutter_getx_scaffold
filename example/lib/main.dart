@@ -26,7 +26,7 @@ void main() async {
   runApp(
     GetxApp(
       // 设计稿尺寸 单位：dp
-      designSize: const Size(1000, 1000),
+      designSize: const Size(390, 844),
       // Getx Log
       enableLog: kDebugMode,
       // 默认的跳转动画
