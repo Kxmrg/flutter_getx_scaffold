@@ -881,4 +881,48 @@ extension ExWidget on Widget {
     Key? key,
   }) =>
       SliverToBoxAdapter(key: key, child: this);
+
+  Widget tooltip({
+    Key? key,
+    String? message,
+    InlineSpan? richMessage,
+    double? height,
+    EdgeInsetsGeometry? padding,
+    EdgeInsetsGeometry? margin,
+    double? verticalOffset,
+    bool? preferBelow,
+    bool? excludeFromSemantics,
+    Decoration? decoration,
+    TextStyle? textStyle,
+    TextAlign? textAlign,
+    Duration? waitDuration,
+    Duration? showDuration,
+    Duration? exitDuration,
+    bool? enableTapToDismiss,
+    TooltipTriggerMode? triggerMode,
+    bool? enableFeedback,
+    void Function()? onTriggered,
+  }) =>
+      Tooltip(
+        key: key,
+        message: message,
+        richMessage: richMessage,
+        height: height,
+        padding: padding,
+        margin: margin,
+        verticalOffset: verticalOffset,
+        preferBelow: preferBelow,
+        excludeFromSemantics: excludeFromSemantics,
+        decoration: decoration,
+        textStyle: textStyle,
+        textAlign: textAlign,
+        waitDuration: waitDuration,
+        showDuration: showDuration,
+        exitDuration: exitDuration,
+        enableTapToDismiss: enableTapToDismiss ?? true,
+        triggerMode: triggerMode,
+        enableFeedback: enableFeedback,
+        onTriggered: onTriggered,
+        child: this,
+      );
 }
