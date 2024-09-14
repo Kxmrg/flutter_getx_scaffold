@@ -22,6 +22,7 @@ class PermissionUtil {
     String? confirmText,
     required String message,
     required String error,
+    double? width,
   }) async {
     if (await permission.isGranted) {
       return true;
@@ -33,6 +34,7 @@ class PermissionUtil {
       message: message,
       barrierDismissible: false,
       confirmText: confirmText ?? '确认授权',
+      width: width,
       onConfirm: () async {
         var status = await permission.request();
         if (status.isGranted) {
@@ -55,16 +57,17 @@ class PermissionUtil {
   }
 
   /// 相机权限
-  static Future<bool> camera() async {
+  static Future<bool> camera({double? width}) async {
     return await request(
       permission: Permission.camera,
       message: '我们申请使用您设备的相机权限，用于扫描二维码或者采集必要的身份信息',
       error: '请授权相机权限',
+      width: width,
     );
   }
 
   /// 相册权限
-  static Future<bool> photos() async {
+  static Future<bool> photos({double? width}) async {
     String message = '我们申请使用您设备的相册权限，用于读写您相册中的照片';
     String error = '请授权相册权限';
     if (Platform.isAndroid) {
@@ -74,6 +77,7 @@ class PermissionUtil {
           permission: Permission.storage,
           message: message,
           error: error,
+          width: width,
         );
       }
     }
@@ -81,11 +85,12 @@ class PermissionUtil {
       permission: Permission.photos,
       message: message,
       error: error,
+      width: width,
     );
   }
 
   /// 蓝牙权限
-  static Future<bool> bluetooth() async {
+  static Future<bool> bluetooth({double? width}) async {
     String message = '我们申请使用您设备的蓝牙功能，用于发现和链接蓝牙设备';
     String error = '请授权蓝牙权限';
     if (Platform.isAndroid) {
@@ -95,6 +100,7 @@ class PermissionUtil {
           permission: Permission.bluetooth,
           message: message,
           error: error,
+          width: width,
         );
       }
     }
@@ -102,6 +108,7 @@ class PermissionUtil {
       permission: Permission.bluetoothConnect,
       message: message,
       error: error,
+      width: width,
     );
   }
 

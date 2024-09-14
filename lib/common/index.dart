@@ -24,6 +24,7 @@ export 'package:extended_image/extended_image.dart'
     hide MultipartFile, DoubleExtension;
 export 'package:permission_handler/permission_handler.dart';
 export 'package:slider_captcha/slider_captcha.dart';
+export 'package:flutter_easyloading/flutter_easyloading.dart';
 
 export './extensions/index.dart';
 export './widgets/index.dart';

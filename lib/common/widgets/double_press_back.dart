@@ -12,7 +12,7 @@ import 'package:getx_scaffold/getx_scaffold.dart';
  */
 
 /// 返回回调
-typedef DoublePressBackCallback = bool Function();
+typedef DoublePressBackCallback = Future<bool> Function();
 
 /// DoublePressBackWidget
 // ignore: must_be_immutable
@@ -52,9 +52,12 @@ class DoublePressBackWidget extends StatelessWidget {
           return;
         }
         if (closeOnConfirm()) {
-          if (backCallback?.call() ?? true) {
-            SystemNavigator.pop();
+          if (backCallback != null) {
+            if (!await backCallback!()) {
+              return;
+            }
           }
+          SystemNavigator.pop();
         }
       },
       child: child,
