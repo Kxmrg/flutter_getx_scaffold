@@ -191,7 +191,7 @@ class HttpService extends GetxService {
 }
 
 /// 拦截器
-class DioInterceptors extends Interceptor {
+class DioInterceptors extends QueuedInterceptor {
   @override
   void onRequest(options, handler) async {
     OnRequestHandler? onRequestHandler = HttpService.to.onRequestHandler;
