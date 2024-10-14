@@ -143,6 +143,42 @@ class HttpService extends GetxService {
     );
   }
 
+  /// PUT请求
+  Future<Response?> put(
+    String path, {
+    Map<String, dynamic>? params,
+    data,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+  }) async {
+    Options options = Options(method: 'put', headers: headers);
+    return await request(
+      path,
+      options: options,
+      params: params,
+      data: data,
+      cancelToken: cancelToken,
+    );
+  }
+
+  /// DELETE请求
+  Future<Response?> delete(
+    String path, {
+    Map<String, dynamic>? params,
+    data,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+  }) async {
+    Options options = Options(method: 'delete', headers: headers);
+    return await request(
+      path,
+      options: options,
+      params: params,
+      data: data,
+      cancelToken: cancelToken,
+    );
+  }
+
   String? _authorization;
 
   String? get authorization => _authorization;

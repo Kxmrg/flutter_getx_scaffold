@@ -18,7 +18,7 @@ dependencies:
   decimal: ^3.0.2
   rational: ^2.2.3
   get: ^4.6.6
-  dio: ^5.5.0+1
+  dio: ^5.7.0
   flutter_screenutil: ^5.9.3
   flutter_easyloading: ^3.0.5
   connectivity_plus: ^6.0.3

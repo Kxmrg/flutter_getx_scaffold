@@ -130,8 +130,7 @@ extension ExNum on num? {
   }
 
   /// 转为金额字符串
-  String? toPrice(
-    int amount, {
+  String? toPrice({
     MoneyFormats format = MoneyFormats.NORMAL,
     MoneyUnit unit = MoneyUnit.NORMAL,
   }) {
