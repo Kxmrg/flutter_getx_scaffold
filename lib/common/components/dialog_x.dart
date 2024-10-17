@@ -372,6 +372,7 @@ class DialogX {
         .toColumn(
           mainAxisSize: MainAxisSize.min,
           separator: const DividerX(),
+          removeLast: false,
         )
         .padding(bottom: 30.h)
         .scrollable()

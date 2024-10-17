@@ -43,7 +43,7 @@ class TextTag extends StatelessWidget {
     } else {
       return TextX.labelSmall(
         text,
-        color: ThemeColor.onPrimary,
+        color: ThemeColor.onSurface,
         weight: FontWeight.w500,
       )
           .padding(
