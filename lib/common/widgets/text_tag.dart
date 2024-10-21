@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 
 /**
@@ -43,8 +44,8 @@ class TextTag extends StatelessWidget {
     } else {
       return TextX.labelSmall(
         text,
-        color: ThemeColor.onSurface,
-        weight: FontWeight.w500,
+        color: Colors.white,
+        weight: FontWeight.bold,
       )
           .padding(
             horizontal: 10.w,
