@@ -210,7 +210,7 @@ extension ExWidget on Widget {
         child: this,
       );
 
-  /// 偏移
+  /// 隐藏但正常构建
   Widget offstage({
     Key? key,
     bool offstage = true,
