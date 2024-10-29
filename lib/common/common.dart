@@ -34,8 +34,7 @@ Future<WidgetsBinding> init({
   isDebugMode = isDebug;
   Logger.init(isDebugMode, logTag, networkLog);
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  await Get.putAsync(
-      () => GlobalService().init(supportedLocales: supportedLocales));
+  await Get.putAsync(() => GlobalService().init(supportedLocales: supportedLocales));
   await Get.putAsync(() => HttpService().init(timeout: dioTimeOut));
   return widgetsBinding;
 }
@@ -240,8 +239,7 @@ Future<BaseDeviceInfo> getDeviceInfo() async {
 Future<String?> getDeviceModel() async {
   BaseDeviceInfo deviceInfo = await getDeviceInfo();
   if (Platform.isAndroid) {
-    AndroidDeviceInfo androidDeviceInfo =
-        AndroidDeviceInfo.fromMap(deviceInfo.data);
+    AndroidDeviceInfo androidDeviceInfo = AndroidDeviceInfo.fromMap(deviceInfo.data);
     return '${androidDeviceInfo.brand} ${androidDeviceInfo.model}';
   }
   if (Platform.isIOS) {
@@ -265,8 +263,7 @@ Future<String?> getIosSystemVersion() async {
 Future<int?> getAndroidSdkVersion() async {
   if (Platform.isAndroid) {
     BaseDeviceInfo deviceInfo = await getDeviceInfo();
-    AndroidDeviceInfo androidDeviceInfo =
-        AndroidDeviceInfo.fromMap(deviceInfo.data);
+    AndroidDeviceInfo androidDeviceInfo = AndroidDeviceInfo.fromMap(deviceInfo.data);
     return androidDeviceInfo.version.sdkInt;
   }
   return null;
@@ -274,6 +271,9 @@ Future<int?> getAndroidSdkVersion() async {
 
 /// 隐藏输入法
 void hideKeyboard() => FocusScope.of(Get.context!).requestFocus(FocusNode());
+
+/// 隐藏输入法
+void unfocus() => FocusScope.of(Get.context!).unfocus();
 
 /// Change status bar Color and Brightness
 Future<void> setStatusBarColor(
@@ -290,8 +290,8 @@ Future<void> setStatusBarColor(
       statusBarColor: statusBarColor,
       systemNavigationBarColor: systemNavigationBarColor,
       statusBarBrightness: statusBarBrightness,
-      statusBarIconBrightness: statusBarIconBrightness ??
-          (statusBarColor.isDark() ? Brightness.light : Brightness.dark),
+      statusBarIconBrightness:
+          statusBarIconBrightness ?? (statusBarColor.isDark() ? Brightness.light : Brightness.dark),
     ),
   );
 }
