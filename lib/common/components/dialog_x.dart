@@ -202,8 +202,8 @@ class DialogX {
           textWeight: FontWeight.bold,
           minSize: Size(65.w, 0),
           onPressed: () {
-            onConfirm?.call();
             Get.back();
+            onConfirm?.call();
           },
         ),
         if (cancelText.isNotEmptyOrNull)
@@ -211,8 +211,8 @@ class DialogX {
             cancelText ?? '',
             minSize: Size(65.w, 0),
             onPressed: () {
-              onCancel?.call();
               Get.back();
+              onCancel?.call();
             },
           ),
         if (moreButtonText.isNotEmptyOrNull)
@@ -220,8 +220,8 @@ class DialogX {
             moreButtonText ?? '',
             minSize: Size(65.w, 0),
             onPressed: () {
-              onMore?.call();
               Get.back();
+              onMore?.call();
             },
           ),
       ].toRow(
@@ -264,8 +264,8 @@ class DialogX {
           confirmText,
           textWeight: FontWeight.bold,
           onPressed: () {
-            onConfirm?.call();
             Get.back();
+            onConfirm?.call();
           },
         ).width(double.infinity),
         if (cancelText.isNotEmptyOrNull)
@@ -273,8 +273,8 @@ class DialogX {
             cancelText ?? '',
             minSize: Size(80.w, 0),
             onPressed: () {
-              onCancel?.call();
               Get.back();
+              onCancel?.call();
             },
           ).padding(top: (Platform.isAndroid || Platform.isIOS) ? 0 : 10.h),
       ].toColumn(
