@@ -272,7 +272,7 @@ Future<int?> getAndroidSdkVersion() async {
 /// 隐藏输入法
 void hideKeyboard() => FocusScope.of(Get.context!).requestFocus(FocusNode());
 
-/// 隐藏输入法
+/// 清除焦点
 void unfocus() => FocusScope.of(Get.context!).unfocus();
 
 /// Change status bar Color and Brightness
