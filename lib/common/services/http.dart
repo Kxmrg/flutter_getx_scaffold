@@ -132,8 +132,13 @@ class HttpService extends GetxService {
     data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
+    String? contentType,
   }) async {
-    Options options = Options(method: 'post', headers: headers);
+    Options options = Options(
+      method: 'post',
+      headers: headers,
+      contentType: contentType,
+    );
     return await request(
       path,
       options: options,
@@ -150,8 +155,13 @@ class HttpService extends GetxService {
     data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
+    String? contentType,
   }) async {
-    Options options = Options(method: 'put', headers: headers);
+    Options options = Options(
+      method: 'put',
+      headers: headers,
+      contentType: contentType,
+    );
     return await request(
       path,
       options: options,
@@ -168,8 +178,13 @@ class HttpService extends GetxService {
     data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
+    String? contentType,
   }) async {
-    Options options = Options(method: 'delete', headers: headers);
+    Options options = Options(
+      method: 'delete',
+      headers: headers,
+      contentType: contentType,
+    );
     return await request(
       path,
       options: options,
