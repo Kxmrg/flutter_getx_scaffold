@@ -15,7 +15,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// 用于全局显示隐藏Loading Widget
 class Loading {
   // 初始化Loading样式
-  static void init({int duration = 2000}) {
+  static void init() {
     EasyLoading.instance
       ..indicatorType = EasyLoadingIndicatorType.ring // 指示器类型
       ..loadingStyle = EasyLoadingStyle.custom // loading样式 自定义
@@ -29,8 +29,11 @@ class Loading {
       ..textStyle = TextStyle(fontSize: 16.sp, color: Colors.white)
       ..maskColor = Colors.black.withOpacity(0.6) // 遮罩颜色
       ..userInteractions = true // 用户交互
-      ..displayDuration = Duration(milliseconds: duration)
       ..dismissOnTap = false; // 点击关闭
+  }
+
+  static void setDisplayDuration(milliseconds) {
+    EasyLoading.instance.displayDuration = Duration(milliseconds: milliseconds);
   }
 
   // 显示
