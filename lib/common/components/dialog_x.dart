@@ -286,7 +286,7 @@ class DialogX {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
         )
-        .padding(all: 20.w, top: 30.w)
+        .padding(all: 20.w, top: 30.w, bottom: 10.w)
         .card()
         .width(width ?? 0.75.sw)
         .center();
