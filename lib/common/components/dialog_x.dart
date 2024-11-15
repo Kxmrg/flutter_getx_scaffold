@@ -195,7 +195,7 @@ class DialogX {
       if (icon != null) _buildIcon(icon).padding(bottom: 16.h),
       if (title.isNotEmptyOrNull) TextX.titleSmall(title!).padding(bottom: 16.h),
       if (message.isNotEmptyOrNull) TextX.bodyMedium(message!).padding(bottom: 16.h),
-      if (message.isEmptyOrNull && content != null) content.padding(bottom: 16.h),
+      if (message.isEmptyOrNull && content != null) content.padding(bottom: 5.h),
       <Widget>[
         ButtonX.text(
           confirmText,
@@ -232,7 +232,7 @@ class DialogX {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
         )
-        .padding(all: 20.w, top: 30.w)
+        .padding(all: 20.w, top: 30.w, bottom: 10.w)
         .card()
         .width(width ?? 0.75.sw)
         .center();
