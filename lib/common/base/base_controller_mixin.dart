@@ -30,6 +30,7 @@ mixin BaseControllerMixin on GetxController {
     refreshUiSubscription = eventListen<RefreshUiEvent>((event) {
       // 延时刷新UI
       delayed(300, () {
+        GlobalService.to.updateNavigationBar();
         updateUi();
       });
     });

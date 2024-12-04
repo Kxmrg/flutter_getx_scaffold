@@ -94,8 +94,7 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
     if (_themeMode == ThemeMode.system) {
       await setValue(themeCodeKey, 'system');
     } else {
-      await setValue(
-          themeCodeKey, themeMode == ThemeMode.dark ? 'dark' : 'light');
+      await setValue(themeCodeKey, themeMode == ThemeMode.dark ? 'dark' : 'light');
     }
     updateNavigationBar();
     refreshAppui();
@@ -115,8 +114,7 @@ class GlobalService extends GetxService with WidgetsBindingObserver {
               ? Brightness.light // Light icons on dark background
               : Brightness.dark,
           statusBarColor: Colors.transparent,
-          statusBarIconBrightness:
-              isDarkMode ? Brightness.light : Brightness.dark,
+          statusBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
           statusBarBrightness: isDarkMode ? Brightness.dark : Brightness.light,
           systemStatusBarContrastEnforced: isDarkMode,
         ),
