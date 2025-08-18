@@ -47,7 +47,7 @@ class DoublePressBackWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (bool didPop, value) async {
+      onPopInvoked: (bool didPop) async {
         if (didPop) {
           return;
         }
